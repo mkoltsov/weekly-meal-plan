@@ -106,6 +106,97 @@
         margin-top: 13px;
         padding: 11px 12px;
       }
+      .meal-tracker {
+        border: 1px solid #d8e6dc;
+        border-radius: 8px;
+        margin-top: 14px;
+        padding: 11px 12px 8px;
+      }
+      .meal-tracker-title {
+        color: #15372c;
+        font-size: 15px;
+        font-weight: 900;
+        margin-bottom: 7px;
+      }
+      .meal-check {
+        align-items: flex-start;
+        display: flex;
+        gap: 10px;
+        margin: 9px 0;
+      }
+      .meal-check input {
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+      }
+      .check-mark {
+        border: 2px solid #5f7d6f;
+        border-radius: 6px;
+        flex: 0 0 auto;
+        height: 23px;
+        margin-top: 1px;
+        width: 23px;
+      }
+      .meal-check input:checked + .check-mark {
+        background: #286047;
+        border-color: #286047;
+      }
+      .meal-check input:checked + .check-mark::after {
+        color: white;
+        content: "✓";
+        display: block;
+        font-size: 17px;
+        font-weight: 900;
+        line-height: 19px;
+        text-align: center;
+      }
+      .meal-check input:focus-visible + .check-mark {
+        outline: 3px solid #9fc6b5;
+        outline-offset: 2px;
+      }
+      .meal-check-title {
+        display: block;
+        font-size: 15px;
+        font-weight: 800;
+      }
+      .meal-check-macros {
+        color: #60776b;
+        display: block;
+        font-size: 13px;
+      }
+      .extra-intake {
+        border: 1px solid #e3eade;
+        border-radius: 8px;
+        margin-top: 12px;
+        padding: 11px 12px 12px;
+      }
+      .extra-grid {
+        display: grid;
+        gap: 10px;
+        grid-template-columns: 1fr 1fr;
+      }
+      .extra-grid label {
+        color: #526b60;
+        display: block;
+        font-size: 12px;
+        font-weight: 800;
+      }
+      .extra-grid input {
+        appearance: textfield;
+        border: 1px solid #c9d8cf;
+        border-radius: 8px;
+        color: #213b31;
+        display: block;
+        font-size: 16px;
+        margin-top: 4px;
+        min-height: 42px;
+        padding: 8px 9px;
+        width: 100%;
+      }
+      .extra-grid input:focus {
+        border-color: #286047;
+        outline: 3px solid #d1e4dc;
+      }
       .shopping {
         background: #eef5ed;
         border-radius: 10px;
@@ -186,6 +277,73 @@
         background: #9dafaa;
         pointer-events: none;
       }
+      .dashboard {
+        background: #f7f4ef;
+        border: 1px solid #e5dccc;
+        border-radius: 10px;
+        color: #2f3f37;
+        margin-top: 22px;
+        padding: 18px 16px;
+      }
+      .dashboard-title {
+        font-size: 22px;
+        font-weight: 900;
+        margin-bottom: 4px;
+      }
+      .dashboard-subtitle {
+        color: #66756d;
+        font-size: 14px;
+        margin-bottom: 14px;
+      }
+      .macro-grid {
+        display: grid;
+        gap: 10px;
+        grid-template-columns: 1fr 1fr;
+        margin-bottom: 16px;
+      }
+      .macro-card {
+        background: #ffffff;
+        border-radius: 8px;
+        padding: 10px;
+      }
+      .macro-label {
+        color: #65766e;
+        font-size: 12px;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+      .macro-value {
+        color: #14382d;
+        font-size: 22px;
+        font-weight: 900;
+      }
+      .chart-row {
+        margin: 10px 0;
+      }
+      .chart-label {
+        display: flex;
+        font-size: 13px;
+        font-weight: 800;
+        justify-content: space-between;
+        margin-bottom: 4px;
+      }
+      .chart-track {
+        background: #e4ded3;
+        border-radius: 999px;
+        height: 12px;
+        overflow: hidden;
+      }
+      .chart-bar {
+        background: #286047;
+        height: 100%;
+        min-width: 2px;
+        width: 0;
+      }
+      .consumption-actions {
+        border-top: 1px solid #dfd5c6;
+        margin-top: 16px;
+        padding-top: 14px;
+      }
       .disclaimer {
         color: #697b72;
         font-size: 13px;
@@ -213,6 +371,7 @@
         }
         .day-body { padding: 18px 20px; }
         .shopping ul { columns: 2; column-gap: 34px; }
+        .macro-grid { grid-template-columns: repeat(4, 1fr); }
       }
     </style>
   </head>
@@ -222,7 +381,7 @@
         <div class="eyebrow">Detailed daily plan</div>
         <h1>High-protein Costco meal week</h1>
         <p class="hero-copy">Weekdays: no solid breakfast, one shake, two high-protein meals, 2000-2500 kcal. Weekends: shake plus fruit and vegetables, intentionally fasting-adjacent.</p>
-        <div class="generated">Generated Sunday, May 10, 2026 at 8:41 PM</div>
+        <div class="generated">Generated Sunday, May 10, 2026 at 9:21 PM</div>
       </div>
       <img class="hero-image" src="https://images.unsplash.com/photo-1631901009402-0b6891d8c2ed?auto=format&fit=crop&w=1200&q=80" alt="Protein smoothie">
       <div class="content">
@@ -237,6 +396,43 @@
             <li><strong>Meal 1:</strong> Caesar salad + rotisserie chicken + eggs: half Costco Caesar kit, light dressing, no croutons, 8 oz rotisserie chicken breast, 2 boiled eggs.</li>
             <li><strong>Meal 2 / intake:</strong> Air-fried tilapia plate: 10 oz tilapia, 1 cup cooked rice, 1 steamed vegetable serving, 1 tbsp olive oil.</li>
           </ol>
+          <div class="meal-tracker">
+            <div class="meal-tracker-title">Mark consumed</div>
+            
+            <label class="meal-check">
+              <input type="checkbox" data-meal-id="Monday|breakfast" data-day="Monday" data-meal="breakfast">
+              <span class="check-mark"></span>
+              <span>
+                <span class="meal-check-title">Breakfast shake</span>
+                <span class="meal-check-macros">395 kcal · 37p · 42c · 9f</span>
+              </span>
+            </label>
+            <label class="meal-check">
+              <input type="checkbox" data-meal-id="Monday|meal1" data-day="Monday" data-meal="meal1">
+              <span class="check-mark"></span>
+              <span>
+                <span class="meal-check-title">Caesar chicken + eggs</span>
+                <span class="meal-check-macros">846 kcal · 92p · 15c · 43f</span>
+              </span>
+            </label>
+            <label class="meal-check">
+              <input type="checkbox" data-meal-id="Monday|meal2" data-day="Monday" data-meal="meal2">
+              <span class="check-mark"></span>
+              <span>
+                <span class="meal-check-title">Tilapia + rice + vegetables</span>
+                <span class="meal-check-macros">835 kcal · 82p · 65c · 19f</span>
+              </span>
+            </label>
+          </div>
+          <div class="extra-intake">
+            <div class="meal-tracker-title">Extra intake</div>
+            <div class="extra-grid">
+              <label>Calories<input type="number" inputmode="numeric" min="0" step="1" data-extra-day="Monday" data-extra-key="calories" placeholder="0"></label>
+              <label>Protein g<input type="number" inputmode="numeric" min="0" step="1" data-extra-day="Monday" data-extra-key="protein" placeholder="0"></label>
+              <label>Carbs g<input type="number" inputmode="numeric" min="0" step="1" data-extra-day="Monday" data-extra-key="carbs" placeholder="0"></label>
+              <label>Fat g<input type="number" inputmode="numeric" min="0" step="1" data-extra-day="Monday" data-extra-key="fat" placeholder="0"></label>
+            </div>
+          </div>
           <div class="prep-note"><strong>Prep note:</strong> Boil eggs ahead. Pull rotisserie breast meat and portion 8 oz. Cook tilapia fresh or batch cook two portions.</div>
         </div>
       </article>
@@ -250,6 +446,43 @@
             <li><strong>Meal 1:</strong> Chicken skewer bowl: 4 Costco chicken skewers, 1 cup rice, 1 steamed vegetable serving, 1 cup Greek yogurt sauce, half avocado.</li>
             <li><strong>Meal 2 / intake:</strong> Shrimp Caesar: 8 oz cooked shrimp, half Caesar kit, 2 boiled eggs, half avocado. Keep dressing light.</li>
           </ol>
+          <div class="meal-tracker">
+            <div class="meal-tracker-title">Mark consumed</div>
+            
+            <label class="meal-check">
+              <input type="checkbox" data-meal-id="Tuesday|breakfast" data-day="Tuesday" data-meal="breakfast">
+              <span class="check-mark"></span>
+              <span>
+                <span class="meal-check-title">Breakfast shake</span>
+                <span class="meal-check-macros">395 kcal · 37p · 42c · 9f</span>
+              </span>
+            </label>
+            <label class="meal-check">
+              <input type="checkbox" data-meal-id="Tuesday|meal1" data-day="Tuesday" data-meal="meal1">
+              <span class="check-mark"></span>
+              <span>
+                <span class="meal-check-title">Chicken skewer bowl</span>
+                <span class="meal-check-macros">915 kcal · 84p · 80c · 21f</span>
+              </span>
+            </label>
+            <label class="meal-check">
+              <input type="checkbox" data-meal-id="Tuesday|meal2" data-day="Tuesday" data-meal="meal2">
+              <span class="check-mark"></span>
+              <span>
+                <span class="meal-check-title">Shrimp Caesar + eggs</span>
+                <span class="meal-check-macros">826 kcal · 70p · 21c · 48f</span>
+              </span>
+            </label>
+          </div>
+          <div class="extra-intake">
+            <div class="meal-tracker-title">Extra intake</div>
+            <div class="extra-grid">
+              <label>Calories<input type="number" inputmode="numeric" min="0" step="1" data-extra-day="Tuesday" data-extra-key="calories" placeholder="0"></label>
+              <label>Protein g<input type="number" inputmode="numeric" min="0" step="1" data-extra-day="Tuesday" data-extra-key="protein" placeholder="0"></label>
+              <label>Carbs g<input type="number" inputmode="numeric" min="0" step="1" data-extra-day="Tuesday" data-extra-key="carbs" placeholder="0"></label>
+              <label>Fat g<input type="number" inputmode="numeric" min="0" step="1" data-extra-day="Tuesday" data-extra-key="fat" placeholder="0"></label>
+            </div>
+          </div>
           <div class="prep-note"><strong>Prep note:</strong> Use Greek yogurt with lemon/garlic/hot sauce as sauce. Keep shrimp cold and assemble salad right before eating.</div>
         </div>
       </article>
@@ -263,6 +496,43 @@
             <li><strong>Meal 1:</strong> Air-fried tilapia plate: 10 oz tilapia, rice, vegetables, olive oil.</li>
             <li><strong>Meal 2 / intake:</strong> Kirkland lightly breaded chicken plate: 2 fillets, steamed vegetables, 1 cup Greek yogurt, half avocado.</li>
           </ol>
+          <div class="meal-tracker">
+            <div class="meal-tracker-title">Mark consumed</div>
+            
+            <label class="meal-check">
+              <input type="checkbox" data-meal-id="Wednesday|breakfast" data-day="Wednesday" data-meal="breakfast">
+              <span class="check-mark"></span>
+              <span>
+                <span class="meal-check-title">Breakfast shake</span>
+                <span class="meal-check-macros">395 kcal · 37p · 42c · 9f</span>
+              </span>
+            </label>
+            <label class="meal-check">
+              <input type="checkbox" data-meal-id="Wednesday|meal1" data-day="Wednesday" data-meal="meal1">
+              <span class="check-mark"></span>
+              <span>
+                <span class="meal-check-title">Tilapia + rice + vegetables</span>
+                <span class="meal-check-macros">835 kcal · 82p · 65c · 19f</span>
+              </span>
+            </label>
+            <label class="meal-check">
+              <input type="checkbox" data-meal-id="Wednesday|meal2" data-day="Wednesday" data-meal="meal2">
+              <span class="check-mark"></span>
+              <span>
+                <span class="meal-check-title">Breaded chicken + vegetables + yogurt</span>
+                <span class="meal-check-macros">890 kcal · 76p · 42c · 39f</span>
+              </span>
+            </label>
+          </div>
+          <div class="extra-intake">
+            <div class="meal-tracker-title">Extra intake</div>
+            <div class="extra-grid">
+              <label>Calories<input type="number" inputmode="numeric" min="0" step="1" data-extra-day="Wednesday" data-extra-key="calories" placeholder="0"></label>
+              <label>Protein g<input type="number" inputmode="numeric" min="0" step="1" data-extra-day="Wednesday" data-extra-key="protein" placeholder="0"></label>
+              <label>Carbs g<input type="number" inputmode="numeric" min="0" step="1" data-extra-day="Wednesday" data-extra-key="carbs" placeholder="0"></label>
+              <label>Fat g<input type="number" inputmode="numeric" min="0" step="1" data-extra-day="Wednesday" data-extra-key="fat" placeholder="0"></label>
+            </div>
+          </div>
           <div class="prep-note"><strong>Prep note:</strong> This is the convenience day. Air fry chicken from frozen if needed; use yogurt as dip instead of heavier sauces.</div>
         </div>
       </article>
@@ -276,6 +546,43 @@
             <li><strong>Meal 1:</strong> Shrimp Caesar: 8 oz cooked shrimp, half Caesar kit, 2 eggs, half avocado.</li>
             <li><strong>Meal 2 / intake:</strong> Chicken skewer bowl: 4 skewers, rice, vegetables, Greek yogurt sauce, half avocado.</li>
           </ol>
+          <div class="meal-tracker">
+            <div class="meal-tracker-title">Mark consumed</div>
+            
+            <label class="meal-check">
+              <input type="checkbox" data-meal-id="Thursday|breakfast" data-day="Thursday" data-meal="breakfast">
+              <span class="check-mark"></span>
+              <span>
+                <span class="meal-check-title">Breakfast shake</span>
+                <span class="meal-check-macros">395 kcal · 37p · 42c · 9f</span>
+              </span>
+            </label>
+            <label class="meal-check">
+              <input type="checkbox" data-meal-id="Thursday|meal1" data-day="Thursday" data-meal="meal1">
+              <span class="check-mark"></span>
+              <span>
+                <span class="meal-check-title">Shrimp Caesar + eggs</span>
+                <span class="meal-check-macros">826 kcal · 70p · 21c · 48f</span>
+              </span>
+            </label>
+            <label class="meal-check">
+              <input type="checkbox" data-meal-id="Thursday|meal2" data-day="Thursday" data-meal="meal2">
+              <span class="check-mark"></span>
+              <span>
+                <span class="meal-check-title">Chicken skewer bowl</span>
+                <span class="meal-check-macros">915 kcal · 84p · 80c · 21f</span>
+              </span>
+            </label>
+          </div>
+          <div class="extra-intake">
+            <div class="meal-tracker-title">Extra intake</div>
+            <div class="extra-grid">
+              <label>Calories<input type="number" inputmode="numeric" min="0" step="1" data-extra-day="Thursday" data-extra-key="calories" placeholder="0"></label>
+              <label>Protein g<input type="number" inputmode="numeric" min="0" step="1" data-extra-day="Thursday" data-extra-key="protein" placeholder="0"></label>
+              <label>Carbs g<input type="number" inputmode="numeric" min="0" step="1" data-extra-day="Thursday" data-extra-key="carbs" placeholder="0"></label>
+              <label>Fat g<input type="number" inputmode="numeric" min="0" step="1" data-extra-day="Thursday" data-extra-key="fat" placeholder="0"></label>
+            </div>
+          </div>
           <div class="prep-note"><strong>Prep note:</strong> Repeat the higher-variety meals so the plan does not feel like tilapia/chicken every day.</div>
         </div>
       </article>
@@ -289,6 +596,43 @@
             <li><strong>Meal 1:</strong> Caesar salad + rotisserie chicken + eggs: half kit, 8 oz chicken breast, 2 boiled eggs.</li>
             <li><strong>Meal 2 / intake:</strong> Kirkland lightly breaded chicken plate: 2 fillets, steamed vegetables, 1 cup Greek yogurt, half avocado.</li>
           </ol>
+          <div class="meal-tracker">
+            <div class="meal-tracker-title">Mark consumed</div>
+            
+            <label class="meal-check">
+              <input type="checkbox" data-meal-id="Friday|breakfast" data-day="Friday" data-meal="breakfast">
+              <span class="check-mark"></span>
+              <span>
+                <span class="meal-check-title">Breakfast shake</span>
+                <span class="meal-check-macros">395 kcal · 37p · 42c · 9f</span>
+              </span>
+            </label>
+            <label class="meal-check">
+              <input type="checkbox" data-meal-id="Friday|meal1" data-day="Friday" data-meal="meal1">
+              <span class="check-mark"></span>
+              <span>
+                <span class="meal-check-title">Caesar chicken + eggs</span>
+                <span class="meal-check-macros">846 kcal · 92p · 15c · 43f</span>
+              </span>
+            </label>
+            <label class="meal-check">
+              <input type="checkbox" data-meal-id="Friday|meal2" data-day="Friday" data-meal="meal2">
+              <span class="check-mark"></span>
+              <span>
+                <span class="meal-check-title">Breaded chicken + vegetables + yogurt</span>
+                <span class="meal-check-macros">890 kcal · 76p · 42c · 39f</span>
+              </span>
+            </label>
+          </div>
+          <div class="extra-intake">
+            <div class="meal-tracker-title">Extra intake</div>
+            <div class="extra-grid">
+              <label>Calories<input type="number" inputmode="numeric" min="0" step="1" data-extra-day="Friday" data-extra-key="calories" placeholder="0"></label>
+              <label>Protein g<input type="number" inputmode="numeric" min="0" step="1" data-extra-day="Friday" data-extra-key="protein" placeholder="0"></label>
+              <label>Carbs g<input type="number" inputmode="numeric" min="0" step="1" data-extra-day="Friday" data-extra-key="carbs" placeholder="0"></label>
+              <label>Fat g<input type="number" inputmode="numeric" min="0" step="1" data-extra-day="Friday" data-extra-key="fat" placeholder="0"></label>
+            </div>
+          </div>
           <div class="prep-note"><strong>Prep note:</strong> End-of-week low effort: rotisserie chicken plus freezer chicken. Watch sodium and keep water intake high.</div>
         </div>
       </article>
@@ -302,6 +646,43 @@
             <li><strong>Meal 1:</strong> Raw vegetable plate through the day: cucumbers, mini peppers, carrots, or similar Costco produce.</li>
             <li><strong>Meal 2 / intake:</strong> Fruit through the day: 3 servings total such as apple, orange, berries, melon, or grapes.</li>
           </ol>
+          <div class="meal-tracker">
+            <div class="meal-tracker-title">Mark consumed</div>
+            
+            <label class="meal-check">
+              <input type="checkbox" data-meal-id="Saturday|breakfast" data-day="Saturday" data-meal="breakfast">
+              <span class="check-mark"></span>
+              <span>
+                <span class="meal-check-title">Kefir protein shake</span>
+                <span class="meal-check-macros">490 kcal · 47p · 45c · 8f</span>
+              </span>
+            </label>
+            <label class="meal-check">
+              <input type="checkbox" data-meal-id="Saturday|meal1" data-day="Saturday" data-meal="meal1">
+              <span class="check-mark"></span>
+              <span>
+                <span class="meal-check-title">Raw vegetable plate</span>
+                <span class="meal-check-macros">150 kcal · 4p · 30c · 1f</span>
+              </span>
+            </label>
+            <label class="meal-check">
+              <input type="checkbox" data-meal-id="Saturday|meal2" data-day="Saturday" data-meal="meal2">
+              <span class="check-mark"></span>
+              <span>
+                <span class="meal-check-title">Fruit through the day</span>
+                <span class="meal-check-macros">300 kcal · 3p · 75c · 1f</span>
+              </span>
+            </label>
+          </div>
+          <div class="extra-intake">
+            <div class="meal-tracker-title">Extra intake</div>
+            <div class="extra-grid">
+              <label>Calories<input type="number" inputmode="numeric" min="0" step="1" data-extra-day="Saturday" data-extra-key="calories" placeholder="0"></label>
+              <label>Protein g<input type="number" inputmode="numeric" min="0" step="1" data-extra-day="Saturday" data-extra-key="protein" placeholder="0"></label>
+              <label>Carbs g<input type="number" inputmode="numeric" min="0" step="1" data-extra-day="Saturday" data-extra-key="carbs" placeholder="0"></label>
+              <label>Fat g<input type="number" inputmode="numeric" min="0" step="1" data-extra-day="Saturday" data-extra-key="fat" placeholder="0"></label>
+            </div>
+          </div>
           <div class="prep-note"><strong>Prep note:</strong> This is intentionally fasting-adjacent. Do not force weekday calories unless energy, sleep, or adherence suffers.</div>
         </div>
       </article>
@@ -315,6 +696,43 @@
             <li><strong>Meal 1:</strong> Raw vegetables through the day.</li>
             <li><strong>Meal 2 / intake:</strong> Fruit through the day, about 3 servings.</li>
           </ol>
+          <div class="meal-tracker">
+            <div class="meal-tracker-title">Mark consumed</div>
+            
+            <label class="meal-check">
+              <input type="checkbox" data-meal-id="Sunday|breakfast" data-day="Sunday" data-meal="breakfast">
+              <span class="check-mark"></span>
+              <span>
+                <span class="meal-check-title">Kefir protein shake</span>
+                <span class="meal-check-macros">490 kcal · 47p · 45c · 8f</span>
+              </span>
+            </label>
+            <label class="meal-check">
+              <input type="checkbox" data-meal-id="Sunday|meal1" data-day="Sunday" data-meal="meal1">
+              <span class="check-mark"></span>
+              <span>
+                <span class="meal-check-title">Raw vegetables</span>
+                <span class="meal-check-macros">150 kcal · 4p · 30c · 1f</span>
+              </span>
+            </label>
+            <label class="meal-check">
+              <input type="checkbox" data-meal-id="Sunday|meal2" data-day="Sunday" data-meal="meal2">
+              <span class="check-mark"></span>
+              <span>
+                <span class="meal-check-title">Fruit through the day</span>
+                <span class="meal-check-macros">300 kcal · 3p · 75c · 1f</span>
+              </span>
+            </label>
+          </div>
+          <div class="extra-intake">
+            <div class="meal-tracker-title">Extra intake</div>
+            <div class="extra-grid">
+              <label>Calories<input type="number" inputmode="numeric" min="0" step="1" data-extra-day="Sunday" data-extra-key="calories" placeholder="0"></label>
+              <label>Protein g<input type="number" inputmode="numeric" min="0" step="1" data-extra-day="Sunday" data-extra-key="protein" placeholder="0"></label>
+              <label>Carbs g<input type="number" inputmode="numeric" min="0" step="1" data-extra-day="Sunday" data-extra-key="carbs" placeholder="0"></label>
+              <label>Fat g<input type="number" inputmode="numeric" min="0" step="1" data-extra-day="Sunday" data-extra-key="fat" placeholder="0"></label>
+            </div>
+          </div>
           <div class="prep-note"><strong>Prep note:</strong> Same low-intake pattern. If hunger is distracting, add another fruit serving or half shake rather than a full meal.</div>
         </div>
       </article>
@@ -452,6 +870,21 @@
             <a id="save-shopping" class="save-button" href="#" aria-disabled="true">Save crossed-off list to GitHub</a>
           </div>
         </div>
+        <div class="dashboard">
+          <div class="dashboard-title">Consumption dashboard</div>
+          <div class="dashboard-subtitle">Estimated macros from checked meals. Carbs and fat are practical estimates from the planned ingredients.</div>
+          <div class="macro-grid">
+            <div class="macro-card"><div class="macro-label">Week calories</div><div id="week-calories" class="macro-value">0</div></div>
+            <div class="macro-card"><div class="macro-label">Protein</div><div id="week-protein" class="macro-value">0g</div></div>
+            <div class="macro-card"><div class="macro-label">Carbs</div><div id="week-carbs" class="macro-value">0g</div></div>
+            <div class="macro-card"><div class="macro-label">Fat</div><div id="week-fat" class="macro-value">0g</div></div>
+          </div>
+          <div id="daily-chart"></div>
+          <div class="consumption-actions">
+            <div id="consumption-status" class="shopping-status">Loading saved meal consumption...</div>
+            <a id="save-consumption" class="save-button" href="#" aria-disabled="true">Save consumed meals to GitHub</a>
+          </div>
+        </div>
         <div class="disclaimer">
           Practical meal planning only, not medical advice. Nutrition estimates should be checked against actual Costco/package labels. Photos are visual inspiration, not exact plated recipes.
         </div>
@@ -459,12 +892,20 @@
     </div>
     <script>
       const SHOPPING_ITEMS = ["5 cups blueberries", "7 scoops Levels whey protein", "5 x 12 oz 2% milk", "2 cups plain kefir x 2", "2 rotisserie chicken breast portions, 8 oz each", "4 half Caesar salad kits, light dressing/no croutons", "8 boiled eggs", "2 x 10 oz cooked tilapia portions", "4 cups cooked rice", "6 steamed vegetable servings", "4 Kirkland lightly breaded chicken fillets", "4 cups plain nonfat Greek yogurt", "2 packs/servings Costco chicken skewers", "2 x 8 oz cooked shrimp", "6 avocado halves", "2 raw vegetable plates", "6 fruit servings", "2 tbsp olive oil"];
+      const MEAL_MACROS = {"Monday": {"breakfast": {"label": "Breakfast shake", "calories": 395, "protein": 37, "carbs": 42, "fat": 9}, "meal1": {"label": "Caesar chicken + eggs", "calories": 846, "protein": 92, "carbs": 15, "fat": 43}, "meal2": {"label": "Tilapia + rice + vegetables", "calories": 835, "protein": 82, "carbs": 65, "fat": 19}}, "Tuesday": {"breakfast": {"label": "Breakfast shake", "calories": 395, "protein": 37, "carbs": 42, "fat": 9}, "meal1": {"label": "Chicken skewer bowl", "calories": 915, "protein": 84, "carbs": 80, "fat": 21}, "meal2": {"label": "Shrimp Caesar + eggs", "calories": 826, "protein": 70, "carbs": 21, "fat": 48}}, "Wednesday": {"breakfast": {"label": "Breakfast shake", "calories": 395, "protein": 37, "carbs": 42, "fat": 9}, "meal1": {"label": "Tilapia + rice + vegetables", "calories": 835, "protein": 82, "carbs": 65, "fat": 19}, "meal2": {"label": "Breaded chicken + vegetables + yogurt", "calories": 890, "protein": 76, "carbs": 42, "fat": 39}}, "Thursday": {"breakfast": {"label": "Breakfast shake", "calories": 395, "protein": 37, "carbs": 42, "fat": 9}, "meal1": {"label": "Shrimp Caesar + eggs", "calories": 826, "protein": 70, "carbs": 21, "fat": 48}, "meal2": {"label": "Chicken skewer bowl", "calories": 915, "protein": 84, "carbs": 80, "fat": 21}}, "Friday": {"breakfast": {"label": "Breakfast shake", "calories": 395, "protein": 37, "carbs": 42, "fat": 9}, "meal1": {"label": "Caesar chicken + eggs", "calories": 846, "protein": 92, "carbs": 15, "fat": 43}, "meal2": {"label": "Breaded chicken + vegetables + yogurt", "calories": 890, "protein": 76, "carbs": 42, "fat": 39}}, "Saturday": {"breakfast": {"label": "Kefir protein shake", "calories": 490, "protein": 47, "carbs": 45, "fat": 8}, "meal1": {"label": "Raw vegetable plate", "calories": 150, "protein": 4, "carbs": 30, "fat": 1}, "meal2": {"label": "Fruit through the day", "calories": 300, "protein": 3, "carbs": 75, "fat": 1}}, "Sunday": {"breakfast": {"label": "Kefir protein shake", "calories": 490, "protein": 47, "carbs": 45, "fat": 8}, "meal1": {"label": "Raw vegetables", "calories": 150, "protein": 4, "carbs": 30, "fat": 1}, "meal2": {"label": "Fruit through the day", "calories": 300, "protein": 3, "carbs": 75, "fat": 1}}};
       const STATE_URL = "shopping-state.json";
+      const CONSUMPTION_STATE_URL = "consumption-state.json";
       const ISSUE_URL = "https://github.com/mkoltsov/weekly-meal-plan/issues/new";
       const LOCAL_KEY = "weeklyMealPlanShoppingState";
+      const CONSUMPTION_LOCAL_KEY = "weeklyMealPlanConsumptionState";
       const inputs = [...document.querySelectorAll("[data-shopping-item]")];
+      const mealInputs = [...document.querySelectorAll("[data-meal-id]")];
+      const extraInputs = [...document.querySelectorAll("[data-extra-day]")];
       const statusEl = document.getElementById("shopping-status");
       const saveEl = document.getElementById("save-shopping");
+      const consumptionStatusEl = document.getElementById("consumption-status");
+      const saveConsumptionEl = document.getElementById("save-consumption");
+      const dayNames = Object.keys(MEAL_MACROS);
 
       function checkedItems() {
         return inputs.filter(input => input.checked).map(input => input.dataset.shoppingItem);
@@ -528,6 +969,144 @@
 
       inputs.forEach(input => input.addEventListener("change", writeLocal));
       loadState();
+
+      function consumedState() {
+        const consumed = {};
+        for (const day of dayNames) consumed[day] = [];
+        for (const input of mealInputs) {
+          if (input.checked) consumed[input.dataset.day].push(input.dataset.meal);
+        }
+        return consumed;
+      }
+
+      function extraState() {
+        const extras = {};
+        for (const day of dayNames) extras[day] = { calories: 0, protein: 0, carbs: 0, fat: 0 };
+        for (const input of extraInputs) {
+          const value = Number(input.value || 0);
+          extras[input.dataset.extraDay][input.dataset.extraKey] = Number.isFinite(value) && value > 0 ? Math.round(value) : 0;
+        }
+        return extras;
+      }
+
+      function setConsumed(consumed) {
+        const byDay = consumed || {};
+        mealInputs.forEach(input => {
+          input.checked = (byDay[input.dataset.day] || []).includes(input.dataset.meal);
+        });
+      }
+
+      function setExtras(extras) {
+        const byDay = extras || {};
+        extraInputs.forEach(input => {
+          const value = ((byDay[input.dataset.extraDay] || {})[input.dataset.extraKey]) || "";
+          input.value = value || "";
+        });
+      }
+
+      function localConsumptionState() {
+        try {
+          return JSON.parse(localStorage.getItem(CONSUMPTION_LOCAL_KEY) || "{}");
+        } catch {
+          return {};
+        }
+      }
+
+      function totalsFor(consumed, extras) {
+        const daily = {};
+        const week = { calories: 0, protein: 0, carbs: 0, fat: 0 };
+        for (const day of dayNames) {
+          daily[day] = { calories: 0, protein: 0, carbs: 0, fat: 0 };
+          for (const meal of (consumed[day] || [])) {
+            const macros = MEAL_MACROS[day][meal];
+            for (const key of Object.keys(week)) {
+              daily[day][key] += macros[key];
+              week[key] += macros[key];
+            }
+          }
+          const extra = extras[day] || {};
+          for (const key of Object.keys(week)) {
+            const value = Number(extra[key] || 0);
+            daily[day][key] += value;
+            week[key] += value;
+          }
+        }
+        return { daily, week };
+      }
+
+      function renderDashboard() {
+        const consumed = consumedState();
+        const extras = extraState();
+        const totals = totalsFor(consumed, extras);
+        document.getElementById("week-calories").textContent = String(totals.week.calories);
+        document.getElementById("week-protein").textContent = `${totals.week.protein}g`;
+        document.getElementById("week-carbs").textContent = `${totals.week.carbs}g`;
+        document.getElementById("week-fat").textContent = `${totals.week.fat}g`;
+
+        const maxCalories = Math.max(1, ...dayNames.map(day => totals.daily[day].calories));
+        document.getElementById("daily-chart").innerHTML = dayNames.map(day => {
+          const d = totals.daily[day];
+          const pct = Math.round((d.calories / maxCalories) * 100);
+          return `<div class="chart-row">
+            <div class="chart-label"><span>${day}</span><span>${d.calories} kcal · ${d.protein}p/${d.carbs}c/${d.fat}f</span></div>
+            <div class="chart-track"><div class="chart-bar" style="width:${pct}%"></div></div>
+          </div>`;
+        }).join("");
+      }
+
+      function writeConsumptionLocal() {
+        const payload = { consumed: consumedState(), extras: extraState(), meal_macros: MEAL_MACROS, updated_at: new Date().toISOString() };
+        localStorage.setItem(CONSUMPTION_LOCAL_KEY, JSON.stringify(payload));
+        updateConsumptionSaveLink();
+        renderDashboard();
+      }
+
+      function updateConsumptionSaveLink() {
+        const consumed = consumedState();
+        const extras = extraState();
+        const consumedCount = Object.values(consumed).reduce((sum, meals) => sum + meals.length, 0);
+        const payload = {
+          consumed,
+          extras,
+          meal_macros: MEAL_MACROS,
+          updated_at: new Date().toISOString(),
+          source: "github-pages"
+        };
+        const body = [
+          "Update consumption-state.json from the weekly meal-plan page.",
+          "",
+          "```json",
+          JSON.stringify(payload, null, 2),
+          "```"
+        ].join("\n");
+        const params = new URLSearchParams({
+          title: "[consumption-state] update",
+          body
+        });
+        saveConsumptionEl.href = ISSUE_URL + "?" + params.toString();
+        saveConsumptionEl.setAttribute("aria-disabled", "false");
+        consumptionStatusEl.textContent = `${consumedCount} of ${mealInputs.length} meals marked consumed. Changes are saved on this phone; tap the button to commit them to GitHub.`;
+      }
+
+      async function loadConsumptionState() {
+        let remote = {};
+        try {
+          const response = await fetch(CONSUMPTION_STATE_URL, { cache: "no-store" });
+          if (response.ok) remote = await response.json();
+        } catch {}
+        const local = localConsumptionState();
+        const remoteTime = Date.parse(remote.updated_at || 0);
+        const localTime = Date.parse(local.updated_at || 0);
+        const chosen = localTime > remoteTime ? local : remote;
+        setConsumed(chosen.consumed);
+        setExtras(chosen.extras);
+        updateConsumptionSaveLink();
+        renderDashboard();
+      }
+
+      mealInputs.forEach(input => input.addEventListener("change", writeConsumptionLocal));
+      extraInputs.forEach(input => input.addEventListener("input", writeConsumptionLocal));
+      loadConsumptionState();
     </script>
   </body>
 </html>

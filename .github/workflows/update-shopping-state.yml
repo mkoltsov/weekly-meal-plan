@@ -1,4 +1,4 @@
-name: Update shopping state
+name: Update meal plan state
 
 on:
   issues:
@@ -9,14 +9,15 @@ permissions:
   issues: write
 
 jobs:
-  update-shopping-state:
-    if: startsWith(github.event.issue.title, '[shopping-state]') && github.event.issue.user.login == github.repository_owner
+  update-state:
+    if: (startsWith(github.event.issue.title, '[shopping-state]') || startsWith(github.event.issue.title, '[consumption-state]')) && github.event.issue.user.login == github.repository_owner
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Extract shopping state
+      - name: Extract state payload
         env:
           ISSUE_BODY: ${{ github.event.issue.body }}
+          ISSUE_TITLE: ${{ github.event.issue.title }}
         run: |
           python - <<'PY'
           import json
@@ -29,33 +30,70 @@ jobs:
           if not match:
               raise SystemExit("No fenced JSON payload found")
           payload = json.loads(match.group(1))
-          checked = payload.get("checked", [])
-          items = payload.get("items", [])
-          if not isinstance(checked, list) or not isinstance(items, list):
-              raise SystemExit("Invalid shopping state payload")
-          item_set = set(items)
-          cleaned = {
-              "checked": [item for item in checked if item in item_set],
-              "items": items,
-              "updated_at": payload.get("updated_at", ""),
-              "source": "github-issue-action",
-          }
-          Path("shopping-state.json").write_text(json.dumps(cleaned, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+          title = os.environ.get("ISSUE_TITLE", "")
+
+          if title.startswith("[shopping-state]"):
+              checked = payload.get("checked", [])
+              items = payload.get("items", [])
+              if not isinstance(checked, list) or not isinstance(items, list):
+                  raise SystemExit("Invalid shopping state payload")
+              item_set = set(items)
+              cleaned = {
+                  "checked": [item for item in checked if item in item_set],
+                  "items": items,
+                  "updated_at": payload.get("updated_at", ""),
+                  "source": "github-issue-action",
+              }
+              Path("shopping-state.json").write_text(json.dumps(cleaned, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+          elif title.startswith("[consumption-state]"):
+              consumed = payload.get("consumed", {})
+              extras = payload.get("extras", {})
+              meal_macros = payload.get("meal_macros", {})
+              if not isinstance(consumed, dict) or not isinstance(extras, dict) or not isinstance(meal_macros, dict):
+                  raise SystemExit("Invalid consumption state payload")
+
+              cleaned_consumed = {}
+              for day, meals in consumed.items():
+                  allowed = set((meal_macros.get(day) or {}).keys())
+                  cleaned_consumed[day] = [meal for meal in meals if meal in allowed] if isinstance(meals, list) else []
+
+              cleaned_extras = {}
+              for day, values in extras.items():
+                  if not isinstance(values, dict):
+                      continue
+                  cleaned_extras[day] = {}
+                  for key in ("calories", "protein", "carbs", "fat"):
+                      try:
+                          value = int(round(float(values.get(key, 0) or 0)))
+                      except Exception:
+                          value = 0
+                      cleaned_extras[day][key] = max(0, min(value, 10000))
+
+              cleaned = {
+                  "consumed": cleaned_consumed,
+                  "extras": cleaned_extras,
+                  "meal_macros": meal_macros,
+                  "updated_at": payload.get("updated_at", ""),
+                  "source": "github-issue-action",
+              }
+              Path("consumption-state.json").write_text(json.dumps(cleaned, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+          else:
+              raise SystemExit("Unsupported state issue title")
           PY
-      - name: Commit shopping state
+      - name: Commit state
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add shopping-state.json
+          git add shopping-state.json consumption-state.json
           if git diff --cached --quiet; then
-            echo "No shopping-state changes"
+            echo "No state changes"
           else
-            git commit -m "Update shopping state"
+            git commit -m "Update meal plan state"
             git push
           fi
       - name: Close issue
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh issue comment "${{ github.event.issue.number }}" --body "Shopping state saved to shopping-state.json."
+          gh issue comment "${{ github.event.issue.number }}" --body "Meal plan state saved."
           gh issue close "${{ github.event.issue.number }}"

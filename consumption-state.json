@@ -1,0 +1,169 @@
+{
+  "consumed": {},
+  "extras": {},
+  "meal_macros": {
+    "Friday": {
+      "breakfast": {
+        "calories": 395,
+        "carbs": 42,
+        "fat": 9,
+        "label": "Breakfast shake",
+        "protein": 37
+      },
+      "meal1": {
+        "calories": 846,
+        "carbs": 15,
+        "fat": 43,
+        "label": "Caesar chicken + eggs",
+        "protein": 92
+      },
+      "meal2": {
+        "calories": 890,
+        "carbs": 42,
+        "fat": 39,
+        "label": "Breaded chicken + vegetables + yogurt",
+        "protein": 76
+      }
+    },
+    "Monday": {
+      "breakfast": {
+        "calories": 395,
+        "carbs": 42,
+        "fat": 9,
+        "label": "Breakfast shake",
+        "protein": 37
+      },
+      "meal1": {
+        "calories": 846,
+        "carbs": 15,
+        "fat": 43,
+        "label": "Caesar chicken + eggs",
+        "protein": 92
+      },
+      "meal2": {
+        "calories": 835,
+        "carbs": 65,
+        "fat": 19,
+        "label": "Tilapia + rice + vegetables",
+        "protein": 82
+      }
+    },
+    "Saturday": {
+      "breakfast": {
+        "calories": 490,
+        "carbs": 45,
+        "fat": 8,
+        "label": "Kefir protein shake",
+        "protein": 47
+      },
+      "meal1": {
+        "calories": 150,
+        "carbs": 30,
+        "fat": 1,
+        "label": "Raw vegetable plate",
+        "protein": 4
+      },
+      "meal2": {
+        "calories": 300,
+        "carbs": 75,
+        "fat": 1,
+        "label": "Fruit through the day",
+        "protein": 3
+      }
+    },
+    "Sunday": {
+      "breakfast": {
+        "calories": 490,
+        "carbs": 45,
+        "fat": 8,
+        "label": "Kefir protein shake",
+        "protein": 47
+      },
+      "meal1": {
+        "calories": 150,
+        "carbs": 30,
+        "fat": 1,
+        "label": "Raw vegetables",
+        "protein": 4
+      },
+      "meal2": {
+        "calories": 300,
+        "carbs": 75,
+        "fat": 1,
+        "label": "Fruit through the day",
+        "protein": 3
+      }
+    },
+    "Thursday": {
+      "breakfast": {
+        "calories": 395,
+        "carbs": 42,
+        "fat": 9,
+        "label": "Breakfast shake",
+        "protein": 37
+      },
+      "meal1": {
+        "calories": 826,
+        "carbs": 21,
+        "fat": 48,
+        "label": "Shrimp Caesar + eggs",
+        "protein": 70
+      },
+      "meal2": {
+        "calories": 915,
+        "carbs": 80,
+        "fat": 21,
+        "label": "Chicken skewer bowl",
+        "protein": 84
+      }
+    },
+    "Tuesday": {
+      "breakfast": {
+        "calories": 395,
+        "carbs": 42,
+        "fat": 9,
+        "label": "Breakfast shake",
+        "protein": 37
+      },
+      "meal1": {
+        "calories": 915,
+        "carbs": 80,
+        "fat": 21,
+        "label": "Chicken skewer bowl",
+        "protein": 84
+      },
+      "meal2": {
+        "calories": 826,
+        "carbs": 21,
+        "fat": 48,
+        "label": "Shrimp Caesar + eggs",
+        "protein": 70
+      }
+    },
+    "Wednesday": {
+      "breakfast": {
+        "calories": 395,
+        "carbs": 42,
+        "fat": 9,
+        "label": "Breakfast shake",
+        "protein": 37
+      },
+      "meal1": {
+        "calories": 835,
+        "carbs": 65,
+        "fat": 19,
+        "label": "Tilapia + rice + vegetables",
+        "protein": 82
+      },
+      "meal2": {
+        "calories": 890,
+        "carbs": 42,
+        "fat": 39,
+        "label": "Breaded chicken + vegetables + yogurt",
+        "protein": 76
+      }
+    }
+  },
+  "source": "initial",
+  "updated_at": ""
+}
