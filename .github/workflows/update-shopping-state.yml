@@ -84,7 +84,7 @@ jobs:
                       }
                       if not cleaned_meal["label"]:
                           continue
-                      for key in ("calories", "protein", "carbs", "fat"):
+                      for key in ("grams", "serving_grams", "base_calories", "base_protein", "base_carbs", "base_fat", "calories", "protein", "carbs", "fat"):
                           try:
                               value = int(round(float(meal.get(key, 0) or 0)))
                           except Exception:
