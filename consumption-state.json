@@ -1,7 +1,68 @@
 {
-  "consumed": {},
-  "extras": {},
-  "extra_meals": {},
+  "consumed": {
+    "Friday": [],
+    "Monday": [
+      "breakfast"
+    ],
+    "Saturday": [],
+    "Sunday": [],
+    "Thursday": [],
+    "Tuesday": [],
+    "Wednesday": []
+  },
+  "extra_meals": {
+    "Friday": [],
+    "Monday": [],
+    "Saturday": [],
+    "Sunday": [],
+    "Thursday": [],
+    "Tuesday": [],
+    "Wednesday": []
+  },
+  "extras": {
+    "Friday": {
+      "calories": 0,
+      "carbs": 0,
+      "fat": 0,
+      "protein": 0
+    },
+    "Monday": {
+      "calories": 0,
+      "carbs": 0,
+      "fat": 0,
+      "protein": 0
+    },
+    "Saturday": {
+      "calories": 0,
+      "carbs": 0,
+      "fat": 0,
+      "protein": 0
+    },
+    "Sunday": {
+      "calories": 0,
+      "carbs": 0,
+      "fat": 0,
+      "protein": 0
+    },
+    "Thursday": {
+      "calories": 0,
+      "carbs": 0,
+      "fat": 0,
+      "protein": 0
+    },
+    "Tuesday": {
+      "calories": 0,
+      "carbs": 0,
+      "fat": 0,
+      "protein": 0
+    },
+    "Wednesday": {
+      "calories": 0,
+      "carbs": 0,
+      "fat": 0,
+      "protein": 0
+    }
+  },
   "meal_macros": {
     "Friday": {
       "breakfast": {
@@ -165,6 +226,6 @@
       }
     }
   },
-  "source": "initial",
-  "updated_at": ""
+  "source": "github-issue-action",
+  "updated_at": "2026-05-11T13:59:20.165Z"
 }
