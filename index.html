@@ -174,22 +174,20 @@
         align-items: end;
         display: grid;
         gap: 8px;
-        grid-template-columns: 1fr 82px 46px;
+        grid-template-columns: 1fr 1fr 82px 46px;
         margin-bottom: 9px;
       }
       .extra-search-label,
+      .extra-custom-label,
       .extra-picker-label,
-      .extra-picked-grid label,
-      .manual-extra-title {
+      .extra-picked-grid label {
         color: #526b60;
         display: block;
         font-size: 12px;
         font-weight: 800;
       }
-      .manual-extra-title {
-        margin: 10px 0 6px;
-      }
       .extra-search-label input,
+      .extra-custom-label input,
       .extra-picker-label input,
       .extra-picked-grid input {
         border: 1px solid #c9d8cf;
@@ -272,31 +270,8 @@
         line-height: 1;
         width: 34px;
       }
-      .extra-grid {
-        display: grid;
-        gap: 10px;
-        grid-template-columns: 1fr 1fr;
-      }
-      .extra-grid label {
-        color: #526b60;
-        display: block;
-        font-size: 12px;
-        font-weight: 800;
-      }
-      .extra-grid input {
-        appearance: textfield;
-        border: 1px solid #c9d8cf;
-        border-radius: 8px;
-        color: #213b31;
-        display: block;
-        font-size: 16px;
-        margin-top: 4px;
-        min-height: 42px;
-        padding: 8px 9px;
-        width: 100%;
-      }
-      .extra-grid input:focus,
       .extra-grams-input:focus,
+      .extra-custom-label input:focus,
       .extra-picker-label input:focus,
       .extra-picked-grid input:focus,
       .extra-search-label input:focus {
@@ -483,14 +458,14 @@
   </head>
   <body>
     <datalist id="extra-meal-options">
-      <option value="Costco rotisserie chicken breast, 4 oz">180 kcal, 35p/0c/4f</option><option value="Costco chicken skewers, 2 skewers">150 kcal, 24p/4c/4f</option><option value="Kirkland lightly breaded chicken fillet">240 kcal, 22p/14c/11f</option><option value="Costco cooked shrimp, 4 oz">110 kcal, 23p/1c/1f</option><option value="Costco salmon fillet, 6 oz">350 kcal, 39p/0c/22f</option><option value="Kirkland canned tuna, 1 can drained">160 kcal, 36p/0c/2f</option><option value="Costco turkey breast slices, 4 oz">120 kcal, 24p/3c/1f</option><option value="Costco chicken meatballs, 5 pieces">220 kcal, 24p/10c/10f</option><option value="Boiled egg, 1 large">78 kcal, 6p/1c/5f</option><option value="Egg whites, 1 cup">126 kcal, 26p/2c/0f</option><option value="Plain nonfat Greek yogurt, 1 cup">140 kcal, 24p/9c/0f</option><option value="Low-fat cottage cheese, 1 cup">180 kcal, 28p/10c/5f</option><option value="Fairlife protein shake, 11.5 oz">150 kcal, 30p/4c/2f</option><option value="Levels whey, 1 scoop with water">130 kcal, 24p/3c/2f</option><option value="Whey + 12 oz 2% milk + blueberries">395 kcal, 37p/42c/9f</option><option value="2% milk, 12 oz">185 kcal, 13p/18c/7f</option><option value="Plain kefir, 2 cups">280 kcal, 22p/28c/8f</option><option value="Costco Caesar salad half kit, light dressing">330 kcal, 10p/14c/24f</option><option value="Costco chopped salad bowl">350 kcal, 15p/25c/22f</option><option value="Microwave rice cup">205 kcal, 4p/45c/0f</option><option value="Steamed vegetables, 1 serving">150 kcal, 6p/24c/2f</option><option value="Avocado, half">120 kcal, 2p/6c/11f</option><option value="Olive oil, 1 tbsp">120 kcal, 0p/0c/14f</option><option value="Almonds, 1 oz">164 kcal, 6p/6c/14f</option><option value="Beef jerky, 1 oz">90 kcal, 11p/6c/1f</option><option value="Kirkland protein bar">190 kcal, 21p/22c/7f</option><option value="Oatmeal packet">160 kcal, 6p/29c/3f</option><option value="Costco bagel, half">165 kcal, 6p/33c/1f</option><option value="Costco chicken bake, half">385 kcal, 23p/41c/13f</option><option value="Costco hot dog, no soda">570 kcal, 24p/46c/33f</option><option value="Air-fried tilapia, 5 oz">180 kcal, 36p/0c/3f</option><option value="Cod fillet, 6 oz">180 kcal, 39p/0c/2f</option><option value="Chicken breast, cooked 6 oz">280 kcal, 52p/0c/6f</option><option value="Lean ground beef, cooked 5 oz">300 kcal, 34p/0c/17f</option><option value="Pork tenderloin, 6 oz">270 kcal, 44p/0c/8f</option><option value="Turkey patty, 5 oz">250 kcal, 32p/0c/12f</option><option value="Firm tofu, 6 oz">220 kcal, 22p/6c/13f</option><option value="Edamame, 1 cup">190 kcal, 17p/14c/8f</option><option value="Cooked lentils, 1 cup">230 kcal, 18p/40c/1f</option><option value="Cooked beans, 1 cup">240 kcal, 15p/44c/1f</option><option value="Banana, medium">105 kcal, 1p/27c/0f</option><option value="Apple, medium">95 kcal, 1p/25c/0f</option><option value="Blueberries, 1 cup">85 kcal, 1p/21c/0f</option><option value="Strawberries, 1 cup">50 kcal, 1p/12c/0f</option><option value="Orange, medium">62 kcal, 1p/15c/0f</option><option value="Grapes, 1 cup">104 kcal, 1p/27c/0f</option><option value="Raw vegetable plate">150 kcal, 4p/30c/1f</option><option value="Cucumber, large">45 kcal, 2p/11c/0f</option><option value="Tomatoes, 2 medium">44 kcal, 2p/10c/0f</option><option value="Sauerkraut, 1 cup">27 kcal, 1p/6c/0f</option><option value="Boiled potatoes, 300 g">260 kcal, 6p/60c/0f</option><option value="Cooked rice, 1 cup">205 kcal, 4p/45c/0f</option><option value="Cooked buckwheat/kasha, 1 cup">155 kcal, 6p/33c/1f</option><option value="Oats, 50 g dry">190 kcal, 7p/32c/3f</option><option value="Rye bread, 2 slices">170 kcal, 6p/34c/2f</option><option value="Twarog chudy, 200 g">200 kcal, 38p/8c/1f</option><option value="Serek wiejski, 200 g">194 kcal, 22p/6c/10f</option><option value="Skyr naturalny, 150 g">100 kcal, 17p/6c/0f</option><option value="Jogurt grecki light, 200 g">150 kcal, 20p/8c/4f</option><option value="Kefir, 400 ml">220 kcal, 14p/20c/8f</option><option value="Maslanka, 400 ml">180 kcal, 13p/20c/5f</option><option value="Filet z kurczaka, 200 g cooked">330 kcal, 62p/0c/7f</option><option value="Filet z indyka, 200 g cooked">300 kcal, 58p/0c/5f</option><option value="Dorsz, 200 g">210 kcal, 46p/0c/2f</option><option value="Losos, 150 g">310 kcal, 30p/0c/20f</option><option value="Sledz, 100 g">250 kcal, 18p/3c/18f</option><option value="Tunczyk w sosie wlasnym, 1 can drained">150 kcal, 32p/0c/1f</option><option value="Szynka z indyka, 100 g">110 kcal, 20p/2c/2f</option><option value="Kielbasa, 100 g">300 kcal, 14p/3c/26f</option><option value="Parowki drobiowe, 100 g">230 kcal, 13p/4c/18f</option><option value="Pierogi ruskie, 6 pieces">420 kcal, 14p/70c/10f</option><option value="Pierogi z miesem, 6 pieces">440 kcal, 20p/58c/14f</option><option value="Zupa pomidorowa, bowl">180 kcal, 7p/25c/6f</option><option value="Rosol, bowl">160 kcal, 12p/15c/6f</option><option value="Zurek, bowl">320 kcal, 16p/28c/16f</option><option value="Bigos, 1 cup">300 kcal, 18p/18c/18f</option><option value="Golabek, 1 piece">260 kcal, 14p/28c/10f</option><option value="Kotlet schabowy, 1 cutlet">430 kcal, 32p/22c/24f</option><option value="Mizeria, 1 cup">120 kcal, 3p/9c/8f</option><option value="Salatka jarzynowa, 1 cup">300 kcal, 8p/25c/20f</option><option value="Zapiekanka, half">350 kcal, 14p/48c/12f</option><option value="Zabka chicken salad bowl">350 kcal, 25p/25c/16f</option><option value="Zabka chicken wrap">420 kcal, 24p/48c/15f</option><option value="Biedronka ready chicken and rice meal">520 kcal, 35p/58c/15f</option><option value="Lidl high-protein pudding">150 kcal, 20p/12c/3f</option><option value="Protein bar, Poland convenience store">220 kcal, 20p/22c/8f</option>
+      <option value="!NEW MEAL">Add a custom meal manually</option><option value="Costco rotisserie chicken breast, 4 oz">180 kcal, 35p/0c/4f</option><option value="Costco chicken skewers, 2 skewers">150 kcal, 24p/4c/4f</option><option value="Kirkland lightly breaded chicken fillet">240 kcal, 22p/14c/11f</option><option value="Costco cooked shrimp, 4 oz">110 kcal, 23p/1c/1f</option><option value="Costco salmon fillet, 6 oz">350 kcal, 39p/0c/22f</option><option value="Kirkland canned tuna, 1 can drained">160 kcal, 36p/0c/2f</option><option value="Costco turkey breast slices, 4 oz">120 kcal, 24p/3c/1f</option><option value="Costco chicken meatballs, 5 pieces">220 kcal, 24p/10c/10f</option><option value="Boiled egg, 1 large">78 kcal, 6p/1c/5f</option><option value="Egg whites, 1 cup">126 kcal, 26p/2c/0f</option><option value="Plain nonfat Greek yogurt, 1 cup">140 kcal, 24p/9c/0f</option><option value="Low-fat cottage cheese, 1 cup">180 kcal, 28p/10c/5f</option><option value="Fairlife protein shake, 11.5 oz">150 kcal, 30p/4c/2f</option><option value="Levels whey, 1 scoop with water">130 kcal, 24p/3c/2f</option><option value="Whey + 12 oz 2% milk + blueberries">395 kcal, 37p/42c/9f</option><option value="2% milk, 12 oz">185 kcal, 13p/18c/7f</option><option value="Plain kefir, 2 cups">280 kcal, 22p/28c/8f</option><option value="Costco Caesar salad half kit, light dressing">330 kcal, 10p/14c/24f</option><option value="Costco chopped salad bowl">350 kcal, 15p/25c/22f</option><option value="Microwave rice cup">205 kcal, 4p/45c/0f</option><option value="Steamed vegetables, 1 serving">150 kcal, 6p/24c/2f</option><option value="Avocado, half">120 kcal, 2p/6c/11f</option><option value="Olive oil, 1 tbsp">120 kcal, 0p/0c/14f</option><option value="Almonds, 1 oz">164 kcal, 6p/6c/14f</option><option value="Beef jerky, 1 oz">90 kcal, 11p/6c/1f</option><option value="Kirkland protein bar">190 kcal, 21p/22c/7f</option><option value="Oatmeal packet">160 kcal, 6p/29c/3f</option><option value="Costco bagel, half">165 kcal, 6p/33c/1f</option><option value="Costco chicken bake, half">385 kcal, 23p/41c/13f</option><option value="Costco hot dog, no soda">570 kcal, 24p/46c/33f</option><option value="Air-fried tilapia, 5 oz">180 kcal, 36p/0c/3f</option><option value="Cod fillet, 6 oz">180 kcal, 39p/0c/2f</option><option value="Chicken breast, cooked 6 oz">280 kcal, 52p/0c/6f</option><option value="Lean ground beef, cooked 5 oz">300 kcal, 34p/0c/17f</option><option value="Pork tenderloin, 6 oz">270 kcal, 44p/0c/8f</option><option value="Turkey patty, 5 oz">250 kcal, 32p/0c/12f</option><option value="Firm tofu, 6 oz">220 kcal, 22p/6c/13f</option><option value="Edamame, 1 cup">190 kcal, 17p/14c/8f</option><option value="Cooked lentils, 1 cup">230 kcal, 18p/40c/1f</option><option value="Cooked beans, 1 cup">240 kcal, 15p/44c/1f</option><option value="Banana, medium">105 kcal, 1p/27c/0f</option><option value="Apple, medium">95 kcal, 1p/25c/0f</option><option value="Blueberries, 1 cup">85 kcal, 1p/21c/0f</option><option value="Strawberries, 1 cup">50 kcal, 1p/12c/0f</option><option value="Orange, medium">62 kcal, 1p/15c/0f</option><option value="Grapes, 1 cup">104 kcal, 1p/27c/0f</option><option value="Raw vegetable plate">150 kcal, 4p/30c/1f</option><option value="Cucumber, large">45 kcal, 2p/11c/0f</option><option value="Tomatoes, 2 medium">44 kcal, 2p/10c/0f</option><option value="Sauerkraut, 1 cup">27 kcal, 1p/6c/0f</option><option value="Boiled potatoes, 300 g">260 kcal, 6p/60c/0f</option><option value="Cooked rice, 1 cup">205 kcal, 4p/45c/0f</option><option value="Cooked buckwheat/kasha, 1 cup">155 kcal, 6p/33c/1f</option><option value="Oats, 50 g dry">190 kcal, 7p/32c/3f</option><option value="Rye bread, 2 slices">170 kcal, 6p/34c/2f</option><option value="Twarog chudy, 200 g">200 kcal, 38p/8c/1f</option><option value="Serek wiejski, 200 g">194 kcal, 22p/6c/10f</option><option value="Skyr naturalny, 150 g">100 kcal, 17p/6c/0f</option><option value="Jogurt grecki light, 200 g">150 kcal, 20p/8c/4f</option><option value="Kefir, 400 ml">220 kcal, 14p/20c/8f</option><option value="Maslanka, 400 ml">180 kcal, 13p/20c/5f</option><option value="Filet z kurczaka, 200 g cooked">330 kcal, 62p/0c/7f</option><option value="Filet z indyka, 200 g cooked">300 kcal, 58p/0c/5f</option><option value="Dorsz, 200 g">210 kcal, 46p/0c/2f</option><option value="Losos, 150 g">310 kcal, 30p/0c/20f</option><option value="Sledz, 100 g">250 kcal, 18p/3c/18f</option><option value="Tunczyk w sosie wlasnym, 1 can drained">150 kcal, 32p/0c/1f</option><option value="Szynka z indyka, 100 g">110 kcal, 20p/2c/2f</option><option value="Kielbasa, 100 g">300 kcal, 14p/3c/26f</option><option value="Parowki drobiowe, 100 g">230 kcal, 13p/4c/18f</option><option value="Pierogi ruskie, 6 pieces">420 kcal, 14p/70c/10f</option><option value="Pierogi z miesem, 6 pieces">440 kcal, 20p/58c/14f</option><option value="Zupa pomidorowa, bowl">180 kcal, 7p/25c/6f</option><option value="Rosol, bowl">160 kcal, 12p/15c/6f</option><option value="Zurek, bowl">320 kcal, 16p/28c/16f</option><option value="Bigos, 1 cup">300 kcal, 18p/18c/18f</option><option value="Golabek, 1 piece">260 kcal, 14p/28c/10f</option><option value="Kotlet schabowy, 1 cutlet">430 kcal, 32p/22c/24f</option><option value="Mizeria, 1 cup">120 kcal, 3p/9c/8f</option><option value="Salatka jarzynowa, 1 cup">300 kcal, 8p/25c/20f</option><option value="Zapiekanka, half">350 kcal, 14p/48c/12f</option><option value="Zabka chicken salad bowl">350 kcal, 25p/25c/16f</option><option value="Zabka chicken wrap">420 kcal, 24p/48c/15f</option><option value="Biedronka ready chicken and rice meal">520 kcal, 35p/58c/15f</option><option value="Lidl high-protein pudding">150 kcal, 20p/12c/3f</option><option value="Protein bar, Poland convenience store">220 kcal, 20p/22c/8f</option>
     </datalist>
     <div class="page">
       <div class="hero">
         <div class="eyebrow">Detailed daily plan</div>
         <h1>High-protein Costco meal week</h1>
         <p class="hero-copy">Weekdays: no solid breakfast, one shake, two high-protein meals, 2000-2500 kcal. Weekends: shake plus fruit and vegetables, intentionally fasting-adjacent.</p>
-        <div class="generated">Generated Sunday, May 10, 2026 at 10:02 PM</div>
+        <div class="generated">Generated Sunday, May 10, 2026 at 10:08 PM</div>
       </div>
       <img class="hero-image" src="https://images.unsplash.com/photo-1631901009402-0b6891d8c2ed?auto=format&fit=crop&w=1200&q=80" alt="Protein smoothie">
       <div class="content">
@@ -539,6 +514,9 @@
               <label class="extra-search-label">Add meal from database
                 <input type="text" list="extra-meal-options" data-extra-meal-search="Monday" placeholder="Search: twarog, Costco shrimp, kefir...">
               </label>
+              <label class="extra-custom-label">Name
+                <input type="text" data-extra-custom-name="Monday" placeholder="Custom meal">
+              </label>
               <label class="extra-picker-label">Grams
                 <input type="number" inputmode="numeric" min="0" max="5000" step="1" data-extra-pending-grams="Monday" placeholder="g">
               </label>
@@ -551,13 +529,6 @@
               <label>Fat g<input type="number" inputmode="numeric" min="0" step="1" data-extra-pending-day="Monday" data-extra-pending-key="fat" placeholder="0"></label>
             </div>
             <div class="extra-meal-list" data-extra-meal-list="Monday"></div>
-            <div class="manual-extra-title">Manual macro adjustment</div>
-            <div class="extra-grid">
-              <label>Calories<input type="number" inputmode="numeric" min="0" step="1" data-extra-day="Monday" data-extra-key="calories" placeholder="0"></label>
-              <label>Protein g<input type="number" inputmode="numeric" min="0" step="1" data-extra-day="Monday" data-extra-key="protein" placeholder="0"></label>
-              <label>Carbs g<input type="number" inputmode="numeric" min="0" step="1" data-extra-day="Monday" data-extra-key="carbs" placeholder="0"></label>
-              <label>Fat g<input type="number" inputmode="numeric" min="0" step="1" data-extra-day="Monday" data-extra-key="fat" placeholder="0"></label>
-            </div>
           </div>
           <div class="prep-note"><strong>Prep note:</strong> Boil eggs ahead. Pull rotisserie breast meat and portion 8 oz. Cook tilapia fresh or batch cook two portions.</div>
         </div>
@@ -606,6 +577,9 @@
               <label class="extra-search-label">Add meal from database
                 <input type="text" list="extra-meal-options" data-extra-meal-search="Tuesday" placeholder="Search: twarog, Costco shrimp, kefir...">
               </label>
+              <label class="extra-custom-label">Name
+                <input type="text" data-extra-custom-name="Tuesday" placeholder="Custom meal">
+              </label>
               <label class="extra-picker-label">Grams
                 <input type="number" inputmode="numeric" min="0" max="5000" step="1" data-extra-pending-grams="Tuesday" placeholder="g">
               </label>
@@ -618,13 +592,6 @@
               <label>Fat g<input type="number" inputmode="numeric" min="0" step="1" data-extra-pending-day="Tuesday" data-extra-pending-key="fat" placeholder="0"></label>
             </div>
             <div class="extra-meal-list" data-extra-meal-list="Tuesday"></div>
-            <div class="manual-extra-title">Manual macro adjustment</div>
-            <div class="extra-grid">
-              <label>Calories<input type="number" inputmode="numeric" min="0" step="1" data-extra-day="Tuesday" data-extra-key="calories" placeholder="0"></label>
-              <label>Protein g<input type="number" inputmode="numeric" min="0" step="1" data-extra-day="Tuesday" data-extra-key="protein" placeholder="0"></label>
-              <label>Carbs g<input type="number" inputmode="numeric" min="0" step="1" data-extra-day="Tuesday" data-extra-key="carbs" placeholder="0"></label>
-              <label>Fat g<input type="number" inputmode="numeric" min="0" step="1" data-extra-day="Tuesday" data-extra-key="fat" placeholder="0"></label>
-            </div>
           </div>
           <div class="prep-note"><strong>Prep note:</strong> Use Greek yogurt with lemon/garlic/hot sauce as sauce. Keep shrimp cold and assemble salad right before eating.</div>
         </div>
@@ -673,6 +640,9 @@
               <label class="extra-search-label">Add meal from database
                 <input type="text" list="extra-meal-options" data-extra-meal-search="Wednesday" placeholder="Search: twarog, Costco shrimp, kefir...">
               </label>
+              <label class="extra-custom-label">Name
+                <input type="text" data-extra-custom-name="Wednesday" placeholder="Custom meal">
+              </label>
               <label class="extra-picker-label">Grams
                 <input type="number" inputmode="numeric" min="0" max="5000" step="1" data-extra-pending-grams="Wednesday" placeholder="g">
               </label>
@@ -685,13 +655,6 @@
               <label>Fat g<input type="number" inputmode="numeric" min="0" step="1" data-extra-pending-day="Wednesday" data-extra-pending-key="fat" placeholder="0"></label>
             </div>
             <div class="extra-meal-list" data-extra-meal-list="Wednesday"></div>
-            <div class="manual-extra-title">Manual macro adjustment</div>
-            <div class="extra-grid">
-              <label>Calories<input type="number" inputmode="numeric" min="0" step="1" data-extra-day="Wednesday" data-extra-key="calories" placeholder="0"></label>
-              <label>Protein g<input type="number" inputmode="numeric" min="0" step="1" data-extra-day="Wednesday" data-extra-key="protein" placeholder="0"></label>
-              <label>Carbs g<input type="number" inputmode="numeric" min="0" step="1" data-extra-day="Wednesday" data-extra-key="carbs" placeholder="0"></label>
-              <label>Fat g<input type="number" inputmode="numeric" min="0" step="1" data-extra-day="Wednesday" data-extra-key="fat" placeholder="0"></label>
-            </div>
           </div>
           <div class="prep-note"><strong>Prep note:</strong> This is the convenience day. Air fry chicken from frozen if needed; use yogurt as dip instead of heavier sauces.</div>
         </div>
@@ -740,6 +703,9 @@
               <label class="extra-search-label">Add meal from database
                 <input type="text" list="extra-meal-options" data-extra-meal-search="Thursday" placeholder="Search: twarog, Costco shrimp, kefir...">
               </label>
+              <label class="extra-custom-label">Name
+                <input type="text" data-extra-custom-name="Thursday" placeholder="Custom meal">
+              </label>
               <label class="extra-picker-label">Grams
                 <input type="number" inputmode="numeric" min="0" max="5000" step="1" data-extra-pending-grams="Thursday" placeholder="g">
               </label>
@@ -752,13 +718,6 @@
               <label>Fat g<input type="number" inputmode="numeric" min="0" step="1" data-extra-pending-day="Thursday" data-extra-pending-key="fat" placeholder="0"></label>
             </div>
             <div class="extra-meal-list" data-extra-meal-list="Thursday"></div>
-            <div class="manual-extra-title">Manual macro adjustment</div>
-            <div class="extra-grid">
-              <label>Calories<input type="number" inputmode="numeric" min="0" step="1" data-extra-day="Thursday" data-extra-key="calories" placeholder="0"></label>
-              <label>Protein g<input type="number" inputmode="numeric" min="0" step="1" data-extra-day="Thursday" data-extra-key="protein" placeholder="0"></label>
-              <label>Carbs g<input type="number" inputmode="numeric" min="0" step="1" data-extra-day="Thursday" data-extra-key="carbs" placeholder="0"></label>
-              <label>Fat g<input type="number" inputmode="numeric" min="0" step="1" data-extra-day="Thursday" data-extra-key="fat" placeholder="0"></label>
-            </div>
           </div>
           <div class="prep-note"><strong>Prep note:</strong> Repeat the higher-variety meals so the plan does not feel like tilapia/chicken every day.</div>
         </div>
@@ -807,6 +766,9 @@
               <label class="extra-search-label">Add meal from database
                 <input type="text" list="extra-meal-options" data-extra-meal-search="Friday" placeholder="Search: twarog, Costco shrimp, kefir...">
               </label>
+              <label class="extra-custom-label">Name
+                <input type="text" data-extra-custom-name="Friday" placeholder="Custom meal">
+              </label>
               <label class="extra-picker-label">Grams
                 <input type="number" inputmode="numeric" min="0" max="5000" step="1" data-extra-pending-grams="Friday" placeholder="g">
               </label>
@@ -819,13 +781,6 @@
               <label>Fat g<input type="number" inputmode="numeric" min="0" step="1" data-extra-pending-day="Friday" data-extra-pending-key="fat" placeholder="0"></label>
             </div>
             <div class="extra-meal-list" data-extra-meal-list="Friday"></div>
-            <div class="manual-extra-title">Manual macro adjustment</div>
-            <div class="extra-grid">
-              <label>Calories<input type="number" inputmode="numeric" min="0" step="1" data-extra-day="Friday" data-extra-key="calories" placeholder="0"></label>
-              <label>Protein g<input type="number" inputmode="numeric" min="0" step="1" data-extra-day="Friday" data-extra-key="protein" placeholder="0"></label>
-              <label>Carbs g<input type="number" inputmode="numeric" min="0" step="1" data-extra-day="Friday" data-extra-key="carbs" placeholder="0"></label>
-              <label>Fat g<input type="number" inputmode="numeric" min="0" step="1" data-extra-day="Friday" data-extra-key="fat" placeholder="0"></label>
-            </div>
           </div>
           <div class="prep-note"><strong>Prep note:</strong> End-of-week low effort: rotisserie chicken plus freezer chicken. Watch sodium and keep water intake high.</div>
         </div>
@@ -874,6 +829,9 @@
               <label class="extra-search-label">Add meal from database
                 <input type="text" list="extra-meal-options" data-extra-meal-search="Saturday" placeholder="Search: twarog, Costco shrimp, kefir...">
               </label>
+              <label class="extra-custom-label">Name
+                <input type="text" data-extra-custom-name="Saturday" placeholder="Custom meal">
+              </label>
               <label class="extra-picker-label">Grams
                 <input type="number" inputmode="numeric" min="0" max="5000" step="1" data-extra-pending-grams="Saturday" placeholder="g">
               </label>
@@ -886,13 +844,6 @@
               <label>Fat g<input type="number" inputmode="numeric" min="0" step="1" data-extra-pending-day="Saturday" data-extra-pending-key="fat" placeholder="0"></label>
             </div>
             <div class="extra-meal-list" data-extra-meal-list="Saturday"></div>
-            <div class="manual-extra-title">Manual macro adjustment</div>
-            <div class="extra-grid">
-              <label>Calories<input type="number" inputmode="numeric" min="0" step="1" data-extra-day="Saturday" data-extra-key="calories" placeholder="0"></label>
-              <label>Protein g<input type="number" inputmode="numeric" min="0" step="1" data-extra-day="Saturday" data-extra-key="protein" placeholder="0"></label>
-              <label>Carbs g<input type="number" inputmode="numeric" min="0" step="1" data-extra-day="Saturday" data-extra-key="carbs" placeholder="0"></label>
-              <label>Fat g<input type="number" inputmode="numeric" min="0" step="1" data-extra-day="Saturday" data-extra-key="fat" placeholder="0"></label>
-            </div>
           </div>
           <div class="prep-note"><strong>Prep note:</strong> This is intentionally fasting-adjacent. Do not force weekday calories unless energy, sleep, or adherence suffers.</div>
         </div>
@@ -941,6 +892,9 @@
               <label class="extra-search-label">Add meal from database
                 <input type="text" list="extra-meal-options" data-extra-meal-search="Sunday" placeholder="Search: twarog, Costco shrimp, kefir...">
               </label>
+              <label class="extra-custom-label">Name
+                <input type="text" data-extra-custom-name="Sunday" placeholder="Custom meal">
+              </label>
               <label class="extra-picker-label">Grams
                 <input type="number" inputmode="numeric" min="0" max="5000" step="1" data-extra-pending-grams="Sunday" placeholder="g">
               </label>
@@ -953,13 +907,6 @@
               <label>Fat g<input type="number" inputmode="numeric" min="0" step="1" data-extra-pending-day="Sunday" data-extra-pending-key="fat" placeholder="0"></label>
             </div>
             <div class="extra-meal-list" data-extra-meal-list="Sunday"></div>
-            <div class="manual-extra-title">Manual macro adjustment</div>
-            <div class="extra-grid">
-              <label>Calories<input type="number" inputmode="numeric" min="0" step="1" data-extra-day="Sunday" data-extra-key="calories" placeholder="0"></label>
-              <label>Protein g<input type="number" inputmode="numeric" min="0" step="1" data-extra-day="Sunday" data-extra-key="protein" placeholder="0"></label>
-              <label>Carbs g<input type="number" inputmode="numeric" min="0" step="1" data-extra-day="Sunday" data-extra-key="carbs" placeholder="0"></label>
-              <label>Fat g<input type="number" inputmode="numeric" min="0" step="1" data-extra-day="Sunday" data-extra-key="fat" placeholder="0"></label>
-            </div>
           </div>
           <div class="prep-note"><strong>Prep note:</strong> Same low-intake pattern. If hunger is distracting, add another fruit serving or half shake rather than a full meal.</div>
         </div>
@@ -1129,7 +1076,6 @@
       const CONSUMPTION_LOCAL_KEY = "weeklyMealPlanConsumptionState";
       const inputs = [...document.querySelectorAll("[data-shopping-item]")];
       const mealInputs = [...document.querySelectorAll("[data-meal-id]")];
-      const extraInputs = [...document.querySelectorAll("[data-extra-day]")];
       const extraMealSearchInputs = [...document.querySelectorAll("[data-extra-meal-search]")];
       const extraMealAddButtons = [...document.querySelectorAll("[data-add-extra-meal]")];
       const pendingGramInputs = [...document.querySelectorAll("[data-extra-pending-grams]")];
@@ -1215,13 +1161,7 @@
       }
 
       function extraState() {
-        const extras = {};
-        for (const day of dayNames) extras[day] = { calories: 0, protein: 0, carbs: 0, fat: 0 };
-        for (const input of extraInputs) {
-          const value = Number(input.value || 0);
-          extras[input.dataset.extraDay][input.dataset.extraKey] = Number.isFinite(value) && value > 0 ? Math.round(value) : 0;
-        }
-        return extras;
+        return Object.fromEntries(dayNames.map(day => [day, { calories: 0, protein: 0, carbs: 0, fat: 0 }]));
       }
 
       function cleanExtraMeal(meal) {
@@ -1259,6 +1199,7 @@
       function findExtraMeal(query) {
         const needle = String(query || "").trim().toLowerCase();
         if (!needle) return null;
+        if (needle === "!new meal") return { id: "custom", label: "!NEW MEAL", calories: 0, protein: 0, carbs: 0, fat: 0, serving_grams: 100, tags: "custom manual new meal" };
         if (mealByLabel.has(needle)) return mealByLabel.get(needle);
         return EXTRA_MEAL_DATABASE.find(meal => {
           const haystack = `${meal.label} ${meal.tags || ""}`.toLowerCase();
@@ -1274,11 +1215,20 @@
         return document.querySelector(`[data-extra-pending-day="${day}"][data-extra-pending-key="${key}"]`);
       }
 
+      function customNameInput(day) {
+        return document.querySelector(`[data-extra-custom-name="${day}"]`);
+      }
+
       function setPendingMeal(day, meal, keepExistingGrams = false) {
         const gramsInput = pendingGramsInput(day);
         const grams = keepExistingGrams && gramsInput && gramsInput.value ? gramsInput.value : meal.serving_grams;
         const scaled = cleanExtraMeal({ ...meal, grams });
         if (gramsInput) gramsInput.value = scaled.grams || "";
+        const customInput = customNameInput(day);
+        if (customInput) {
+          customInput.value = meal.id === "custom" ? "" : meal.label;
+          customInput.disabled = meal.id !== "custom";
+        }
         for (const key of ["calories", "protein", "carbs", "fat"]) {
           const input = pendingMacroInput(day, key);
           if (input) input.value = scaled[key] || "";
@@ -1288,6 +1238,11 @@
       function clearPendingMeal(day) {
         const gramsInput = pendingGramsInput(day);
         if (gramsInput) gramsInput.value = "";
+        const customInput = customNameInput(day);
+        if (customInput) {
+          customInput.value = "";
+          customInput.disabled = false;
+        }
         for (const key of ["calories", "protein", "carbs", "fat"]) {
           const input = pendingMacroInput(day, key);
           if (input) input.value = "";
@@ -1300,16 +1255,22 @@
         if (!meal) return null;
         const gramsInput = pendingGramsInput(day);
         const selected = cleanExtraMeal({ ...meal, grams: gramsInput ? gramsInput.value : meal.serving_grams });
-        for (const key of ["calories", "protein", "carbs", "fat"]) {
+        const customInput = customNameInput(day);
+        if (meal.id === "custom") {
+          const label = customInput && customInput.value.trim() ? customInput.value.trim() : "Custom meal";
+          selected.id = "custom_" + Date.now();
+          selected.label = label;
+        }
+        const macroKeys = ["calories", "protein", "carbs", "fat"];
+        for (const key of macroKeys) {
           const input = pendingMacroInput(day, key);
           const value = Number(input ? input.value : selected[key]);
           selected[key] = Number.isFinite(value) && value >= 0 ? Math.round(value) : selected[key];
         }
         const ratio = selected.grams > 0 ? selected.serving_grams / selected.grams : 1;
-        selected.base_calories = Math.round(selected.calories * ratio);
-        selected.base_protein = Math.round(selected.protein * ratio);
-        selected.base_carbs = Math.round(selected.carbs * ratio);
-        selected.base_fat = Math.round(selected.fat * ratio);
+        for (const key of macroKeys) {
+          selected["base_" + key] = Math.round(selected[key] * ratio);
+        }
         return selected;
       }
 
@@ -1362,11 +1323,7 @@
       }
 
       function setExtras(extras) {
-        const byDay = extras || {};
-        extraInputs.forEach(input => {
-          const value = ((byDay[input.dataset.extraDay] || {})[input.dataset.extraKey]) || "";
-          input.value = value || "";
-        });
+        return extras;
       }
 
       function localConsumptionState() {
@@ -1482,7 +1439,6 @@
       }
 
       mealInputs.forEach(input => input.addEventListener("change", writeConsumptionLocal));
-      extraInputs.forEach(input => input.addEventListener("input", writeConsumptionLocal));
       extraMealAddButtons.forEach(button => button.addEventListener("click", () => addExtraMeal(button.dataset.addExtraMeal)));
       extraMealSearchInputs.forEach(input => input.addEventListener("input", () => {
         const meal = findExtraMeal(input.value);
