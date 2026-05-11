@@ -1,0 +1,61 @@
+name: Update shopping state
+
+on:
+  issues:
+    types: [opened, edited]
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  update-shopping-state:
+    if: startsWith(github.event.issue.title, '[shopping-state]') && github.event.issue.user.login == github.repository_owner
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Extract shopping state
+        env:
+          ISSUE_BODY: ${{ github.event.issue.body }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          import re
+          from pathlib import Path
+
+          body = os.environ.get("ISSUE_BODY", "")
+          match = re.search(r"```json\s*(\{.*?\})\s*```", body, re.S)
+          if not match:
+              raise SystemExit("No fenced JSON payload found")
+          payload = json.loads(match.group(1))
+          checked = payload.get("checked", [])
+          items = payload.get("items", [])
+          if not isinstance(checked, list) or not isinstance(items, list):
+              raise SystemExit("Invalid shopping state payload")
+          item_set = set(items)
+          cleaned = {
+              "checked": [item for item in checked if item in item_set],
+              "items": items,
+              "updated_at": payload.get("updated_at", ""),
+              "source": "github-issue-action",
+          }
+          Path("shopping-state.json").write_text(json.dumps(cleaned, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+          PY
+      - name: Commit shopping state
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add shopping-state.json
+          if git diff --cached --quiet; then
+            echo "No shopping-state changes"
+          else
+            git commit -m "Update shopping state"
+            git push
+          fi
+      - name: Close issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh issue comment "${{ github.event.issue.number }}" --body "Shopping state saved to shopping-state.json."
+          gh issue close "${{ github.event.issue.number }}"

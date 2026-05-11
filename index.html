@@ -120,12 +120,71 @@
       }
       .shopping ul {
         columns: 1;
+        list-style: none;
         margin: 0;
-        padding-left: 21px;
+        padding-left: 0;
       }
       .shopping li {
         break-inside: avoid;
         margin-bottom: 7px;
+      }
+      .shopping-item {
+        align-items: flex-start;
+        display: flex;
+        gap: 10px;
+        line-height: 1.35;
+        padding: 6px 0;
+      }
+      .shopping-item input {
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+      }
+      .radio-mark {
+        border: 2px solid #5f7d6f;
+        border-radius: 999px;
+        flex: 0 0 auto;
+        height: 22px;
+        margin-top: 1px;
+        width: 22px;
+      }
+      .shopping-item input:checked + .radio-mark {
+        background: radial-gradient(circle at center, #286047 0 42%, transparent 45%);
+        border-color: #286047;
+      }
+      .shopping-item input:focus-visible + .radio-mark {
+        outline: 3px solid #9fc6b5;
+        outline-offset: 2px;
+      }
+      .shopping-item input:checked ~ .shopping-text {
+        color: #789083;
+        text-decoration: line-through;
+        text-decoration-thickness: 2px;
+      }
+      .shopping-actions {
+        border-top: 1px solid #d8e6dc;
+        margin-top: 14px;
+        padding-top: 14px;
+      }
+      .shopping-status {
+        color: #536b60;
+        font-size: 14px;
+        line-height: 1.4;
+        margin-bottom: 10px;
+      }
+      .save-button {
+        background: #14382d;
+        border-radius: 8px;
+        color: #ffffff;
+        display: inline-block;
+        font-size: 15px;
+        font-weight: 800;
+        padding: 10px 13px;
+        text-decoration: none;
+      }
+      .save-button[aria-disabled="true"] {
+        background: #9dafaa;
+        pointer-events: none;
       }
       .disclaimer {
         color: #697b72;
@@ -163,7 +222,7 @@
         <div class="eyebrow">Detailed daily plan</div>
         <h1>High-protein Costco meal week</h1>
         <p class="hero-copy">Weekdays: no solid breakfast, one shake, two high-protein meals, 2000-2500 kcal. Weekends: shake plus fruit and vegetables, intentionally fasting-adjacent.</p>
-        <div class="generated">Generated Sunday, May 10, 2026 at 5:20 PM</div>
+        <div class="generated">Generated Sunday, May 10, 2026 at 8:41 PM</div>
       </div>
       <img class="hero-image" src="https://images.unsplash.com/photo-1631901009402-0b6891d8c2ed?auto=format&fit=crop&w=1200&q=80" alt="Protein smoothie">
       <div class="content">
@@ -261,12 +320,214 @@
       </article>
         <div class="shopping">
           <div class="shopping-title">Costco shopping list</div>
-          <ul><li>5 cups blueberries</li><li>7 scoops Levels whey protein</li><li>5 x 12 oz 2% milk</li><li>2 cups plain kefir x 2</li><li>2 rotisserie chicken breast portions, 8 oz each</li><li>4 half Caesar salad kits, light dressing/no croutons</li><li>8 boiled eggs</li><li>2 x 10 oz cooked tilapia portions</li><li>4 cups cooked rice</li><li>6 steamed vegetable servings</li><li>4 Kirkland lightly breaded chicken fillets</li><li>4 cups plain nonfat Greek yogurt</li><li>2 packs/servings Costco chicken skewers</li><li>2 x 8 oz cooked shrimp</li><li>6 avocado halves</li><li>2 raw vegetable plates</li><li>6 fruit servings</li><li>2 tbsp olive oil</li></ul>
+          <ul>
+            <li>
+              <label class="shopping-item">
+                <input type="checkbox" data-shopping-item="5 cups blueberries">
+                <span class="radio-mark"></span>
+                <span class="shopping-text">5 cups blueberries</span>
+              </label>
+            </li>
+            <li>
+              <label class="shopping-item">
+                <input type="checkbox" data-shopping-item="7 scoops Levels whey protein">
+                <span class="radio-mark"></span>
+                <span class="shopping-text">7 scoops Levels whey protein</span>
+              </label>
+            </li>
+            <li>
+              <label class="shopping-item">
+                <input type="checkbox" data-shopping-item="5 x 12 oz 2% milk">
+                <span class="radio-mark"></span>
+                <span class="shopping-text">5 x 12 oz 2% milk</span>
+              </label>
+            </li>
+            <li>
+              <label class="shopping-item">
+                <input type="checkbox" data-shopping-item="2 cups plain kefir x 2">
+                <span class="radio-mark"></span>
+                <span class="shopping-text">2 cups plain kefir x 2</span>
+              </label>
+            </li>
+            <li>
+              <label class="shopping-item">
+                <input type="checkbox" data-shopping-item="2 rotisserie chicken breast portions, 8 oz each">
+                <span class="radio-mark"></span>
+                <span class="shopping-text">2 rotisserie chicken breast portions, 8 oz each</span>
+              </label>
+            </li>
+            <li>
+              <label class="shopping-item">
+                <input type="checkbox" data-shopping-item="4 half Caesar salad kits, light dressing/no croutons">
+                <span class="radio-mark"></span>
+                <span class="shopping-text">4 half Caesar salad kits, light dressing/no croutons</span>
+              </label>
+            </li>
+            <li>
+              <label class="shopping-item">
+                <input type="checkbox" data-shopping-item="8 boiled eggs">
+                <span class="radio-mark"></span>
+                <span class="shopping-text">8 boiled eggs</span>
+              </label>
+            </li>
+            <li>
+              <label class="shopping-item">
+                <input type="checkbox" data-shopping-item="2 x 10 oz cooked tilapia portions">
+                <span class="radio-mark"></span>
+                <span class="shopping-text">2 x 10 oz cooked tilapia portions</span>
+              </label>
+            </li>
+            <li>
+              <label class="shopping-item">
+                <input type="checkbox" data-shopping-item="4 cups cooked rice">
+                <span class="radio-mark"></span>
+                <span class="shopping-text">4 cups cooked rice</span>
+              </label>
+            </li>
+            <li>
+              <label class="shopping-item">
+                <input type="checkbox" data-shopping-item="6 steamed vegetable servings">
+                <span class="radio-mark"></span>
+                <span class="shopping-text">6 steamed vegetable servings</span>
+              </label>
+            </li>
+            <li>
+              <label class="shopping-item">
+                <input type="checkbox" data-shopping-item="4 Kirkland lightly breaded chicken fillets">
+                <span class="radio-mark"></span>
+                <span class="shopping-text">4 Kirkland lightly breaded chicken fillets</span>
+              </label>
+            </li>
+            <li>
+              <label class="shopping-item">
+                <input type="checkbox" data-shopping-item="4 cups plain nonfat Greek yogurt">
+                <span class="radio-mark"></span>
+                <span class="shopping-text">4 cups plain nonfat Greek yogurt</span>
+              </label>
+            </li>
+            <li>
+              <label class="shopping-item">
+                <input type="checkbox" data-shopping-item="2 packs/servings Costco chicken skewers">
+                <span class="radio-mark"></span>
+                <span class="shopping-text">2 packs/servings Costco chicken skewers</span>
+              </label>
+            </li>
+            <li>
+              <label class="shopping-item">
+                <input type="checkbox" data-shopping-item="2 x 8 oz cooked shrimp">
+                <span class="radio-mark"></span>
+                <span class="shopping-text">2 x 8 oz cooked shrimp</span>
+              </label>
+            </li>
+            <li>
+              <label class="shopping-item">
+                <input type="checkbox" data-shopping-item="6 avocado halves">
+                <span class="radio-mark"></span>
+                <span class="shopping-text">6 avocado halves</span>
+              </label>
+            </li>
+            <li>
+              <label class="shopping-item">
+                <input type="checkbox" data-shopping-item="2 raw vegetable plates">
+                <span class="radio-mark"></span>
+                <span class="shopping-text">2 raw vegetable plates</span>
+              </label>
+            </li>
+            <li>
+              <label class="shopping-item">
+                <input type="checkbox" data-shopping-item="6 fruit servings">
+                <span class="radio-mark"></span>
+                <span class="shopping-text">6 fruit servings</span>
+              </label>
+            </li>
+            <li>
+              <label class="shopping-item">
+                <input type="checkbox" data-shopping-item="2 tbsp olive oil">
+                <span class="radio-mark"></span>
+                <span class="shopping-text">2 tbsp olive oil</span>
+              </label>
+            </li></ul>
+          <div class="shopping-actions">
+            <div id="shopping-status" class="shopping-status">Loading saved shopping state...</div>
+            <a id="save-shopping" class="save-button" href="#" aria-disabled="true">Save crossed-off list to GitHub</a>
+          </div>
         </div>
         <div class="disclaimer">
           Practical meal planning only, not medical advice. Nutrition estimates should be checked against actual Costco/package labels. Photos are visual inspiration, not exact plated recipes.
         </div>
       </div>
     </div>
+    <script>
+      const SHOPPING_ITEMS = ["5 cups blueberries", "7 scoops Levels whey protein", "5 x 12 oz 2% milk", "2 cups plain kefir x 2", "2 rotisserie chicken breast portions, 8 oz each", "4 half Caesar salad kits, light dressing/no croutons", "8 boiled eggs", "2 x 10 oz cooked tilapia portions", "4 cups cooked rice", "6 steamed vegetable servings", "4 Kirkland lightly breaded chicken fillets", "4 cups plain nonfat Greek yogurt", "2 packs/servings Costco chicken skewers", "2 x 8 oz cooked shrimp", "6 avocado halves", "2 raw vegetable plates", "6 fruit servings", "2 tbsp olive oil"];
+      const STATE_URL = "shopping-state.json";
+      const ISSUE_URL = "https://github.com/mkoltsov/weekly-meal-plan/issues/new";
+      const LOCAL_KEY = "weeklyMealPlanShoppingState";
+      const inputs = [...document.querySelectorAll("[data-shopping-item]")];
+      const statusEl = document.getElementById("shopping-status");
+      const saveEl = document.getElementById("save-shopping");
+
+      function checkedItems() {
+        return inputs.filter(input => input.checked).map(input => input.dataset.shoppingItem);
+      }
+
+      function setChecked(items) {
+        const checked = new Set(items || []);
+        inputs.forEach(input => input.checked = checked.has(input.dataset.shoppingItem));
+      }
+
+      function localState() {
+        try {
+          return JSON.parse(localStorage.getItem(LOCAL_KEY) || "{}");
+        } catch {
+          return {};
+        }
+      }
+
+      function writeLocal() {
+        const payload = { checked: checkedItems(), updated_at: new Date().toISOString() };
+        localStorage.setItem(LOCAL_KEY, JSON.stringify(payload));
+        updateSaveLink();
+      }
+
+      function updateSaveLink() {
+        const checked = checkedItems();
+        const payload = {
+          checked,
+          items: SHOPPING_ITEMS,
+          updated_at: new Date().toISOString(),
+          source: "github-pages"
+        };
+        const body = [
+          "Update shopping-state.json from the weekly meal-plan page.",
+          "",
+          "```json",
+          JSON.stringify(payload, null, 2),
+          "```"
+        ].join("\n");
+        const params = new URLSearchParams({
+          title: "[shopping-state] update",
+          body
+        });
+        saveEl.href = ISSUE_URL + "?" + params.toString();
+        saveEl.setAttribute("aria-disabled", "false");
+        statusEl.textContent = `${checked.length} of ${SHOPPING_ITEMS.length} crossed off. Changes are saved on this phone; tap the button to commit them to GitHub.`;
+      }
+
+      async function loadState() {
+        let remote = {};
+        try {
+          const response = await fetch(STATE_URL, { cache: "no-store" });
+          if (response.ok) remote = await response.json();
+        } catch {}
+        const local = localState();
+        const remoteTime = Date.parse(remote.updated_at || 0);
+        const localTime = Date.parse(local.updated_at || 0);
+        setChecked(localTime > remoteTime ? local.checked : remote.checked);
+        updateSaveLink();
+      }
+
+      inputs.forEach(input => input.addEventListener("change", writeLocal));
+      loadState();
+    </script>
   </body>
 </html>
