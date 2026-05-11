@@ -1,5 +1,24 @@
 {
-  "checked": [],
+  "checked": [
+    "5 cups blueberries",
+    "7 scoops Levels whey protein",
+    "5 x 12 oz 2% milk",
+    "2 cups plain kefir x 2",
+    "2 rotisserie chicken breast portions, 8 oz each",
+    "4 half Caesar salad kits, light dressing/no croutons",
+    "8 boiled eggs",
+    "2 x 10 oz cooked tilapia portions",
+    "4 cups cooked rice",
+    "6 steamed vegetable servings",
+    "4 Kirkland lightly breaded chicken fillets",
+    "4 cups plain nonfat Greek yogurt",
+    "2 packs/servings Costco chicken skewers",
+    "2 x 8 oz cooked shrimp",
+    "6 avocado halves",
+    "2 raw vegetable plates",
+    "6 fruit servings",
+    "2 tbsp olive oil"
+  ],
   "items": [
     "5 cups blueberries",
     "7 scoops Levels whey protein",
@@ -20,6 +39,6 @@
     "6 fruit servings",
     "2 tbsp olive oil"
   ],
-  "source": "initial",
-  "updated_at": ""
+  "source": "github-issue-action",
+  "updated_at": "2026-05-11T00:43:50.441Z"
 }
