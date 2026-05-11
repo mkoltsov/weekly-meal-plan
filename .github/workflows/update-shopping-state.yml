@@ -48,8 +48,9 @@ jobs:
           elif title.startswith("[consumption-state]"):
               consumed = payload.get("consumed", {})
               extras = payload.get("extras", {})
+              extra_meals = payload.get("extra_meals", {})
               meal_macros = payload.get("meal_macros", {})
-              if not isinstance(consumed, dict) or not isinstance(extras, dict) or not isinstance(meal_macros, dict):
+              if not isinstance(consumed, dict) or not isinstance(extras, dict) or not isinstance(extra_meals, dict) or not isinstance(meal_macros, dict):
                   raise SystemExit("Invalid consumption state payload")
 
               cleaned_consumed = {}
@@ -69,9 +70,32 @@ jobs:
                           value = 0
                       cleaned_extras[day][key] = max(0, min(value, 10000))
 
+              cleaned_extra_meals = {}
+              for day, meals in extra_meals.items():
+                  if not isinstance(meals, list):
+                      continue
+                  cleaned_extra_meals[day] = []
+                  for meal in meals[:30]:
+                      if not isinstance(meal, dict):
+                          continue
+                      cleaned_meal = {
+                          "id": str(meal.get("id", ""))[:80],
+                          "label": str(meal.get("label", ""))[:160],
+                      }
+                      if not cleaned_meal["label"]:
+                          continue
+                      for key in ("calories", "protein", "carbs", "fat"):
+                          try:
+                              value = int(round(float(meal.get(key, 0) or 0)))
+                          except Exception:
+                              value = 0
+                          cleaned_meal[key] = max(0, min(value, 10000))
+                      cleaned_extra_meals[day].append(cleaned_meal)
+
               cleaned = {
                   "consumed": cleaned_consumed,
                   "extras": cleaned_extras,
+                  "extra_meals": cleaned_extra_meals,
                   "meal_macros": meal_macros,
                   "updated_at": payload.get("updated_at", ""),
                   "source": "github-issue-action",
