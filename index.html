@@ -174,10 +174,12 @@
         align-items: end;
         display: grid;
         gap: 8px;
-        grid-template-columns: 1fr 46px;
+        grid-template-columns: 1fr 82px 46px;
         margin-bottom: 9px;
       }
       .extra-search-label,
+      .extra-picker-label,
+      .extra-picked-grid label,
       .manual-extra-title {
         color: #526b60;
         display: block;
@@ -187,7 +189,9 @@
       .manual-extra-title {
         margin: 10px 0 6px;
       }
-      .extra-search-label input {
+      .extra-search-label input,
+      .extra-picker-label input,
+      .extra-picked-grid input {
         border: 1px solid #c9d8cf;
         border-radius: 8px;
         color: #213b31;
@@ -197,6 +201,12 @@
         min-height: 42px;
         padding: 8px 9px;
         width: 100%;
+      }
+      .extra-picked-grid {
+        display: grid;
+        gap: 8px;
+        grid-template-columns: 1fr 1fr;
+        margin-bottom: 9px;
       }
       .extra-add-button {
         background: #286047;
@@ -287,6 +297,8 @@
       }
       .extra-grid input:focus,
       .extra-grams-input:focus,
+      .extra-picker-label input:focus,
+      .extra-picked-grid input:focus,
       .extra-search-label input:focus {
         border-color: #286047;
         outline: 3px solid #d1e4dc;
@@ -478,7 +490,7 @@
         <div class="eyebrow">Detailed daily plan</div>
         <h1>High-protein Costco meal week</h1>
         <p class="hero-copy">Weekdays: no solid breakfast, one shake, two high-protein meals, 2000-2500 kcal. Weekends: shake plus fruit and vegetables, intentionally fasting-adjacent.</p>
-        <div class="generated">Generated Sunday, May 10, 2026 at 9:58 PM</div>
+        <div class="generated">Generated Sunday, May 10, 2026 at 10:02 PM</div>
       </div>
       <img class="hero-image" src="https://images.unsplash.com/photo-1631901009402-0b6891d8c2ed?auto=format&fit=crop&w=1200&q=80" alt="Protein smoothie">
       <div class="content">
@@ -527,7 +539,16 @@
               <label class="extra-search-label">Add meal from database
                 <input type="text" list="extra-meal-options" data-extra-meal-search="Monday" placeholder="Search: twarog, Costco shrimp, kefir...">
               </label>
+              <label class="extra-picker-label">Grams
+                <input type="number" inputmode="numeric" min="0" max="5000" step="1" data-extra-pending-grams="Monday" placeholder="g">
+              </label>
               <button class="extra-add-button" type="button" data-add-extra-meal="Monday" aria-label="Add selected meal">+</button>
+            </div>
+            <div class="extra-picked-grid">
+              <label>Calories<input type="number" inputmode="numeric" min="0" step="1" data-extra-pending-day="Monday" data-extra-pending-key="calories" placeholder="0"></label>
+              <label>Protein g<input type="number" inputmode="numeric" min="0" step="1" data-extra-pending-day="Monday" data-extra-pending-key="protein" placeholder="0"></label>
+              <label>Carbs g<input type="number" inputmode="numeric" min="0" step="1" data-extra-pending-day="Monday" data-extra-pending-key="carbs" placeholder="0"></label>
+              <label>Fat g<input type="number" inputmode="numeric" min="0" step="1" data-extra-pending-day="Monday" data-extra-pending-key="fat" placeholder="0"></label>
             </div>
             <div class="extra-meal-list" data-extra-meal-list="Monday"></div>
             <div class="manual-extra-title">Manual macro adjustment</div>
@@ -585,7 +606,16 @@
               <label class="extra-search-label">Add meal from database
                 <input type="text" list="extra-meal-options" data-extra-meal-search="Tuesday" placeholder="Search: twarog, Costco shrimp, kefir...">
               </label>
+              <label class="extra-picker-label">Grams
+                <input type="number" inputmode="numeric" min="0" max="5000" step="1" data-extra-pending-grams="Tuesday" placeholder="g">
+              </label>
               <button class="extra-add-button" type="button" data-add-extra-meal="Tuesday" aria-label="Add selected meal">+</button>
+            </div>
+            <div class="extra-picked-grid">
+              <label>Calories<input type="number" inputmode="numeric" min="0" step="1" data-extra-pending-day="Tuesday" data-extra-pending-key="calories" placeholder="0"></label>
+              <label>Protein g<input type="number" inputmode="numeric" min="0" step="1" data-extra-pending-day="Tuesday" data-extra-pending-key="protein" placeholder="0"></label>
+              <label>Carbs g<input type="number" inputmode="numeric" min="0" step="1" data-extra-pending-day="Tuesday" data-extra-pending-key="carbs" placeholder="0"></label>
+              <label>Fat g<input type="number" inputmode="numeric" min="0" step="1" data-extra-pending-day="Tuesday" data-extra-pending-key="fat" placeholder="0"></label>
             </div>
             <div class="extra-meal-list" data-extra-meal-list="Tuesday"></div>
             <div class="manual-extra-title">Manual macro adjustment</div>
@@ -643,7 +673,16 @@
               <label class="extra-search-label">Add meal from database
                 <input type="text" list="extra-meal-options" data-extra-meal-search="Wednesday" placeholder="Search: twarog, Costco shrimp, kefir...">
               </label>
+              <label class="extra-picker-label">Grams
+                <input type="number" inputmode="numeric" min="0" max="5000" step="1" data-extra-pending-grams="Wednesday" placeholder="g">
+              </label>
               <button class="extra-add-button" type="button" data-add-extra-meal="Wednesday" aria-label="Add selected meal">+</button>
+            </div>
+            <div class="extra-picked-grid">
+              <label>Calories<input type="number" inputmode="numeric" min="0" step="1" data-extra-pending-day="Wednesday" data-extra-pending-key="calories" placeholder="0"></label>
+              <label>Protein g<input type="number" inputmode="numeric" min="0" step="1" data-extra-pending-day="Wednesday" data-extra-pending-key="protein" placeholder="0"></label>
+              <label>Carbs g<input type="number" inputmode="numeric" min="0" step="1" data-extra-pending-day="Wednesday" data-extra-pending-key="carbs" placeholder="0"></label>
+              <label>Fat g<input type="number" inputmode="numeric" min="0" step="1" data-extra-pending-day="Wednesday" data-extra-pending-key="fat" placeholder="0"></label>
             </div>
             <div class="extra-meal-list" data-extra-meal-list="Wednesday"></div>
             <div class="manual-extra-title">Manual macro adjustment</div>
@@ -701,7 +740,16 @@
               <label class="extra-search-label">Add meal from database
                 <input type="text" list="extra-meal-options" data-extra-meal-search="Thursday" placeholder="Search: twarog, Costco shrimp, kefir...">
               </label>
+              <label class="extra-picker-label">Grams
+                <input type="number" inputmode="numeric" min="0" max="5000" step="1" data-extra-pending-grams="Thursday" placeholder="g">
+              </label>
               <button class="extra-add-button" type="button" data-add-extra-meal="Thursday" aria-label="Add selected meal">+</button>
+            </div>
+            <div class="extra-picked-grid">
+              <label>Calories<input type="number" inputmode="numeric" min="0" step="1" data-extra-pending-day="Thursday" data-extra-pending-key="calories" placeholder="0"></label>
+              <label>Protein g<input type="number" inputmode="numeric" min="0" step="1" data-extra-pending-day="Thursday" data-extra-pending-key="protein" placeholder="0"></label>
+              <label>Carbs g<input type="number" inputmode="numeric" min="0" step="1" data-extra-pending-day="Thursday" data-extra-pending-key="carbs" placeholder="0"></label>
+              <label>Fat g<input type="number" inputmode="numeric" min="0" step="1" data-extra-pending-day="Thursday" data-extra-pending-key="fat" placeholder="0"></label>
             </div>
             <div class="extra-meal-list" data-extra-meal-list="Thursday"></div>
             <div class="manual-extra-title">Manual macro adjustment</div>
@@ -759,7 +807,16 @@
               <label class="extra-search-label">Add meal from database
                 <input type="text" list="extra-meal-options" data-extra-meal-search="Friday" placeholder="Search: twarog, Costco shrimp, kefir...">
               </label>
+              <label class="extra-picker-label">Grams
+                <input type="number" inputmode="numeric" min="0" max="5000" step="1" data-extra-pending-grams="Friday" placeholder="g">
+              </label>
               <button class="extra-add-button" type="button" data-add-extra-meal="Friday" aria-label="Add selected meal">+</button>
+            </div>
+            <div class="extra-picked-grid">
+              <label>Calories<input type="number" inputmode="numeric" min="0" step="1" data-extra-pending-day="Friday" data-extra-pending-key="calories" placeholder="0"></label>
+              <label>Protein g<input type="number" inputmode="numeric" min="0" step="1" data-extra-pending-day="Friday" data-extra-pending-key="protein" placeholder="0"></label>
+              <label>Carbs g<input type="number" inputmode="numeric" min="0" step="1" data-extra-pending-day="Friday" data-extra-pending-key="carbs" placeholder="0"></label>
+              <label>Fat g<input type="number" inputmode="numeric" min="0" step="1" data-extra-pending-day="Friday" data-extra-pending-key="fat" placeholder="0"></label>
             </div>
             <div class="extra-meal-list" data-extra-meal-list="Friday"></div>
             <div class="manual-extra-title">Manual macro adjustment</div>
@@ -817,7 +874,16 @@
               <label class="extra-search-label">Add meal from database
                 <input type="text" list="extra-meal-options" data-extra-meal-search="Saturday" placeholder="Search: twarog, Costco shrimp, kefir...">
               </label>
+              <label class="extra-picker-label">Grams
+                <input type="number" inputmode="numeric" min="0" max="5000" step="1" data-extra-pending-grams="Saturday" placeholder="g">
+              </label>
               <button class="extra-add-button" type="button" data-add-extra-meal="Saturday" aria-label="Add selected meal">+</button>
+            </div>
+            <div class="extra-picked-grid">
+              <label>Calories<input type="number" inputmode="numeric" min="0" step="1" data-extra-pending-day="Saturday" data-extra-pending-key="calories" placeholder="0"></label>
+              <label>Protein g<input type="number" inputmode="numeric" min="0" step="1" data-extra-pending-day="Saturday" data-extra-pending-key="protein" placeholder="0"></label>
+              <label>Carbs g<input type="number" inputmode="numeric" min="0" step="1" data-extra-pending-day="Saturday" data-extra-pending-key="carbs" placeholder="0"></label>
+              <label>Fat g<input type="number" inputmode="numeric" min="0" step="1" data-extra-pending-day="Saturday" data-extra-pending-key="fat" placeholder="0"></label>
             </div>
             <div class="extra-meal-list" data-extra-meal-list="Saturday"></div>
             <div class="manual-extra-title">Manual macro adjustment</div>
@@ -875,7 +941,16 @@
               <label class="extra-search-label">Add meal from database
                 <input type="text" list="extra-meal-options" data-extra-meal-search="Sunday" placeholder="Search: twarog, Costco shrimp, kefir...">
               </label>
+              <label class="extra-picker-label">Grams
+                <input type="number" inputmode="numeric" min="0" max="5000" step="1" data-extra-pending-grams="Sunday" placeholder="g">
+              </label>
               <button class="extra-add-button" type="button" data-add-extra-meal="Sunday" aria-label="Add selected meal">+</button>
+            </div>
+            <div class="extra-picked-grid">
+              <label>Calories<input type="number" inputmode="numeric" min="0" step="1" data-extra-pending-day="Sunday" data-extra-pending-key="calories" placeholder="0"></label>
+              <label>Protein g<input type="number" inputmode="numeric" min="0" step="1" data-extra-pending-day="Sunday" data-extra-pending-key="protein" placeholder="0"></label>
+              <label>Carbs g<input type="number" inputmode="numeric" min="0" step="1" data-extra-pending-day="Sunday" data-extra-pending-key="carbs" placeholder="0"></label>
+              <label>Fat g<input type="number" inputmode="numeric" min="0" step="1" data-extra-pending-day="Sunday" data-extra-pending-key="fat" placeholder="0"></label>
             </div>
             <div class="extra-meal-list" data-extra-meal-list="Sunday"></div>
             <div class="manual-extra-title">Manual macro adjustment</div>
@@ -1057,6 +1132,8 @@
       const extraInputs = [...document.querySelectorAll("[data-extra-day]")];
       const extraMealSearchInputs = [...document.querySelectorAll("[data-extra-meal-search]")];
       const extraMealAddButtons = [...document.querySelectorAll("[data-add-extra-meal]")];
+      const pendingGramInputs = [...document.querySelectorAll("[data-extra-pending-grams]")];
+      const pendingMacroInputs = [...document.querySelectorAll("[data-extra-pending-key]")];
       const statusEl = document.getElementById("shopping-status");
       const saveEl = document.getElementById("save-shopping");
       const consumptionStatusEl = document.getElementById("consumption-status");
@@ -1189,6 +1266,53 @@
         }) || null;
       }
 
+      function pendingGramsInput(day) {
+        return document.querySelector(`[data-extra-pending-grams="${day}"]`);
+      }
+
+      function pendingMacroInput(day, key) {
+        return document.querySelector(`[data-extra-pending-day="${day}"][data-extra-pending-key="${key}"]`);
+      }
+
+      function setPendingMeal(day, meal, keepExistingGrams = false) {
+        const gramsInput = pendingGramsInput(day);
+        const grams = keepExistingGrams && gramsInput && gramsInput.value ? gramsInput.value : meal.serving_grams;
+        const scaled = cleanExtraMeal({ ...meal, grams });
+        if (gramsInput) gramsInput.value = scaled.grams || "";
+        for (const key of ["calories", "protein", "carbs", "fat"]) {
+          const input = pendingMacroInput(day, key);
+          if (input) input.value = scaled[key] || "";
+        }
+      }
+
+      function clearPendingMeal(day) {
+        const gramsInput = pendingGramsInput(day);
+        if (gramsInput) gramsInput.value = "";
+        for (const key of ["calories", "protein", "carbs", "fat"]) {
+          const input = pendingMacroInput(day, key);
+          if (input) input.value = "";
+        }
+      }
+
+      function selectedPendingMeal(day) {
+        const searchInput = document.querySelector(`[data-extra-meal-search="${day}"]`);
+        const meal = findExtraMeal(searchInput ? searchInput.value : "");
+        if (!meal) return null;
+        const gramsInput = pendingGramsInput(day);
+        const selected = cleanExtraMeal({ ...meal, grams: gramsInput ? gramsInput.value : meal.serving_grams });
+        for (const key of ["calories", "protein", "carbs", "fat"]) {
+          const input = pendingMacroInput(day, key);
+          const value = Number(input ? input.value : selected[key]);
+          selected[key] = Number.isFinite(value) && value >= 0 ? Math.round(value) : selected[key];
+        }
+        const ratio = selected.grams > 0 ? selected.serving_grams / selected.grams : 1;
+        selected.base_calories = Math.round(selected.calories * ratio);
+        selected.base_protein = Math.round(selected.protein * ratio);
+        selected.base_carbs = Math.round(selected.carbs * ratio);
+        selected.base_fat = Math.round(selected.fat * ratio);
+        return selected;
+      }
+
       function renderExtraMeals() {
         for (const day of dayNames) {
           const list = document.querySelector(`[data-extra-meal-list="${day}"]`);
@@ -1209,13 +1333,14 @@
 
       function addExtraMeal(day) {
         const input = document.querySelector(`[data-extra-meal-search="${day}"]`);
-        const meal = findExtraMeal(input ? input.value : "");
+        const meal = selectedPendingMeal(day);
         if (!meal || !extraMealsByDay[day]) {
           if (input) input.placeholder = "No match. Try Costco, twarog, kefir...";
           return;
         }
-        extraMealsByDay[day].push(cleanExtraMeal(meal));
+        extraMealsByDay[day].push(meal);
         if (input) input.value = "";
+        clearPendingMeal(day);
         renderExtraMeals();
         writeConsumptionLocal();
       }
@@ -1359,11 +1484,21 @@
       mealInputs.forEach(input => input.addEventListener("change", writeConsumptionLocal));
       extraInputs.forEach(input => input.addEventListener("input", writeConsumptionLocal));
       extraMealAddButtons.forEach(button => button.addEventListener("click", () => addExtraMeal(button.dataset.addExtraMeal)));
+      extraMealSearchInputs.forEach(input => input.addEventListener("input", () => {
+        const meal = findExtraMeal(input.value);
+        if (meal) setPendingMeal(input.dataset.extraMealSearch, meal, false);
+      }));
       extraMealSearchInputs.forEach(input => input.addEventListener("keydown", event => {
         if (event.key === "Enter") {
           event.preventDefault();
           addExtraMeal(input.dataset.extraMealSearch);
         }
+      }));
+      pendingGramInputs.forEach(input => input.addEventListener("input", () => {
+        const day = input.dataset.extraPendingGrams;
+        const searchInput = document.querySelector(`[data-extra-meal-search="${day}"]`);
+        const meal = findExtraMeal(searchInput ? searchInput.value : "");
+        if (meal) setPendingMeal(day, meal, true);
       }));
       document.addEventListener("change", event => {
         const input = event.target.closest("[data-extra-meal-grams]");
