@@ -88,7 +88,22 @@
     "Saturday": [],
     "Sunday": [],
     "Thursday": [],
-    "Tuesday": [],
+    "Tuesday": [
+      {
+        "base_calories": 11,
+        "base_carbs": 2,
+        "base_fat": 0,
+        "base_protein": 0,
+        "calories": 16,
+        "carbs": 3,
+        "fat": 0,
+        "grams": 150,
+        "id": "brined_pickles_150g",
+        "label": "Brined sour pickles, 150 g",
+        "protein": 0,
+        "serving_grams": 100
+      }
+    ],
     "Wednesday": []
   },
   "extras": {
@@ -298,6 +313,6 @@
       }
     }
   },
-  "source": "codex-local-update",
-  "updated_at": "2026-05-11T23:00:00-04:00"
+  "source": "add-consumed-food-skill",
+  "updated_at": "2026-05-12T01:51:23-04:00"
 }
