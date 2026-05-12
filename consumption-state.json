@@ -13,7 +13,78 @@
   },
   "extra_meals": {
     "Friday": [],
-    "Monday": [],
+    "Monday": [
+      {
+        "base_calories": 220,
+        "base_carbs": 36,
+        "base_fat": 8,
+        "base_protein": 4,
+        "calories": 220,
+        "carbs": 36,
+        "fat": 8,
+        "grams": 56,
+        "id": "golden_hour_granola_bar_2x28g",
+        "label": "Golden hour granola bars, 2 x 28 g",
+        "protein": 4,
+        "serving_grams": 56
+      },
+      {
+        "base_calories": 468,
+        "base_carbs": 6,
+        "base_fat": 30,
+        "base_protein": 36,
+        "calories": 468,
+        "carbs": 6,
+        "fat": 30,
+        "grams": 300,
+        "id": "boiled_eggs_6",
+        "label": "Boiled eggs, 6 large",
+        "protein": 36,
+        "serving_grams": 300
+      },
+      {
+        "base_calories": 200,
+        "base_carbs": 19,
+        "base_fat": 10,
+        "base_protein": 8,
+        "calories": 200,
+        "carbs": 19,
+        "fat": 10,
+        "grams": 100,
+        "id": "panera_mac_cheese_100g",
+        "label": "Panera Bread mac and cheese, 100 g",
+        "protein": 8,
+        "serving_grams": 100
+      },
+      {
+        "base_calories": 30,
+        "base_carbs": 8,
+        "base_fat": 0,
+        "base_protein": 1,
+        "calories": 30,
+        "carbs": 8,
+        "fat": 0,
+        "grams": 100,
+        "id": "watermelon_100g",
+        "label": "Watermelon, 100 g",
+        "protein": 1,
+        "serving_grams": 100
+      },
+      {
+        "base_calories": 130,
+        "base_carbs": 4,
+        "base_fat": 11,
+        "base_protein": 5,
+        "calories": 130,
+        "carbs": 4,
+        "fat": 11,
+        "grams": 50,
+        "id": "panera_salad_salami_50g",
+        "label": "Panera Bread salad with salami, 50 g",
+        "protein": 5,
+        "serving_grams": 50
+      }
+    ],
     "Saturday": [],
     "Sunday": [],
     "Thursday": [],
@@ -227,6 +298,6 @@
       }
     }
   },
-  "source": "github-issue-action",
-  "updated_at": "2026-05-11T21:52:25.582Z"
+  "source": "codex-local-update",
+  "updated_at": "2026-05-11T23:00:00-04:00"
 }
