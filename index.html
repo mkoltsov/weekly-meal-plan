@@ -437,46 +437,95 @@
         font-size: 22px;
         font-weight: 900;
       }
-      .planned-split {
-        display: grid;
-        gap: 12px;
-        grid-template-columns: 1fr;
-      }
-      .pie-panel {
+      .weekly-strip {
         background: #ffffff;
         border: 1px solid #dce7dd;
         border-radius: 8px;
+        margin-top: 12px;
         padding: 12px;
       }
-      .pie-title {
+      .weekly-strip-head {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+      }
+      .weekly-strip-title {
         color: #15372c;
         font-size: 15px;
         font-weight: 900;
-        margin-bottom: 9px;
       }
-      .pie-chart {
-        aspect-ratio: 1;
-        border-radius: 50%;
-        box-shadow: inset 0 0 0 18px rgba(255,255,255,.62);
-        margin: 0 auto 12px;
-        max-width: 190px;
-        width: 64%;
+      .metric-tabs {
+        background: #edf2ee;
+        border-radius: 999px;
+        display: inline-grid;
+        gap: 2px;
+        grid-template-columns: repeat(4, 1fr);
+        padding: 3px;
       }
-      .pie-legend {
+      .metric-tab {
+        background: transparent;
+        border: 0;
+        border-radius: 999px;
+        color: #51685d;
+        font-size: 11px;
+        font-weight: 900;
+        padding: 6px 8px;
+      }
+      .metric-tab[aria-pressed="true"] {
+        background: #ffffff;
+        color: #14382d;
+        box-shadow: 0 1px 4px rgba(20, 56, 45, .14);
+      }
+      .weekly-pill-grid {
+        align-items: end;
         display: grid;
         gap: 7px;
+        grid-template-columns: repeat(7, minmax(0, 1fr));
+        min-height: 150px;
       }
-      .pie-legend-row {
-        align-items: center;
+      .day-pill {
         display: grid;
-        font-size: 13px;
-        gap: 7px;
-        grid-template-columns: 12px 1fr auto;
+        gap: 6px;
+        justify-items: center;
       }
-      .pie-dot {
-        border-radius: 50%;
-        height: 12px;
-        width: 12px;
+      .pill-track {
+        align-items: end;
+        background: #eef1ec;
+        border-radius: 999px;
+        display: flex;
+        height: 92px;
+        overflow: hidden;
+        position: relative;
+        width: 18px;
+      }
+      .pill-fill {
+        background: linear-gradient(180deg, #6db58f, #286047);
+        border-radius: 999px;
+        min-height: 4px;
+        width: 100%;
+      }
+      .target-line {
+        background: rgba(20, 56, 45, .55);
+        height: 2px;
+        left: -3px;
+        position: absolute;
+        right: -3px;
+      }
+      .day-pill-value {
+        color: #203b31;
+        font-size: 11px;
+        font-weight: 900;
+        min-height: 26px;
+        text-align: center;
+      }
+      .day-pill-label {
+        color: #6b7d74;
+        font-size: 11px;
+        font-weight: 900;
+      }
+      .actual-strip {
+        gap: 7px;
       }
       .planned-note {
         color: #5f7469;
@@ -517,7 +566,6 @@
         .day-body { padding: 18px 20px; }
         .shopping ul { columns: 2; column-gap: 34px; }
         .macro-grid { grid-template-columns: repeat(4, 1fr); }
-        .planned-split { grid-template-columns: 1fr 1fr; }
       }
     </style>
   </head>
@@ -530,7 +578,7 @@
         <div class="eyebrow">Detailed daily plan</div>
         <h1>High-protein Costco meal week</h1>
         <p class="hero-copy">Weekdays: no solid breakfast, one shake, two high-protein meals, 2000-2500 kcal. Weekends: shake plus fruit and vegetables, intentionally fasting-adjacent.</p>
-        <div class="generated">Generated Monday, May 11, 2026 at 10:27 PM</div>
+        <div class="generated">Generated Monday, May 11, 2026 at 10:33 PM</div>
       </div>
       <img class="hero-image" src="https://images.unsplash.com/photo-1631901009402-0b6891d8c2ed?auto=format&fit=crop&w=1200&q=80" alt="Protein smoothie">
       <div class="content">
@@ -1120,68 +1168,75 @@
             <div class="macro-card"><div class="macro-label">Carbs</div><div class="macro-value">956g</div></div>
             <div class="macro-card"><div class="macro-label">Fat</div><div class="macro-value">405g</div></div>
           </div>
-          <div class="planned-split">
-            <div class="pie-panel">
-              <div class="pie-title">Macro calorie split</div>
-              <div class="pie-chart" style="background: conic-gradient(#286047 0.00% 37.09%, #3b6ea8 37.09% 69.30%, #b75d3a 69.30% 100.00%)"></div>
-              <div class="pie-legend">
-              <div class="pie-legend-row">
-                <span class="pie-dot" style="background:#286047"></span>
-                <span>Protein</span>
-                <strong>4404 kcal · 37%</strong>
+          <div id="planned-weekly-strip">
+          <div class="weekly-strip" data-weekly-strip>
+            <div class="weekly-strip-head">
+              <div class="weekly-strip-title">Week at a glance</div>
+              <div class="metric-tabs">
+                <button class="metric-tab" type="button" data-strip-metric="calories" aria-pressed="true">Cal</button>
+                <button class="metric-tab" type="button" data-strip-metric="protein" aria-pressed="false">Pro</button>
+                <button class="metric-tab" type="button" data-strip-metric="carbs" aria-pressed="false">Car</button>
+                <button class="metric-tab" type="button" data-strip-metric="fat" aria-pressed="false">Fat</button>
               </div>
-              <div class="pie-legend-row">
-                <span class="pie-dot" style="background:#3b6ea8"></span>
-                <span>Carbs</span>
-                <strong>3824 kcal · 32%</strong>
-              </div>
-              <div class="pie-legend-row">
-                <span class="pie-dot" style="background:#b75d3a"></span>
-                <span>Fat</span>
-                <strong>3645 kcal · 31%</strong>
-              </div></div>
             </div>
-            <div class="pie-panel">
-              <div class="pie-title">Calories by day</div>
-              <div class="pie-chart" style="background: conic-gradient(#286047 0.00% 16.64%, #b75d3a 16.64% 33.75%, #3b6ea8 33.75% 50.74%, #8b6f3d 50.74% 67.86%, #7a4a7f 67.86% 84.93%, #51735a 84.93% 92.47%, #c1842f 92.47% 100.00%)"></div>
-              <div class="pie-legend">
-              <div class="pie-legend-row">
-                <span class="pie-dot" style="background:#286047"></span>
-                <span>Monday</span>
-                <strong>2076 kcal · 17%</strong>
+            <div class="weekly-pill-grid">
+              <div class="day-pill">
+                <div class="pill-track">
+                  <div class="target-line" style="bottom:100.00%"></div>
+                  <div class="pill-fill" style="height:94.36%"></div>
+                </div>
+                <div class="day-pill-value">2076<br>kcal</div>
+                <div class="day-pill-label">Mon</div>
               </div>
-              <div class="pie-legend-row">
-                <span class="pie-dot" style="background:#b75d3a"></span>
-                <span>Tuesday</span>
-                <strong>2136 kcal · 17%</strong>
+              <div class="day-pill">
+                <div class="pill-track">
+                  <div class="target-line" style="bottom:100.00%"></div>
+                  <div class="pill-fill" style="height:97.09%"></div>
+                </div>
+                <div class="day-pill-value">2136<br>kcal</div>
+                <div class="day-pill-label">Tue</div>
               </div>
-              <div class="pie-legend-row">
-                <span class="pie-dot" style="background:#3b6ea8"></span>
-                <span>Wednesday</span>
-                <strong>2120 kcal · 17%</strong>
+              <div class="day-pill">
+                <div class="pill-track">
+                  <div class="target-line" style="bottom:100.00%"></div>
+                  <div class="pill-fill" style="height:96.36%"></div>
+                </div>
+                <div class="day-pill-value">2120<br>kcal</div>
+                <div class="day-pill-label">Wed</div>
               </div>
-              <div class="pie-legend-row">
-                <span class="pie-dot" style="background:#8b6f3d"></span>
-                <span>Thursday</span>
-                <strong>2136 kcal · 17%</strong>
+              <div class="day-pill">
+                <div class="pill-track">
+                  <div class="target-line" style="bottom:100.00%"></div>
+                  <div class="pill-fill" style="height:97.09%"></div>
+                </div>
+                <div class="day-pill-value">2136<br>kcal</div>
+                <div class="day-pill-label">Thu</div>
               </div>
-              <div class="pie-legend-row">
-                <span class="pie-dot" style="background:#7a4a7f"></span>
-                <span>Friday</span>
-                <strong>2131 kcal · 17%</strong>
+              <div class="day-pill">
+                <div class="pill-track">
+                  <div class="target-line" style="bottom:100.00%"></div>
+                  <div class="pill-fill" style="height:96.86%"></div>
+                </div>
+                <div class="day-pill-value">2131<br>kcal</div>
+                <div class="day-pill-label">Fri</div>
               </div>
-              <div class="pie-legend-row">
-                <span class="pie-dot" style="background:#51735a"></span>
-                <span>Saturday</span>
-                <strong>940 kcal · 8%</strong>
+              <div class="day-pill">
+                <div class="pill-track">
+                  <div class="target-line" style="bottom:100.00%"></div>
+                  <div class="pill-fill" style="height:42.73%"></div>
+                </div>
+                <div class="day-pill-value">940<br>kcal</div>
+                <div class="day-pill-label">Sat</div>
               </div>
-              <div class="pie-legend-row">
-                <span class="pie-dot" style="background:#c1842f"></span>
-                <span>Sunday</span>
-                <strong>940 kcal · 8%</strong>
+              <div class="day-pill">
+                <div class="pill-track">
+                  <div class="target-line" style="bottom:100.00%"></div>
+                  <div class="pill-fill" style="height:42.73%"></div>
+                </div>
+                <div class="day-pill-value">940<br>kcal</div>
+                <div class="day-pill-label">Sun</div>
               </div></div>
-            </div>
-          </div>
+          </div></div>
           <div class="planned-note">Weekdays: 10599 kcal total. Weekend fasting-adjacent baseline: 1880 kcal total.</div>
         </div>
         <div class="dashboard">
@@ -1193,7 +1248,7 @@
             <div class="macro-card"><div class="macro-label">Carbs</div><div id="week-carbs" class="macro-value">0g</div></div>
             <div class="macro-card"><div class="macro-label">Fat</div><div id="week-fat" class="macro-value">0g</div></div>
           </div>
-          <div class="planned-split" id="actual-pie-section"></div>
+          <div id="actual-weekly-strip"></div>
           <div class="consumption-actions">
             <div id="consumption-status" class="shopping-status">Loading saved meal consumption...</div>
             <a id="save-consumption" class="save-button" href="#" aria-disabled="true">Save consumed meals to GitHub</a>
@@ -1232,6 +1287,8 @@
       const dayNames = Object.keys(MEAL_MACROS);
       const mealByLabel = new Map(EXTRA_MEAL_DATABASE.map(meal => [meal.label.toLowerCase(), meal]));
       let extraMealsByDay = Object.fromEntries(dayNames.map(day => [day, []]));
+      let plannedStripMetric = "calories";
+      let actualStripMetric = "calories";
 
       function checkedItems() {
         return inputs.filter(input => input.checked).map(input => input.dataset.shoppingItem);
@@ -1513,51 +1570,44 @@
         return { daily, week };
       }
 
-      function pieLegendRows(parts, suffix) {
-        const total = parts.reduce((sum, part) => sum + part.value, 0) || 1;
-        return parts.map(part => {
-          const pct = Math.round((part.value / total) * 100);
-          return `<div class="pie-legend-row">
-            <span class="pie-dot" style="background:${part.color}"></span>
-            <span>${part.label}</span>
-            <strong>${part.value}${suffix} · ${pct}%</strong>
-          </div>`;
-        }).join("");
-      }
-
-      function conicGradient(parts) {
-        const total = parts.reduce((sum, part) => sum + part.value, 0) || 1;
-        let cursor = 0;
-        return parts.map(part => {
-          const start = cursor;
-          cursor += (part.value / total) * 100;
-          return `${part.color} ${start.toFixed(2)}% ${cursor.toFixed(2)}%`;
-        }).join(", ");
-      }
-
-      function renderActualPieCharts(totals) {
-        const macroParts = [
-          { label: "Protein", value: totals.week.protein * 4, color: "#286047" },
-          { label: "Carbs", value: totals.week.carbs * 4, color: "#3b6ea8" },
-          { label: "Fat", value: totals.week.fat * 9, color: "#b75d3a" }
-        ];
-        const dayColors = ["#286047", "#b75d3a", "#3b6ea8", "#8b6f3d", "#7a4a7f", "#51735a", "#c1842f"];
-        const dayParts = dayNames.map((day, index) => ({
-          label: day,
-          value: totals.daily[day].calories,
-          color: dayColors[index % dayColors.length]
-        }));
-        document.getElementById("actual-pie-section").innerHTML = `
-          <div class="pie-panel">
-            <div class="pie-title">Actual macro calorie split</div>
-            <div class="pie-chart" style="background: conic-gradient(${conicGradient(macroParts)})"></div>
-            <div class="pie-legend">${pieLegendRows(macroParts, " kcal")}</div>
+      function renderWeeklyStrip(targetId, title, daily, metric, scope) {
+        const labels = { calories: "kcal", protein: "g protein", carbs: "g carbs", fat: "g fat" };
+        const goal = metric === "calories" ? 2200 : metric === "protein" ? 180 : Math.max(1, ...dayNames.map(day => daily[day][metric]));
+        const maxValue = Math.max(goal, ...dayNames.map(day => daily[day][metric]), 1);
+        const targetPct = Math.max(0, Math.min(100, (goal / maxValue) * 100));
+        document.getElementById(targetId).innerHTML = `<div class="weekly-strip">
+          <div class="weekly-strip-head">
+            <div class="weekly-strip-title">${title}</div>
+            <div class="metric-tabs">
+              ${["calories", "protein", "carbs", "fat"].map(key => `<button class="metric-tab" type="button" data-strip-scope="${scope}" data-strip-metric="${key}" aria-pressed="${key === metric}">${key === "calories" ? "Cal" : key[0].toUpperCase() + key.slice(1, 3)}</button>`).join("")}
+            </div>
           </div>
-          <div class="pie-panel">
-            <div class="pie-title">Actual calories by day</div>
-            <div class="pie-chart" style="background: conic-gradient(${conicGradient(dayParts)})"></div>
-            <div class="pie-legend">${pieLegendRows(dayParts, " kcal")}</div>
-          </div>`;
+          <div class="weekly-pill-grid">
+            ${dayNames.map(day => {
+              const value = daily[day][metric];
+              const pct = Math.max(0, Math.min(100, (value / maxValue) * 100));
+              return `<div class="day-pill">
+                <div class="pill-track">
+                  <div class="target-line" style="bottom:${targetPct}%"></div>
+                  <div class="pill-fill" style="height:${pct}%"></div>
+                </div>
+                <div class="day-pill-value">${value}<br>${labels[metric]}</div>
+                <div class="day-pill-label">${day.slice(0, 3)}</div>
+              </div>`;
+            }).join("")}
+          </div>
+        </div>`;
+      }
+
+      function plannedDailyTotals() {
+        const daily = {};
+        for (const day of dayNames) {
+          daily[day] = { calories: 0, protein: 0, carbs: 0, fat: 0 };
+          for (const meal of Object.values(MEAL_MACROS[day])) {
+            for (const key of Object.keys(daily[day])) daily[day][key] += meal[key];
+          }
+        }
+        return daily;
       }
 
       function renderDashboard() {
@@ -1569,7 +1619,7 @@
         document.getElementById("week-protein").textContent = `${totals.week.protein}g`;
         document.getElementById("week-carbs").textContent = `${totals.week.carbs}g`;
         document.getElementById("week-fat").textContent = `${totals.week.fat}g`;
-        renderActualPieCharts(totals);
+        renderWeeklyStrip("actual-weekly-strip", "Actual week at a glance", totals.daily, actualStripMetric, "actual");
       }
 
       function writeConsumptionLocal() {
@@ -1657,6 +1707,17 @@
         writeConsumptionLocal();
       });
       document.addEventListener("click", event => {
+        const metricButton = event.target.closest("[data-strip-metric]");
+        if (metricButton) {
+          if (metricButton.dataset.stripScope === "planned") {
+            plannedStripMetric = metricButton.dataset.stripMetric;
+            renderWeeklyStrip("planned-weekly-strip", "Planned week at a glance", plannedDailyTotals(), plannedStripMetric, "planned");
+          } else {
+            actualStripMetric = metricButton.dataset.stripMetric;
+            renderDashboard();
+          }
+          return;
+        }
         const button = event.target.closest("[data-remove-extra-meal]");
         if (!button) return;
         const day = button.dataset.removeExtraMeal;
@@ -1666,6 +1727,7 @@
         renderExtraMeals();
         writeConsumptionLocal();
       });
+      renderWeeklyStrip("planned-weekly-strip", "Planned week at a glance", plannedDailyTotals(), plannedStripMetric, "planned");
       loadConsumptionState();
     </script>
   </body>
