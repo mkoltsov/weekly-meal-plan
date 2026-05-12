@@ -102,6 +102,20 @@
         "label": "Brined sour pickles, 150 g",
         "protein": 0,
         "serving_grams": 100
+      },
+      {
+        "base_calories": 110,
+        "base_carbs": 19,
+        "base_fat": 3,
+        "base_protein": 2,
+        "calories": 330,
+        "carbs": 57,
+        "fat": 9,
+        "grams": 84,
+        "id": "golden_hour_granola_bar_3x28g",
+        "label": "Golden Hour granola bars, 3 x 28 g",
+        "protein": 6,
+        "serving_grams": 28
       }
     ],
     "Wednesday": []
@@ -314,5 +328,5 @@
     }
   },
   "source": "add-consumed-food-skill",
-  "updated_at": "2026-05-12T01:51:23-04:00"
+  "updated_at": "2026-05-12T17:49:51-04:00"
 }
