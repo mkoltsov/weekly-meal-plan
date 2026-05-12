@@ -484,93 +484,6 @@
         font-weight: 700;
         margin-top: 12px;
       }
-      .weekly-strip {
-        background: #ffffff;
-        border: 1px solid #ded6c9;
-        border-radius: 8px;
-        margin-top: 12px;
-        padding: 12px;
-      }
-      .weekly-strip-head {
-        align-items: center;
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 10px;
-      }
-      .weekly-strip-title {
-        color: #15372c;
-        font-size: 15px;
-        font-weight: 900;
-      }
-      .metric-tabs {
-        background: #edf2ee;
-        border-radius: 999px;
-        display: inline-grid;
-        gap: 2px;
-        grid-template-columns: repeat(4, 1fr);
-        padding: 3px;
-      }
-      .metric-tab {
-        background: transparent;
-        border: 0;
-        border-radius: 999px;
-        color: #51685d;
-        font-size: 11px;
-        font-weight: 900;
-        padding: 6px 8px;
-      }
-      .metric-tab[aria-pressed="true"] {
-        background: #ffffff;
-        color: #14382d;
-        box-shadow: 0 1px 4px rgba(20, 56, 45, .14);
-      }
-      .weekly-pill-grid {
-        align-items: end;
-        display: grid;
-        gap: 7px;
-        grid-template-columns: repeat(7, minmax(0, 1fr));
-        min-height: 150px;
-      }
-      .day-pill {
-        display: grid;
-        gap: 6px;
-        justify-items: center;
-      }
-      .pill-track {
-        align-items: end;
-        background: #eef1ec;
-        border-radius: 999px;
-        display: flex;
-        height: 92px;
-        overflow: hidden;
-        position: relative;
-        width: 18px;
-      }
-      .pill-fill {
-        background: linear-gradient(180deg, #6db58f, #286047);
-        border-radius: 999px;
-        min-height: 4px;
-        width: 100%;
-      }
-      .target-line {
-        background: rgba(20, 56, 45, .55);
-        height: 2px;
-        left: -3px;
-        position: absolute;
-        right: -3px;
-      }
-      .day-pill-value {
-        color: #203b31;
-        font-size: 11px;
-        font-weight: 900;
-        min-height: 26px;
-        text-align: center;
-      }
-      .day-pill-label {
-        color: #6b7d74;
-        font-size: 11px;
-        font-weight: 900;
-      }
       .consumption-actions {
         border-top: 1px solid #dfd5c6;
         margin-top: 16px;
@@ -617,7 +530,7 @@
         <div class="eyebrow">Detailed daily plan</div>
         <h1>High-protein Costco meal week</h1>
         <p class="hero-copy">Weekdays: no solid breakfast, one shake, two high-protein meals, 2000-2500 kcal. Weekends: shake plus fruit and vegetables, intentionally fasting-adjacent.</p>
-        <div class="generated">Generated Monday, May 11, 2026 at 10:22 PM</div>
+        <div class="generated">Generated Monday, May 11, 2026 at 10:27 PM</div>
       </div>
       <img class="hero-image" src="https://images.unsplash.com/photo-1631901009402-0b6891d8c2ed?auto=format&fit=crop&w=1200&q=80" alt="Protein smoothie">
       <div class="content">
@@ -1281,7 +1194,6 @@
             <div class="macro-card"><div class="macro-label">Fat</div><div id="week-fat" class="macro-value">0g</div></div>
           </div>
           <div class="planned-split" id="actual-pie-section"></div>
-          <div id="daily-chart"></div>
           <div class="consumption-actions">
             <div id="consumption-status" class="shopping-status">Loading saved meal consumption...</div>
             <a id="save-consumption" class="save-button" href="#" aria-disabled="true">Save consumed meals to GitHub</a>
@@ -1293,8 +1205,8 @@
       </div>
     </div>
     <div class="floating-actions">
-      <a id="floating-save-shopping" class="floating-save-button" href="#" aria-disabled="true">Save shopping</a>
-      <a id="floating-save-consumption" class="floating-save-button" href="#" aria-disabled="true">Save consumed</a>
+      <a id="floating-save-shopping" class="floating-save-button" href="#" aria-disabled="true">Save crossed-off list to GitHub</a>
+      <a id="floating-save-consumption" class="floating-save-button" href="#" aria-disabled="true">Save consumed meals to GitHub</a>
     </div>
     <script>
       const SHOPPING_ITEMS = ["5 cups blueberries", "7 scoops Levels whey protein", "5 x 12 oz 2% milk", "2 cups plain kefir x 2", "2 rotisserie chicken breast portions, 8 oz each", "4 half Caesar salad kits, light dressing/no croutons", "8 boiled eggs", "2 x 10 oz cooked tilapia portions", "4 cups cooked rice", "6 steamed vegetable servings", "4 Kirkland lightly breaded chicken fillets", "4 cups plain nonfat Greek yogurt", "2 packs/servings Costco chicken skewers", "2 x 8 oz cooked shrimp", "6 avocado halves", "2 raw vegetable plates", "6 fruit servings", "2 tbsp olive oil"];
@@ -1320,7 +1232,6 @@
       const dayNames = Object.keys(MEAL_MACROS);
       const mealByLabel = new Map(EXTRA_MEAL_DATABASE.map(meal => [meal.label.toLowerCase(), meal]));
       let extraMealsByDay = Object.fromEntries(dayNames.map(day => [day, []]));
-      let activeDailyMetric = "calories";
 
       function checkedItems() {
         return inputs.filter(input => input.checked).map(input => input.dataset.shoppingItem);
@@ -1649,36 +1560,6 @@
           </div>`;
       }
 
-      function renderWeeklyStrip(totals) {
-        const metric = activeDailyMetric;
-        const labels = { calories: "kcal", protein: "g protein", carbs: "g carbs", fat: "g fat" };
-        const goal = metric === "calories" ? 2200 : metric === "protein" ? 180 : Math.max(1, ...dayNames.map(day => totals.daily[day][metric]));
-        const maxValue = Math.max(goal, ...dayNames.map(day => totals.daily[day][metric]), 1);
-        const targetPct = Math.max(0, Math.min(100, (goal / maxValue) * 100));
-        document.getElementById("daily-chart").innerHTML = `<div class="weekly-strip">
-          <div class="weekly-strip-head">
-            <div class="weekly-strip-title">Actual week at a glance</div>
-            <div class="metric-tabs">
-              ${["calories", "protein", "carbs", "fat"].map(key => `<button class="metric-tab" type="button" data-daily-metric="${key}" aria-pressed="${key === metric}">${key === "calories" ? "Cal" : key[0].toUpperCase() + key.slice(1, 3)}</button>`).join("")}
-            </div>
-          </div>
-          <div class="weekly-pill-grid">
-            ${dayNames.map(day => {
-              const value = totals.daily[day][metric];
-              const pct = Math.max(0, Math.min(100, (value / maxValue) * 100));
-              return `<div class="day-pill">
-                <div class="pill-track">
-                  <div class="target-line" style="bottom:${targetPct}%"></div>
-                  <div class="pill-fill" style="height:${pct}%"></div>
-                </div>
-                <div class="day-pill-value">${value}<br>${labels[metric]}</div>
-                <div class="day-pill-label">${day.slice(0, 3)}</div>
-              </div>`;
-            }).join("")}
-          </div>
-        </div>`;
-      }
-
       function renderDashboard() {
         const consumed = consumedState();
         const extras = extraState();
@@ -1689,8 +1570,6 @@
         document.getElementById("week-carbs").textContent = `${totals.week.carbs}g`;
         document.getElementById("week-fat").textContent = `${totals.week.fat}g`;
         renderActualPieCharts(totals);
-
-        renderWeeklyStrip(totals);
       }
 
       function writeConsumptionLocal() {
@@ -1778,12 +1657,6 @@
         writeConsumptionLocal();
       });
       document.addEventListener("click", event => {
-        const metricButton = event.target.closest("[data-daily-metric]");
-        if (metricButton) {
-          activeDailyMetric = metricButton.dataset.dailyMetric;
-          renderDashboard();
-          return;
-        }
         const button = event.target.closest("[data-remove-extra-meal]");
         if (!button) return;
         const day = button.dataset.removeExtraMeal;
