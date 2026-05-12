@@ -499,11 +499,22 @@
         position: relative;
         width: 18px;
       }
-      .pill-fill {
-        background: linear-gradient(180deg, #6db58f, #286047);
+      .pill-fill-planned,
+      .pill-fill-projected {
         border-radius: 999px;
         min-height: 4px;
-        width: 100%;
+        position: absolute;
+        bottom: 0;
+      }
+      .pill-fill-planned {
+        background: #b7c8be;
+        left: 2px;
+        width: 6px;
+      }
+      .pill-fill-projected {
+        background: linear-gradient(180deg, #63b98b, #286047);
+        right: 2px;
+        width: 10px;
       }
       .target-line {
         background: rgba(20, 56, 45, .55);
@@ -524,8 +535,28 @@
         font-size: 11px;
         font-weight: 900;
       }
-      .actual-strip {
-        gap: 7px;
+      .strip-legend {
+        align-items: center;
+        color: #60776b;
+        display: flex;
+        flex-wrap: wrap;
+        font-size: 12px;
+        font-weight: 800;
+        gap: 10px;
+        margin-top: 10px;
+      }
+      .legend-swatch {
+        border-radius: 999px;
+        display: inline-block;
+        height: 10px;
+        margin-right: 4px;
+        vertical-align: -1px;
+        width: 18px;
+      }
+      .legend-planned { background: #b7c8be; }
+      .legend-projected { background: #286047; }
+      .delta-good { color: #286047; }
+      .delta-over { color: #9b3f2f; }
       }
       .planned-note {
         color: #5f7469;
@@ -578,7 +609,7 @@
         <div class="eyebrow">Detailed daily plan</div>
         <h1>High-protein Costco meal week</h1>
         <p class="hero-copy">Weekdays: no solid breakfast, one shake, two high-protein meals, 2000-2500 kcal. Weekends: shake plus fruit and vegetables, intentionally fasting-adjacent.</p>
-        <div class="generated">Generated Monday, May 11, 2026 at 10:33 PM</div>
+        <div class="generated">Generated Monday, May 11, 2026 at 10:37 PM</div>
       </div>
       <img class="hero-image" src="https://images.unsplash.com/photo-1631901009402-0b6891d8c2ed?auto=format&fit=crop&w=1200&q=80" alt="Protein smoothie">
       <div class="content">
@@ -1168,75 +1199,7 @@
             <div class="macro-card"><div class="macro-label">Carbs</div><div class="macro-value">956g</div></div>
             <div class="macro-card"><div class="macro-label">Fat</div><div class="macro-value">405g</div></div>
           </div>
-          <div id="planned-weekly-strip">
-          <div class="weekly-strip" data-weekly-strip>
-            <div class="weekly-strip-head">
-              <div class="weekly-strip-title">Week at a glance</div>
-              <div class="metric-tabs">
-                <button class="metric-tab" type="button" data-strip-metric="calories" aria-pressed="true">Cal</button>
-                <button class="metric-tab" type="button" data-strip-metric="protein" aria-pressed="false">Pro</button>
-                <button class="metric-tab" type="button" data-strip-metric="carbs" aria-pressed="false">Car</button>
-                <button class="metric-tab" type="button" data-strip-metric="fat" aria-pressed="false">Fat</button>
-              </div>
-            </div>
-            <div class="weekly-pill-grid">
-              <div class="day-pill">
-                <div class="pill-track">
-                  <div class="target-line" style="bottom:100.00%"></div>
-                  <div class="pill-fill" style="height:94.36%"></div>
-                </div>
-                <div class="day-pill-value">2076<br>kcal</div>
-                <div class="day-pill-label">Mon</div>
-              </div>
-              <div class="day-pill">
-                <div class="pill-track">
-                  <div class="target-line" style="bottom:100.00%"></div>
-                  <div class="pill-fill" style="height:97.09%"></div>
-                </div>
-                <div class="day-pill-value">2136<br>kcal</div>
-                <div class="day-pill-label">Tue</div>
-              </div>
-              <div class="day-pill">
-                <div class="pill-track">
-                  <div class="target-line" style="bottom:100.00%"></div>
-                  <div class="pill-fill" style="height:96.36%"></div>
-                </div>
-                <div class="day-pill-value">2120<br>kcal</div>
-                <div class="day-pill-label">Wed</div>
-              </div>
-              <div class="day-pill">
-                <div class="pill-track">
-                  <div class="target-line" style="bottom:100.00%"></div>
-                  <div class="pill-fill" style="height:97.09%"></div>
-                </div>
-                <div class="day-pill-value">2136<br>kcal</div>
-                <div class="day-pill-label">Thu</div>
-              </div>
-              <div class="day-pill">
-                <div class="pill-track">
-                  <div class="target-line" style="bottom:100.00%"></div>
-                  <div class="pill-fill" style="height:96.86%"></div>
-                </div>
-                <div class="day-pill-value">2131<br>kcal</div>
-                <div class="day-pill-label">Fri</div>
-              </div>
-              <div class="day-pill">
-                <div class="pill-track">
-                  <div class="target-line" style="bottom:100.00%"></div>
-                  <div class="pill-fill" style="height:42.73%"></div>
-                </div>
-                <div class="day-pill-value">940<br>kcal</div>
-                <div class="day-pill-label">Sat</div>
-              </div>
-              <div class="day-pill">
-                <div class="pill-track">
-                  <div class="target-line" style="bottom:100.00%"></div>
-                  <div class="pill-fill" style="height:42.73%"></div>
-                </div>
-                <div class="day-pill-value">940<br>kcal</div>
-                <div class="day-pill-label">Sun</div>
-              </div></div>
-          </div></div>
+          <div id="comparison-weekly-strip"></div>
           <div class="planned-note">Weekdays: 10599 kcal total. Weekend fasting-adjacent baseline: 1880 kcal total.</div>
         </div>
         <div class="dashboard">
@@ -1248,7 +1211,6 @@
             <div class="macro-card"><div class="macro-label">Carbs</div><div id="week-carbs" class="macro-value">0g</div></div>
             <div class="macro-card"><div class="macro-label">Fat</div><div id="week-fat" class="macro-value">0g</div></div>
           </div>
-          <div id="actual-weekly-strip"></div>
           <div class="consumption-actions">
             <div id="consumption-status" class="shopping-status">Loading saved meal consumption...</div>
             <a id="save-consumption" class="save-button" href="#" aria-disabled="true">Save consumed meals to GitHub</a>
@@ -1287,8 +1249,7 @@
       const dayNames = Object.keys(MEAL_MACROS);
       const mealByLabel = new Map(EXTRA_MEAL_DATABASE.map(meal => [meal.label.toLowerCase(), meal]));
       let extraMealsByDay = Object.fromEntries(dayNames.map(day => [day, []]));
-      let plannedStripMetric = "calories";
-      let actualStripMetric = "calories";
+      let comparisonMetric = "calories";
 
       function checkedItems() {
         return inputs.filter(input => input.checked).map(input => input.dataset.shoppingItem);
@@ -1570,31 +1531,42 @@
         return { daily, week };
       }
 
-      function renderWeeklyStrip(targetId, title, daily, metric, scope) {
+      function renderComparisonStrip(plannedDaily, projectedDaily, metric) {
         const labels = { calories: "kcal", protein: "g protein", carbs: "g carbs", fat: "g fat" };
-        const goal = metric === "calories" ? 2200 : metric === "protein" ? 180 : Math.max(1, ...dayNames.map(day => daily[day][metric]));
-        const maxValue = Math.max(goal, ...dayNames.map(day => daily[day][metric]), 1);
+        const goal = metric === "calories" ? 2200 : metric === "protein" ? 180 : Math.max(1, ...dayNames.map(day => Math.max(plannedDaily[day][metric], projectedDaily[day][metric])));
+        const maxValue = Math.max(goal, ...dayNames.map(day => Math.max(plannedDaily[day][metric], projectedDaily[day][metric])), 1);
         const targetPct = Math.max(0, Math.min(100, (goal / maxValue) * 100));
-        document.getElementById(targetId).innerHTML = `<div class="weekly-strip">
+        document.getElementById("comparison-weekly-strip").innerHTML = `<div class="weekly-strip">
           <div class="weekly-strip-head">
-            <div class="weekly-strip-title">${title}</div>
+            <div class="weekly-strip-title">Planned vs projected</div>
             <div class="metric-tabs">
-              ${["calories", "protein", "carbs", "fat"].map(key => `<button class="metric-tab" type="button" data-strip-scope="${scope}" data-strip-metric="${key}" aria-pressed="${key === metric}">${key === "calories" ? "Cal" : key[0].toUpperCase() + key.slice(1, 3)}</button>`).join("")}
+              ${["calories", "protein", "carbs", "fat"].map(key => `<button class="metric-tab" type="button" data-strip-metric="${key}" aria-pressed="${key === metric}">${key === "calories" ? "Cal" : key[0].toUpperCase() + key.slice(1, 3)}</button>`).join("")}
             </div>
           </div>
           <div class="weekly-pill-grid">
             ${dayNames.map(day => {
-              const value = daily[day][metric];
-              const pct = Math.max(0, Math.min(100, (value / maxValue) * 100));
+              const planned = plannedDaily[day][metric];
+              const projected = projectedDaily[day][metric];
+              const plannedPct = Math.max(0, Math.min(100, (planned / maxValue) * 100));
+              const projectedPct = Math.max(0, Math.min(100, (projected / maxValue) * 100));
+              const delta = projected - planned;
+              const deltaClass = delta > 0 ? "delta-over" : "delta-good";
+              const deltaText = delta === 0 ? "0" : `${delta > 0 ? "+" : ""}${delta}`;
               return `<div class="day-pill">
                 <div class="pill-track">
                   <div class="target-line" style="bottom:${targetPct}%"></div>
-                  <div class="pill-fill" style="height:${pct}%"></div>
+                  <div class="pill-fill-planned" style="height:${plannedPct}%"></div>
+                  <div class="pill-fill-projected" style="height:${projectedPct}%"></div>
                 </div>
-                <div class="day-pill-value">${value}<br>${labels[metric]}</div>
+                <div class="day-pill-value">${projected}<br>${labels[metric]}<br><span class="${deltaClass}">${deltaText}</span></div>
                 <div class="day-pill-label">${day.slice(0, 3)}</div>
               </div>`;
             }).join("")}
+          </div>
+          <div class="strip-legend">
+            <span><span class="legend-swatch legend-planned"></span>Planned</span>
+            <span><span class="legend-swatch legend-projected"></span>Projected</span>
+            <span>Delta shown under each day</span>
           </div>
         </div>`;
       }
@@ -1619,7 +1591,7 @@
         document.getElementById("week-protein").textContent = `${totals.week.protein}g`;
         document.getElementById("week-carbs").textContent = `${totals.week.carbs}g`;
         document.getElementById("week-fat").textContent = `${totals.week.fat}g`;
-        renderWeeklyStrip("actual-weekly-strip", "Actual week at a glance", totals.daily, actualStripMetric, "actual");
+        renderComparisonStrip(plannedDailyTotals(), totals.daily, comparisonMetric);
       }
 
       function writeConsumptionLocal() {
@@ -1709,13 +1681,8 @@
       document.addEventListener("click", event => {
         const metricButton = event.target.closest("[data-strip-metric]");
         if (metricButton) {
-          if (metricButton.dataset.stripScope === "planned") {
-            plannedStripMetric = metricButton.dataset.stripMetric;
-            renderWeeklyStrip("planned-weekly-strip", "Planned week at a glance", plannedDailyTotals(), plannedStripMetric, "planned");
-          } else {
-            actualStripMetric = metricButton.dataset.stripMetric;
-            renderDashboard();
-          }
+          comparisonMetric = metricButton.dataset.stripMetric;
+          renderDashboard();
           return;
         }
         const button = event.target.closest("[data-remove-extra-meal]");
@@ -1727,7 +1694,6 @@
         renderExtraMeals();
         writeConsumptionLocal();
       });
-      renderWeeklyStrip("planned-weekly-strip", "Planned week at a glance", plannedDailyTotals(), plannedStripMetric, "planned");
       loadConsumptionState();
     </script>
   </body>
