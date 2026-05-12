@@ -358,6 +358,37 @@
         background: #9dafaa;
         pointer-events: none;
       }
+      .floating-actions {
+        align-items: center;
+        background: rgba(255,255,255,.96);
+        border-top: 1px solid #d8e6dc;
+        bottom: 0;
+        box-shadow: 0 -6px 18px rgba(18, 48, 39, .12);
+        display: grid;
+        gap: 8px;
+        grid-template-columns: 1fr 1fr;
+        left: 0;
+        padding: 9px 10px calc(9px + env(safe-area-inset-bottom));
+        position: fixed;
+        right: 0;
+        z-index: 20;
+      }
+      .floating-save-button {
+        background: #14382d;
+        border-radius: 8px;
+        color: #ffffff;
+        display: block;
+        font-size: 13px;
+        font-weight: 900;
+        min-height: 40px;
+        padding: 10px 9px;
+        text-align: center;
+        text-decoration: none;
+      }
+      .floating-save-button[aria-disabled="true"] {
+        background: #9dafaa;
+        pointer-events: none;
+      }
       .dashboard {
         background: #f7f4ef;
         border: 1px solid #e5dccc;
@@ -484,7 +515,7 @@
         color: #697b72;
         font-size: 13px;
         line-height: 1.45;
-        margin: 18px 2px 0;
+        margin: 18px 2px 72px;
       }
       @media (min-width: 720px) {
         body { padding: 24px; }
@@ -521,7 +552,7 @@
         <div class="eyebrow">Detailed daily plan</div>
         <h1>High-protein Costco meal week</h1>
         <p class="hero-copy">Weekdays: no solid breakfast, one shake, two high-protein meals, 2000-2500 kcal. Weekends: shake plus fruit and vegetables, intentionally fasting-adjacent.</p>
-        <div class="generated">Generated Monday, May 11, 2026 at 10:03 PM</div>
+        <div class="generated">Generated Monday, May 11, 2026 at 10:11 PM</div>
       </div>
       <img class="hero-image" src="https://images.unsplash.com/photo-1631901009402-0b6891d8c2ed?auto=format&fit=crop&w=1200&q=80" alt="Protein smoothie">
       <div class="content">
@@ -1184,6 +1215,7 @@
             <div class="macro-card"><div class="macro-label">Carbs</div><div id="week-carbs" class="macro-value">0g</div></div>
             <div class="macro-card"><div class="macro-label">Fat</div><div id="week-fat" class="macro-value">0g</div></div>
           </div>
+          <div class="planned-split" id="actual-pie-section"></div>
           <div id="daily-chart"></div>
           <div class="consumption-actions">
             <div id="consumption-status" class="shopping-status">Loading saved meal consumption...</div>
@@ -1194,6 +1226,10 @@
           Practical meal planning only, not medical advice. Nutrition estimates should be checked against actual Costco/package labels. Photos are visual inspiration, not exact plated recipes.
         </div>
       </div>
+    </div>
+    <div class="floating-actions">
+      <a id="floating-save-shopping" class="floating-save-button" href="#" aria-disabled="true">Save shopping</a>
+      <a id="floating-save-consumption" class="floating-save-button" href="#" aria-disabled="true">Save consumed</a>
     </div>
     <script>
       const SHOPPING_ITEMS = ["5 cups blueberries", "7 scoops Levels whey protein", "5 x 12 oz 2% milk", "2 cups plain kefir x 2", "2 rotisserie chicken breast portions, 8 oz each", "4 half Caesar salad kits, light dressing/no croutons", "8 boiled eggs", "2 x 10 oz cooked tilapia portions", "4 cups cooked rice", "6 steamed vegetable servings", "4 Kirkland lightly breaded chicken fillets", "4 cups plain nonfat Greek yogurt", "2 packs/servings Costco chicken skewers", "2 x 8 oz cooked shrimp", "6 avocado halves", "2 raw vegetable plates", "6 fruit servings", "2 tbsp olive oil"];
@@ -1214,6 +1250,8 @@
       const saveEl = document.getElementById("save-shopping");
       const consumptionStatusEl = document.getElementById("consumption-status");
       const saveConsumptionEl = document.getElementById("save-consumption");
+      const floatingSaveEl = document.getElementById("floating-save-shopping");
+      const floatingSaveConsumptionEl = document.getElementById("floating-save-consumption");
       const dayNames = Object.keys(MEAL_MACROS);
       const mealByLabel = new Map(EXTRA_MEAL_DATABASE.map(meal => [meal.label.toLowerCase(), meal]));
       let extraMealsByDay = Object.fromEntries(dayNames.map(day => [day, []]));
@@ -1262,6 +1300,8 @@
         });
         saveEl.href = ISSUE_URL + "?" + params.toString();
         saveEl.setAttribute("aria-disabled", "false");
+        floatingSaveEl.href = saveEl.href;
+        floatingSaveEl.setAttribute("aria-disabled", "false");
         statusEl.textContent = `${checked.length} of ${SHOPPING_ITEMS.length} crossed off. Changes are saved on this phone; tap the button to commit them to GitHub.`;
       }
 
@@ -1496,6 +1536,53 @@
         return { daily, week };
       }
 
+      function pieLegendRows(parts, suffix) {
+        const total = parts.reduce((sum, part) => sum + part.value, 0) || 1;
+        return parts.map(part => {
+          const pct = Math.round((part.value / total) * 100);
+          return `<div class="pie-legend-row">
+            <span class="pie-dot" style="background:${part.color}"></span>
+            <span>${part.label}</span>
+            <strong>${part.value}${suffix} · ${pct}%</strong>
+          </div>`;
+        }).join("");
+      }
+
+      function conicGradient(parts) {
+        const total = parts.reduce((sum, part) => sum + part.value, 0) || 1;
+        let cursor = 0;
+        return parts.map(part => {
+          const start = cursor;
+          cursor += (part.value / total) * 100;
+          return `${part.color} ${start.toFixed(2)}% ${cursor.toFixed(2)}%`;
+        }).join(", ");
+      }
+
+      function renderActualPieCharts(totals) {
+        const macroParts = [
+          { label: "Protein", value: totals.week.protein * 4, color: "#286047" },
+          { label: "Carbs", value: totals.week.carbs * 4, color: "#3b6ea8" },
+          { label: "Fat", value: totals.week.fat * 9, color: "#b75d3a" }
+        ];
+        const dayColors = ["#286047", "#b75d3a", "#3b6ea8", "#8b6f3d", "#7a4a7f", "#51735a", "#c1842f"];
+        const dayParts = dayNames.map((day, index) => ({
+          label: day,
+          value: totals.daily[day].calories,
+          color: dayColors[index % dayColors.length]
+        }));
+        document.getElementById("actual-pie-section").innerHTML = `
+          <div class="pie-panel">
+            <div class="pie-title">Actual macro calorie split</div>
+            <div class="pie-chart" style="background: conic-gradient(${conicGradient(macroParts)})"></div>
+            <div class="pie-legend">${pieLegendRows(macroParts, " kcal")}</div>
+          </div>
+          <div class="pie-panel">
+            <div class="pie-title">Actual calories by day</div>
+            <div class="pie-chart" style="background: conic-gradient(${conicGradient(dayParts)})"></div>
+            <div class="pie-legend">${pieLegendRows(dayParts, " kcal")}</div>
+          </div>`;
+      }
+
       function renderDashboard() {
         const consumed = consumedState();
         const extras = extraState();
@@ -1505,6 +1592,7 @@
         document.getElementById("week-protein").textContent = `${totals.week.protein}g`;
         document.getElementById("week-carbs").textContent = `${totals.week.carbs}g`;
         document.getElementById("week-fat").textContent = `${totals.week.fat}g`;
+        renderActualPieCharts(totals);
 
         const maxCalories = Math.max(1, ...dayNames.map(day => totals.daily[day].calories));
         document.getElementById("daily-chart").innerHTML = dayNames.map(day => {
@@ -1551,6 +1639,8 @@
         });
         saveConsumptionEl.href = ISSUE_URL + "?" + params.toString();
         saveConsumptionEl.setAttribute("aria-disabled", "false");
+        floatingSaveConsumptionEl.href = saveConsumptionEl.href;
+        floatingSaveConsumptionEl.setAttribute("aria-disabled", "false");
         consumptionStatusEl.textContent = `${consumedCount} of ${mealInputs.length} planned meals marked consumed, ${extraMealCount} extra meals added. Changes are saved on this phone; tap the button to commit them to GitHub.`;
       }
 
