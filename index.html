@@ -366,6 +366,14 @@
         margin-top: 22px;
         padding: 18px 16px;
       }
+      .planned-dashboard {
+        background: #f4f8f5;
+        border: 1px solid #d8e6dc;
+        border-radius: 10px;
+        color: #2f3f37;
+        margin-top: 22px;
+        padding: 18px 16px;
+      }
       .dashboard-title {
         font-size: 22px;
         font-weight: 900;
@@ -397,6 +405,53 @@
         color: #14382d;
         font-size: 22px;
         font-weight: 900;
+      }
+      .planned-split {
+        display: grid;
+        gap: 12px;
+        grid-template-columns: 1fr;
+      }
+      .pie-panel {
+        background: #ffffff;
+        border: 1px solid #dce7dd;
+        border-radius: 8px;
+        padding: 12px;
+      }
+      .pie-title {
+        color: #15372c;
+        font-size: 15px;
+        font-weight: 900;
+        margin-bottom: 9px;
+      }
+      .pie-chart {
+        aspect-ratio: 1;
+        border-radius: 50%;
+        box-shadow: inset 0 0 0 18px rgba(255,255,255,.62);
+        margin: 0 auto 12px;
+        max-width: 190px;
+        width: 64%;
+      }
+      .pie-legend {
+        display: grid;
+        gap: 7px;
+      }
+      .pie-legend-row {
+        align-items: center;
+        display: grid;
+        font-size: 13px;
+        gap: 7px;
+        grid-template-columns: 12px 1fr auto;
+      }
+      .pie-dot {
+        border-radius: 50%;
+        height: 12px;
+        width: 12px;
+      }
+      .planned-note {
+        color: #5f7469;
+        font-size: 13px;
+        font-weight: 700;
+        margin-top: 12px;
       }
       .chart-row {
         margin: 10px 0;
@@ -453,6 +508,7 @@
         .day-body { padding: 18px 20px; }
         .shopping ul { columns: 2; column-gap: 34px; }
         .macro-grid { grid-template-columns: repeat(4, 1fr); }
+        .planned-split { grid-template-columns: 1fr 1fr; }
       }
     </style>
   </head>
@@ -465,7 +521,7 @@
         <div class="eyebrow">Detailed daily plan</div>
         <h1>High-protein Costco meal week</h1>
         <p class="hero-copy">Weekdays: no solid breakfast, one shake, two high-protein meals, 2000-2500 kcal. Weekends: shake plus fruit and vegetables, intentionally fasting-adjacent.</p>
-        <div class="generated">Generated Sunday, May 10, 2026 at 10:10 PM</div>
+        <div class="generated">Generated Monday, May 11, 2026 at 10:03 PM</div>
       </div>
       <img class="hero-image" src="https://images.unsplash.com/photo-1631901009402-0b6891d8c2ed?auto=format&fit=crop&w=1200&q=80" alt="Protein smoothie">
       <div class="content">
@@ -1044,6 +1100,80 @@
             <div id="shopping-status" class="shopping-status">Loading saved shopping state...</div>
             <a id="save-shopping" class="save-button" href="#" aria-disabled="true">Save crossed-off list to GitHub</a>
           </div>
+        </div>
+        
+        <div class="planned-dashboard">
+          <div class="dashboard-title">Planned weekly nutrition</div>
+          <div class="dashboard-subtitle">Baseline planned macros before consumed-meal checkoffs or extra intake.</div>
+          <div class="macro-grid">
+            <div class="macro-card"><div class="macro-label">Planned calories</div><div class="macro-value">12479</div></div>
+            <div class="macro-card"><div class="macro-label">Protein</div><div class="macro-value">1101g</div></div>
+            <div class="macro-card"><div class="macro-label">Carbs</div><div class="macro-value">956g</div></div>
+            <div class="macro-card"><div class="macro-label">Fat</div><div class="macro-value">405g</div></div>
+          </div>
+          <div class="planned-split">
+            <div class="pie-panel">
+              <div class="pie-title">Macro calorie split</div>
+              <div class="pie-chart" style="background: conic-gradient(#286047 0.00% 37.09%, #3b6ea8 37.09% 69.30%, #b75d3a 69.30% 100.00%)"></div>
+              <div class="pie-legend">
+              <div class="pie-legend-row">
+                <span class="pie-dot" style="background:#286047"></span>
+                <span>Protein</span>
+                <strong>4404 kcal · 37%</strong>
+              </div>
+              <div class="pie-legend-row">
+                <span class="pie-dot" style="background:#3b6ea8"></span>
+                <span>Carbs</span>
+                <strong>3824 kcal · 32%</strong>
+              </div>
+              <div class="pie-legend-row">
+                <span class="pie-dot" style="background:#b75d3a"></span>
+                <span>Fat</span>
+                <strong>3645 kcal · 31%</strong>
+              </div></div>
+            </div>
+            <div class="pie-panel">
+              <div class="pie-title">Calories by day</div>
+              <div class="pie-chart" style="background: conic-gradient(#286047 0.00% 16.64%, #b75d3a 16.64% 33.75%, #3b6ea8 33.75% 50.74%, #8b6f3d 50.74% 67.86%, #7a4a7f 67.86% 84.93%, #51735a 84.93% 92.47%, #c1842f 92.47% 100.00%)"></div>
+              <div class="pie-legend">
+              <div class="pie-legend-row">
+                <span class="pie-dot" style="background:#286047"></span>
+                <span>Monday</span>
+                <strong>2076 kcal · 17%</strong>
+              </div>
+              <div class="pie-legend-row">
+                <span class="pie-dot" style="background:#b75d3a"></span>
+                <span>Tuesday</span>
+                <strong>2136 kcal · 17%</strong>
+              </div>
+              <div class="pie-legend-row">
+                <span class="pie-dot" style="background:#3b6ea8"></span>
+                <span>Wednesday</span>
+                <strong>2120 kcal · 17%</strong>
+              </div>
+              <div class="pie-legend-row">
+                <span class="pie-dot" style="background:#8b6f3d"></span>
+                <span>Thursday</span>
+                <strong>2136 kcal · 17%</strong>
+              </div>
+              <div class="pie-legend-row">
+                <span class="pie-dot" style="background:#7a4a7f"></span>
+                <span>Friday</span>
+                <strong>2131 kcal · 17%</strong>
+              </div>
+              <div class="pie-legend-row">
+                <span class="pie-dot" style="background:#51735a"></span>
+                <span>Saturday</span>
+                <strong>940 kcal · 8%</strong>
+              </div>
+              <div class="pie-legend-row">
+                <span class="pie-dot" style="background:#c1842f"></span>
+                <span>Sunday</span>
+                <strong>940 kcal · 8%</strong>
+              </div></div>
+            </div>
+          </div>
+          <div class="planned-note">Weekdays: 10599 kcal total. Weekend fasting-adjacent baseline: 1880 kcal total.</div>
         </div>
         <div class="dashboard">
           <div class="dashboard-title">Consumption dashboard</div>
