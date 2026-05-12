@@ -116,6 +116,76 @@
         "label": "Golden Hour granola bars, 3 x 28 g",
         "protein": 6,
         "serving_grams": 28
+      },
+      {
+        "base_calories": 130,
+        "base_carbs": 0,
+        "base_fat": 1,
+        "base_protein": 29,
+        "calories": 421,
+        "carbs": 0,
+        "fat": 3,
+        "grams": 363,
+        "id": "marketside_ahi_tuna_0_8lb",
+        "label": "Marketside wild caught ahi tuna skinless steak, 0.8 lb",
+        "protein": 94,
+        "serving_grams": 112
+      },
+      {
+        "base_calories": 210,
+        "base_carbs": 20,
+        "base_fat": 12,
+        "base_protein": 6,
+        "calories": 210,
+        "carbs": 20,
+        "fat": 12,
+        "grams": 245,
+        "id": "panera_small_soup_cup_avg",
+        "label": "Panera Bread small soup, 1 cup (estimated average current cup soups)",
+        "protein": 6,
+        "serving_grams": 245
+      },
+      {
+        "base_calories": 12,
+        "base_carbs": 2,
+        "base_fat": 0,
+        "base_protein": 0,
+        "calories": 8,
+        "carbs": 1,
+        "fat": 0,
+        "grams": 70,
+        "id": "brined_pickles_70g",
+        "label": "Brined pickles, 70 g",
+        "protein": 0,
+        "serving_grams": 100
+      },
+      {
+        "base_calories": 30,
+        "base_carbs": 8,
+        "base_fat": 0,
+        "base_protein": 1,
+        "calories": 86,
+        "carbs": 22,
+        "fat": 0,
+        "grams": 286,
+        "id": "watermelon_slice_286g",
+        "label": "Watermelon, 1 slice (estimated 286 g)",
+        "protein": 2,
+        "serving_grams": 100
+      },
+      {
+        "base_calories": 57,
+        "base_carbs": 14,
+        "base_fat": 0,
+        "base_protein": 1,
+        "calories": 23,
+        "carbs": 6,
+        "fat": 0,
+        "grams": 40,
+        "id": "jumbo_blueberries_20pcs_est_40g",
+        "label": "Jumbo blueberries, 20 pieces (estimated 40 g)",
+        "protein": 0,
+        "serving_grams": 100
       }
     ],
     "Wednesday": []
@@ -328,5 +398,5 @@
     }
   },
   "source": "add-consumed-food-skill",
-  "updated_at": "2026-05-12T17:49:51-04:00"
+  "updated_at": "2026-05-12T18:46:27-04:00"
 }
