@@ -188,7 +188,36 @@
         "serving_grams": 100
       }
     ],
-    "Wednesday": []
+    "Wednesday": [
+      {
+        "base_calories": 60,
+        "base_carbs": 15,
+        "base_fat": 0,
+        "base_protein": 1,
+        "calories": 202,
+        "carbs": 50,
+        "fat": 1,
+        "grams": 336,
+        "id": "mango_1_fruit_336g",
+        "label": "Mango, 1 fruit without refuse (estimated 336 g)",
+        "protein": 3,
+        "serving_grams": 100
+      },
+      {
+        "base_calories": 960,
+        "base_carbs": 97,
+        "base_fat": 40,
+        "base_protein": 51,
+        "calories": 960,
+        "carbs": 97,
+        "fat": 40,
+        "grams": 600,
+        "id": "beef_kebab_rice_plate_est",
+        "label": "Beef kebab plate with rice (estimated from restaurant grilled steak rice bowl)",
+        "protein": 51,
+        "serving_grams": 600
+      }
+    ]
   },
   "extras": {
     "Friday": {
@@ -398,5 +427,5 @@
     }
   },
   "source": "add-consumed-food-skill",
-  "updated_at": "2026-05-12T18:46:27-04:00"
+  "updated_at": "2026-05-14T01:55:42-04:00"
 }
