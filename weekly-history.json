@@ -1,6 +1,6 @@
 {
-  "current_week_id": "2026-05-11",
-  "updated_at": "2026-05-11T22:37:17",
+  "current_week_id": "2026-05-15",
+  "updated_at": "2026-05-15T08:00:04",
   "weeks": [
     {
       "generated_at": "2026-05-11T22:37:17",
@@ -12,6 +12,17 @@
         "protein": 1101
       },
       "week_id": "2026-05-11"
+    },
+    {
+      "generated_at": "2026-05-15T08:00:04",
+      "path": "weekly-plans/2026-05-15.json",
+      "planned_week_totals": {
+        "calories": 12479,
+        "carbs": 956,
+        "fat": 405,
+        "protein": 1101
+      },
+      "week_id": "2026-05-15"
     }
   ]
 }
