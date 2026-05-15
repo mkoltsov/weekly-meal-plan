@@ -87,7 +87,78 @@
     ],
     "Saturday": [],
     "Sunday": [],
-    "Thursday": [],
+    "Thursday": [
+      {
+        "base_calories": 490,
+        "base_carbs": 63,
+        "base_fat": 18,
+        "base_protein": 18,
+        "calories": 490,
+        "carbs": 63,
+        "fat": 18,
+        "grams": 248,
+        "id": "taco_bell_beefy_5_layer_burrito",
+        "label": "Taco Bell Beefy 5-Layer Burrito",
+        "protein": 18,
+        "serving_grams": 248
+      },
+      {
+        "base_calories": 620,
+        "base_carbs": 46,
+        "base_fat": 30,
+        "base_protein": 42,
+        "calories": 620,
+        "carbs": 46,
+        "fat": 30,
+        "grams": 520,
+        "id": "taco_bell_cantina_chicken_bowl_extra_chicken_beef_est",
+        "label": "Taco Bell Cantina Chicken Bowl with extra slow-roasted chicken and extra seasoned beef (estimated add-ons)",
+        "protein": 42,
+        "serving_grams": 520
+      },
+      {
+        "base_calories": 60,
+        "base_carbs": 15,
+        "base_fat": 0,
+        "base_protein": 1,
+        "calories": 202,
+        "carbs": 50,
+        "fat": 1,
+        "grams": 336,
+        "id": "mango_1_fruit_336g",
+        "label": "Mango, 1 fruit without refuse (estimated 336 g)",
+        "protein": 3,
+        "serving_grams": 100
+      },
+      {
+        "base_calories": 468,
+        "base_carbs": 6,
+        "base_fat": 30,
+        "base_protein": 36,
+        "calories": 468,
+        "carbs": 6,
+        "fat": 30,
+        "grams": 300,
+        "id": "boiled_eggs_6",
+        "label": "Boiled eggs, 6 large",
+        "protein": 36,
+        "serving_grams": 300
+      },
+      {
+        "base_calories": 69,
+        "base_carbs": 18,
+        "base_fat": 0,
+        "base_protein": 1,
+        "calories": 52,
+        "carbs": 14,
+        "fat": 0,
+        "grams": 75,
+        "id": "grapes_15_est_75g",
+        "label": "Grapes, 15 pieces (estimated 75 g)",
+        "protein": 1,
+        "serving_grams": 100
+      }
+    ],
     "Tuesday": [
       {
         "base_calories": 11,
@@ -427,5 +498,5 @@
     }
   },
   "source": "add-consumed-food-skill",
-  "updated_at": "2026-05-14T01:55:42-04:00"
+  "updated_at": "2026-05-15T00:03:54-04:00"
 }
