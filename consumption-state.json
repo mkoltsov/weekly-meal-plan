@@ -1,7 +1,7 @@
 {
   "current_week_id": "2026-05-18",
   "source": "add-consumed-food-skill",
-  "updated_at": "2026-05-15T00:03:54-04:00",
+  "updated_at": "2026-05-18T17:21:12-04:00",
   "weeks": {
     "2026-05-11": {
       "consumed": {
@@ -508,7 +508,80 @@
     },
     "2026-05-18": {
       "consumed": {},
-      "extra_meals": {},
+      "extra_meals": {
+        "Monday": [
+          {
+            "base_calories": 240,
+            "base_carbs": 15,
+            "base_fat": 9,
+            "base_protein": 22,
+            "calories": 480,
+            "carbs": 30,
+            "fat": 18,
+            "grams": 276,
+            "id": "kirkland_lightly_breaded_chicken_breast_fillets_2",
+            "label": "Kirkland Signature lightly breaded chicken breast fillets, 2 fillets",
+            "protein": 44,
+            "serving_grams": 138
+          },
+          {
+            "base_calories": 90,
+            "base_carbs": 15,
+            "base_fat": 2,
+            "base_protein": 3,
+            "calories": 180,
+            "carbs": 30,
+            "fat": 4,
+            "grams": 64,
+            "id": "martins_potato_bread_2_slices",
+            "label": "Martins potato bread, 2 slices",
+            "protein": 6,
+            "serving_grams": 32
+          },
+          {
+            "base_calories": 40,
+            "base_carbs": 9,
+            "base_fat": 0,
+            "base_protein": 1,
+            "calories": 20,
+            "carbs": 5,
+            "fat": 0,
+            "grams": 50,
+            "id": "raw_onion_50g_est",
+            "label": "Raw onion on sandwich, estimated 50 g",
+            "protein": 1,
+            "serving_grams": 100
+          },
+          {
+            "base_calories": 18,
+            "base_carbs": 4,
+            "base_fat": 0,
+            "base_protein": 1,
+            "calories": 18,
+            "carbs": 4,
+            "fat": 0,
+            "grams": 100,
+            "id": "raw_tomato_100g_est",
+            "label": "Raw tomato on sandwich, estimated 100 g",
+            "protein": 1,
+            "serving_grams": 100
+          },
+          {
+            "base_calories": 30,
+            "base_carbs": 8,
+            "base_fat": 0,
+            "base_protein": 1,
+            "calories": 30,
+            "carbs": 8,
+            "fat": 0,
+            "grams": 100,
+            "id": "watermelon_raw_100g",
+            "label": "Watermelon, raw, 100 g",
+            "protein": 1,
+            "serving_grams": 100
+          }
+        ]
+      },
       "extras": {},
       "meal_macros": {
         "Friday": {
@@ -673,8 +746,8 @@
           }
         }
       },
-      "source": "initial",
-      "updated_at": "",
+      "source": "add-consumed-food-skill",
+      "updated_at": "2026-05-18T17:21:12-04:00",
       "week_id": "2026-05-18"
     }
   }
