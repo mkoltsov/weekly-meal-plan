@@ -33,12 +33,14 @@ jobs:
           title = os.environ.get("ISSUE_TITLE", "")
 
           if title.startswith("[shopping-state]"):
+              week_id = str(payload.get("week_id", ""))[:20]
               checked = payload.get("checked", [])
               items = payload.get("items", [])
               if not isinstance(checked, list) or not isinstance(items, list):
                   raise SystemExit("Invalid shopping state payload")
               item_set = set(items)
               cleaned = {
+                  "week_id": week_id,
                   "checked": [item for item in checked if item in item_set],
                   "items": items,
                   "updated_at": payload.get("updated_at", ""),
@@ -46,6 +48,9 @@ jobs:
               }
               Path("shopping-state.json").write_text(json.dumps(cleaned, indent=2, sort_keys=True) + "\n", encoding="utf-8")
           elif title.startswith("[consumption-state]"):
+              week_id = str(payload.get("week_id", ""))[:20]
+              if not week_id:
+                  raise SystemExit("Missing consumption week_id")
               consumed = payload.get("consumed", {})
               extras = payload.get("extras", {})
               extra_meals = payload.get("extra_meals", {})
@@ -93,6 +98,7 @@ jobs:
                       cleaned_extra_meals[day].append(cleaned_meal)
 
               cleaned = {
+                  "week_id": week_id,
                   "consumed": cleaned_consumed,
                   "extras": cleaned_extras,
                   "extra_meals": cleaned_extra_meals,
@@ -100,7 +106,29 @@ jobs:
                   "updated_at": payload.get("updated_at", ""),
                   "source": "github-issue-action",
               }
-              Path("consumption-state.json").write_text(json.dumps(cleaned, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+              state_path = Path("consumption-state.json")
+              if state_path.exists():
+                  try:
+                      state = json.loads(state_path.read_text(encoding="utf-8"))
+                  except json.JSONDecodeError:
+                      state = {}
+              else:
+                  state = {}
+              weeks = state.get("weeks", {}) if isinstance(state, dict) else {}
+              if not isinstance(weeks, dict):
+                  weeks = {}
+              weeks[week_id] = cleaned
+              state = {
+                  "current_week_id": state.get("current_week_id", week_id) if isinstance(state, dict) else week_id,
+                  "latest_updated_week_id": week_id,
+                  "updated_at": cleaned["updated_at"],
+                  "source": "github-issue-action",
+                  "weeks": weeks,
+              }
+              state_path.write_text(json.dumps(state, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+              history_path = Path("consumption-history") / f"{week_id}.json"
+              history_path.parent.mkdir(parents=True, exist_ok=True)
+              history_path.write_text(json.dumps(cleaned, indent=2, sort_keys=True) + "\n", encoding="utf-8")
           else:
               raise SystemExit("Unsupported state issue title")
           PY
@@ -108,7 +136,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add shopping-state.json consumption-state.json
+          git add shopping-state.json consumption-state.json consumption-history
           if git diff --cached --quiet; then
             echo "No state changes"
           else

@@ -1,502 +1,510 @@
 {
-  "consumed": {
-    "Friday": [],
-    "Monday": [
-      "breakfast",
-      "meal1"
-    ],
-    "Saturday": [],
-    "Sunday": [],
-    "Thursday": [],
-    "Tuesday": [],
-    "Wednesday": []
-  },
-  "extra_meals": {
-    "Friday": [],
-    "Monday": [
-      {
-        "base_calories": 220,
-        "base_carbs": 36,
-        "base_fat": 8,
-        "base_protein": 4,
-        "calories": 220,
-        "carbs": 36,
-        "fat": 8,
-        "grams": 56,
-        "id": "golden_hour_granola_bar_2x28g",
-        "label": "Golden hour granola bars, 2 x 28 g",
-        "protein": 4,
-        "serving_grams": 56
-      },
-      {
-        "base_calories": 468,
-        "base_carbs": 6,
-        "base_fat": 30,
-        "base_protein": 36,
-        "calories": 468,
-        "carbs": 6,
-        "fat": 30,
-        "grams": 300,
-        "id": "boiled_eggs_6",
-        "label": "Boiled eggs, 6 large",
-        "protein": 36,
-        "serving_grams": 300
-      },
-      {
-        "base_calories": 200,
-        "base_carbs": 19,
-        "base_fat": 10,
-        "base_protein": 8,
-        "calories": 200,
-        "carbs": 19,
-        "fat": 10,
-        "grams": 100,
-        "id": "panera_mac_cheese_100g",
-        "label": "Panera Bread mac and cheese, 100 g",
-        "protein": 8,
-        "serving_grams": 100
-      },
-      {
-        "base_calories": 30,
-        "base_carbs": 8,
-        "base_fat": 0,
-        "base_protein": 1,
-        "calories": 30,
-        "carbs": 8,
-        "fat": 0,
-        "grams": 100,
-        "id": "watermelon_100g",
-        "label": "Watermelon, 100 g",
-        "protein": 1,
-        "serving_grams": 100
-      },
-      {
-        "base_calories": 130,
-        "base_carbs": 4,
-        "base_fat": 11,
-        "base_protein": 5,
-        "calories": 130,
-        "carbs": 4,
-        "fat": 11,
-        "grams": 50,
-        "id": "panera_salad_salami_50g",
-        "label": "Panera Bread salad with salami, 50 g",
-        "protein": 5,
-        "serving_grams": 50
-      }
-    ],
-    "Saturday": [],
-    "Sunday": [],
-    "Thursday": [
-      {
-        "base_calories": 490,
-        "base_carbs": 63,
-        "base_fat": 18,
-        "base_protein": 18,
-        "calories": 490,
-        "carbs": 63,
-        "fat": 18,
-        "grams": 248,
-        "id": "taco_bell_beefy_5_layer_burrito",
-        "label": "Taco Bell Beefy 5-Layer Burrito",
-        "protein": 18,
-        "serving_grams": 248
-      },
-      {
-        "base_calories": 620,
-        "base_carbs": 46,
-        "base_fat": 30,
-        "base_protein": 42,
-        "calories": 620,
-        "carbs": 46,
-        "fat": 30,
-        "grams": 520,
-        "id": "taco_bell_cantina_chicken_bowl_extra_chicken_beef_est",
-        "label": "Taco Bell Cantina Chicken Bowl with extra slow-roasted chicken and extra seasoned beef (estimated add-ons)",
-        "protein": 42,
-        "serving_grams": 520
-      },
-      {
-        "base_calories": 60,
-        "base_carbs": 15,
-        "base_fat": 0,
-        "base_protein": 1,
-        "calories": 202,
-        "carbs": 50,
-        "fat": 1,
-        "grams": 336,
-        "id": "mango_1_fruit_336g",
-        "label": "Mango, 1 fruit without refuse (estimated 336 g)",
-        "protein": 3,
-        "serving_grams": 100
-      },
-      {
-        "base_calories": 468,
-        "base_carbs": 6,
-        "base_fat": 30,
-        "base_protein": 36,
-        "calories": 468,
-        "carbs": 6,
-        "fat": 30,
-        "grams": 300,
-        "id": "boiled_eggs_6",
-        "label": "Boiled eggs, 6 large",
-        "protein": 36,
-        "serving_grams": 300
-      },
-      {
-        "base_calories": 69,
-        "base_carbs": 18,
-        "base_fat": 0,
-        "base_protein": 1,
-        "calories": 52,
-        "carbs": 14,
-        "fat": 0,
-        "grams": 75,
-        "id": "grapes_15_est_75g",
-        "label": "Grapes, 15 pieces (estimated 75 g)",
-        "protein": 1,
-        "serving_grams": 100
-      }
-    ],
-    "Tuesday": [
-      {
-        "base_calories": 11,
-        "base_carbs": 2,
-        "base_fat": 0,
-        "base_protein": 0,
-        "calories": 16,
-        "carbs": 3,
-        "fat": 0,
-        "grams": 150,
-        "id": "brined_pickles_150g",
-        "label": "Brined sour pickles, 150 g",
-        "protein": 0,
-        "serving_grams": 100
-      },
-      {
-        "base_calories": 110,
-        "base_carbs": 19,
-        "base_fat": 3,
-        "base_protein": 2,
-        "calories": 330,
-        "carbs": 57,
-        "fat": 9,
-        "grams": 84,
-        "id": "golden_hour_granola_bar_3x28g",
-        "label": "Golden Hour granola bars, 3 x 28 g",
-        "protein": 6,
-        "serving_grams": 28
-      },
-      {
-        "base_calories": 130,
-        "base_carbs": 0,
-        "base_fat": 1,
-        "base_protein": 29,
-        "calories": 421,
-        "carbs": 0,
-        "fat": 3,
-        "grams": 363,
-        "id": "marketside_ahi_tuna_0_8lb",
-        "label": "Marketside wild caught ahi tuna skinless steak, 0.8 lb",
-        "protein": 94,
-        "serving_grams": 112
-      },
-      {
-        "base_calories": 210,
-        "base_carbs": 20,
-        "base_fat": 12,
-        "base_protein": 6,
-        "calories": 210,
-        "carbs": 20,
-        "fat": 12,
-        "grams": 245,
-        "id": "panera_small_soup_cup_avg",
-        "label": "Panera Bread small soup, 1 cup (estimated average current cup soups)",
-        "protein": 6,
-        "serving_grams": 245
-      },
-      {
-        "base_calories": 12,
-        "base_carbs": 2,
-        "base_fat": 0,
-        "base_protein": 0,
-        "calories": 8,
-        "carbs": 1,
-        "fat": 0,
-        "grams": 70,
-        "id": "brined_pickles_70g",
-        "label": "Brined pickles, 70 g",
-        "protein": 0,
-        "serving_grams": 100
-      },
-      {
-        "base_calories": 30,
-        "base_carbs": 8,
-        "base_fat": 0,
-        "base_protein": 1,
-        "calories": 86,
-        "carbs": 22,
-        "fat": 0,
-        "grams": 286,
-        "id": "watermelon_slice_286g",
-        "label": "Watermelon, 1 slice (estimated 286 g)",
-        "protein": 2,
-        "serving_grams": 100
-      },
-      {
-        "base_calories": 57,
-        "base_carbs": 14,
-        "base_fat": 0,
-        "base_protein": 1,
-        "calories": 23,
-        "carbs": 6,
-        "fat": 0,
-        "grams": 40,
-        "id": "jumbo_blueberries_20pcs_est_40g",
-        "label": "Jumbo blueberries, 20 pieces (estimated 40 g)",
-        "protein": 0,
-        "serving_grams": 100
-      }
-    ],
-    "Wednesday": [
-      {
-        "base_calories": 60,
-        "base_carbs": 15,
-        "base_fat": 0,
-        "base_protein": 1,
-        "calories": 202,
-        "carbs": 50,
-        "fat": 1,
-        "grams": 336,
-        "id": "mango_1_fruit_336g",
-        "label": "Mango, 1 fruit without refuse (estimated 336 g)",
-        "protein": 3,
-        "serving_grams": 100
-      },
-      {
-        "base_calories": 960,
-        "base_carbs": 97,
-        "base_fat": 40,
-        "base_protein": 51,
-        "calories": 960,
-        "carbs": 97,
-        "fat": 40,
-        "grams": 600,
-        "id": "beef_kebab_rice_plate_est",
-        "label": "Beef kebab plate with rice (estimated from restaurant grilled steak rice bowl)",
-        "protein": 51,
-        "serving_grams": 600
-      }
-    ]
-  },
-  "extras": {
-    "Friday": {
-      "calories": 0,
-      "carbs": 0,
-      "fat": 0,
-      "protein": 0
-    },
-    "Monday": {
-      "calories": 0,
-      "carbs": 0,
-      "fat": 0,
-      "protein": 0
-    },
-    "Saturday": {
-      "calories": 0,
-      "carbs": 0,
-      "fat": 0,
-      "protein": 0
-    },
-    "Sunday": {
-      "calories": 0,
-      "carbs": 0,
-      "fat": 0,
-      "protein": 0
-    },
-    "Thursday": {
-      "calories": 0,
-      "carbs": 0,
-      "fat": 0,
-      "protein": 0
-    },
-    "Tuesday": {
-      "calories": 0,
-      "carbs": 0,
-      "fat": 0,
-      "protein": 0
-    },
-    "Wednesday": {
-      "calories": 0,
-      "carbs": 0,
-      "fat": 0,
-      "protein": 0
-    }
-  },
-  "meal_macros": {
-    "Friday": {
-      "breakfast": {
-        "calories": 395,
-        "carbs": 42,
-        "fat": 9,
-        "label": "Breakfast shake",
-        "protein": 37
-      },
-      "meal1": {
-        "calories": 846,
-        "carbs": 15,
-        "fat": 43,
-        "label": "Caesar chicken + eggs",
-        "protein": 92
-      },
-      "meal2": {
-        "calories": 890,
-        "carbs": 42,
-        "fat": 39,
-        "label": "Breaded chicken + vegetables + yogurt",
-        "protein": 76
-      }
-    },
-    "Monday": {
-      "breakfast": {
-        "calories": 395,
-        "carbs": 42,
-        "fat": 9,
-        "label": "Breakfast shake",
-        "protein": 37
-      },
-      "meal1": {
-        "calories": 846,
-        "carbs": 15,
-        "fat": 43,
-        "label": "Caesar chicken + eggs",
-        "protein": 92
-      },
-      "meal2": {
-        "calories": 835,
-        "carbs": 65,
-        "fat": 19,
-        "label": "Tilapia + rice + vegetables",
-        "protein": 82
-      }
-    },
-    "Saturday": {
-      "breakfast": {
-        "calories": 490,
-        "carbs": 45,
-        "fat": 8,
-        "label": "Kefir protein shake",
-        "protein": 47
-      },
-      "meal1": {
-        "calories": 150,
-        "carbs": 30,
-        "fat": 1,
-        "label": "Raw vegetable plate",
-        "protein": 4
-      },
-      "meal2": {
-        "calories": 300,
-        "carbs": 75,
-        "fat": 1,
-        "label": "Fruit through the day",
-        "protein": 3
-      }
-    },
-    "Sunday": {
-      "breakfast": {
-        "calories": 490,
-        "carbs": 45,
-        "fat": 8,
-        "label": "Kefir protein shake",
-        "protein": 47
-      },
-      "meal1": {
-        "calories": 150,
-        "carbs": 30,
-        "fat": 1,
-        "label": "Raw vegetables",
-        "protein": 4
-      },
-      "meal2": {
-        "calories": 300,
-        "carbs": 75,
-        "fat": 1,
-        "label": "Fruit through the day",
-        "protein": 3
-      }
-    },
-    "Thursday": {
-      "breakfast": {
-        "calories": 395,
-        "carbs": 42,
-        "fat": 9,
-        "label": "Breakfast shake",
-        "protein": 37
-      },
-      "meal1": {
-        "calories": 826,
-        "carbs": 21,
-        "fat": 48,
-        "label": "Shrimp Caesar + eggs",
-        "protein": 70
-      },
-      "meal2": {
-        "calories": 915,
-        "carbs": 80,
-        "fat": 21,
-        "label": "Chicken skewer bowl",
-        "protein": 84
-      }
-    },
-    "Tuesday": {
-      "breakfast": {
-        "calories": 395,
-        "carbs": 42,
-        "fat": 9,
-        "label": "Breakfast shake",
-        "protein": 37
-      },
-      "meal1": {
-        "calories": 915,
-        "carbs": 80,
-        "fat": 21,
-        "label": "Chicken skewer bowl",
-        "protein": 84
-      },
-      "meal2": {
-        "calories": 826,
-        "carbs": 21,
-        "fat": 48,
-        "label": "Shrimp Caesar + eggs",
-        "protein": 70
-      }
-    },
-    "Wednesday": {
-      "breakfast": {
-        "calories": 395,
-        "carbs": 42,
-        "fat": 9,
-        "label": "Breakfast shake",
-        "protein": 37
-      },
-      "meal1": {
-        "calories": 835,
-        "carbs": 65,
-        "fat": 19,
-        "label": "Tilapia + rice + vegetables",
-        "protein": 82
-      },
-      "meal2": {
-        "calories": 890,
-        "carbs": 42,
-        "fat": 39,
-        "label": "Breaded chicken + vegetables + yogurt",
-        "protein": 76
-      }
-    }
-  },
+  "current_week_id": "2026-05-18",
   "source": "add-consumed-food-skill",
-  "updated_at": "2026-05-15T00:03:54-04:00"
+  "updated_at": "2026-05-15T00:03:54-04:00",
+  "weeks": {
+    "2026-05-11": {
+      "consumed": {
+        "Friday": [],
+        "Monday": [
+          "breakfast",
+          "meal1"
+        ],
+        "Saturday": [],
+        "Sunday": [],
+        "Thursday": [],
+        "Tuesday": [],
+        "Wednesday": []
+      },
+      "extra_meals": {
+        "Friday": [],
+        "Monday": [
+          {
+            "base_calories": 220,
+            "base_carbs": 36,
+            "base_fat": 8,
+            "base_protein": 4,
+            "calories": 220,
+            "carbs": 36,
+            "fat": 8,
+            "grams": 56,
+            "id": "golden_hour_granola_bar_2x28g",
+            "label": "Golden hour granola bars, 2 x 28 g",
+            "protein": 4,
+            "serving_grams": 56
+          },
+          {
+            "base_calories": 468,
+            "base_carbs": 6,
+            "base_fat": 30,
+            "base_protein": 36,
+            "calories": 468,
+            "carbs": 6,
+            "fat": 30,
+            "grams": 300,
+            "id": "boiled_eggs_6",
+            "label": "Boiled eggs, 6 large",
+            "protein": 36,
+            "serving_grams": 300
+          },
+          {
+            "base_calories": 200,
+            "base_carbs": 19,
+            "base_fat": 10,
+            "base_protein": 8,
+            "calories": 200,
+            "carbs": 19,
+            "fat": 10,
+            "grams": 100,
+            "id": "panera_mac_cheese_100g",
+            "label": "Panera Bread mac and cheese, 100 g",
+            "protein": 8,
+            "serving_grams": 100
+          },
+          {
+            "base_calories": 30,
+            "base_carbs": 8,
+            "base_fat": 0,
+            "base_protein": 1,
+            "calories": 30,
+            "carbs": 8,
+            "fat": 0,
+            "grams": 100,
+            "id": "watermelon_100g",
+            "label": "Watermelon, 100 g",
+            "protein": 1,
+            "serving_grams": 100
+          },
+          {
+            "base_calories": 130,
+            "base_carbs": 4,
+            "base_fat": 11,
+            "base_protein": 5,
+            "calories": 130,
+            "carbs": 4,
+            "fat": 11,
+            "grams": 50,
+            "id": "panera_salad_salami_50g",
+            "label": "Panera Bread salad with salami, 50 g",
+            "protein": 5,
+            "serving_grams": 50
+          }
+        ],
+        "Saturday": [],
+        "Sunday": [],
+        "Thursday": [
+          {
+            "base_calories": 490,
+            "base_carbs": 63,
+            "base_fat": 18,
+            "base_protein": 18,
+            "calories": 490,
+            "carbs": 63,
+            "fat": 18,
+            "grams": 248,
+            "id": "taco_bell_beefy_5_layer_burrito",
+            "label": "Taco Bell Beefy 5-Layer Burrito",
+            "protein": 18,
+            "serving_grams": 248
+          },
+          {
+            "base_calories": 620,
+            "base_carbs": 46,
+            "base_fat": 30,
+            "base_protein": 42,
+            "calories": 620,
+            "carbs": 46,
+            "fat": 30,
+            "grams": 520,
+            "id": "taco_bell_cantina_chicken_bowl_extra_chicken_beef_est",
+            "label": "Taco Bell Cantina Chicken Bowl with extra slow-roasted chicken and extra seasoned beef (estimated add-ons)",
+            "protein": 42,
+            "serving_grams": 520
+          },
+          {
+            "base_calories": 60,
+            "base_carbs": 15,
+            "base_fat": 0,
+            "base_protein": 1,
+            "calories": 202,
+            "carbs": 50,
+            "fat": 1,
+            "grams": 336,
+            "id": "mango_1_fruit_336g",
+            "label": "Mango, 1 fruit without refuse (estimated 336 g)",
+            "protein": 3,
+            "serving_grams": 100
+          },
+          {
+            "base_calories": 468,
+            "base_carbs": 6,
+            "base_fat": 30,
+            "base_protein": 36,
+            "calories": 468,
+            "carbs": 6,
+            "fat": 30,
+            "grams": 300,
+            "id": "boiled_eggs_6",
+            "label": "Boiled eggs, 6 large",
+            "protein": 36,
+            "serving_grams": 300
+          },
+          {
+            "base_calories": 69,
+            "base_carbs": 18,
+            "base_fat": 0,
+            "base_protein": 1,
+            "calories": 52,
+            "carbs": 14,
+            "fat": 0,
+            "grams": 75,
+            "id": "grapes_15_est_75g",
+            "label": "Grapes, 15 pieces (estimated 75 g)",
+            "protein": 1,
+            "serving_grams": 100
+          }
+        ],
+        "Tuesday": [
+          {
+            "base_calories": 11,
+            "base_carbs": 2,
+            "base_fat": 0,
+            "base_protein": 0,
+            "calories": 16,
+            "carbs": 3,
+            "fat": 0,
+            "grams": 150,
+            "id": "brined_pickles_150g",
+            "label": "Brined sour pickles, 150 g",
+            "protein": 0,
+            "serving_grams": 100
+          },
+          {
+            "base_calories": 110,
+            "base_carbs": 19,
+            "base_fat": 3,
+            "base_protein": 2,
+            "calories": 330,
+            "carbs": 57,
+            "fat": 9,
+            "grams": 84,
+            "id": "golden_hour_granola_bar_3x28g",
+            "label": "Golden Hour granola bars, 3 x 28 g",
+            "protein": 6,
+            "serving_grams": 28
+          },
+          {
+            "base_calories": 130,
+            "base_carbs": 0,
+            "base_fat": 1,
+            "base_protein": 29,
+            "calories": 421,
+            "carbs": 0,
+            "fat": 3,
+            "grams": 363,
+            "id": "marketside_ahi_tuna_0_8lb",
+            "label": "Marketside wild caught ahi tuna skinless steak, 0.8 lb",
+            "protein": 94,
+            "serving_grams": 112
+          },
+          {
+            "base_calories": 210,
+            "base_carbs": 20,
+            "base_fat": 12,
+            "base_protein": 6,
+            "calories": 210,
+            "carbs": 20,
+            "fat": 12,
+            "grams": 245,
+            "id": "panera_small_soup_cup_avg",
+            "label": "Panera Bread small soup, 1 cup (estimated average current cup soups)",
+            "protein": 6,
+            "serving_grams": 245
+          },
+          {
+            "base_calories": 12,
+            "base_carbs": 2,
+            "base_fat": 0,
+            "base_protein": 0,
+            "calories": 8,
+            "carbs": 1,
+            "fat": 0,
+            "grams": 70,
+            "id": "brined_pickles_70g",
+            "label": "Brined pickles, 70 g",
+            "protein": 0,
+            "serving_grams": 100
+          },
+          {
+            "base_calories": 30,
+            "base_carbs": 8,
+            "base_fat": 0,
+            "base_protein": 1,
+            "calories": 86,
+            "carbs": 22,
+            "fat": 0,
+            "grams": 286,
+            "id": "watermelon_slice_286g",
+            "label": "Watermelon, 1 slice (estimated 286 g)",
+            "protein": 2,
+            "serving_grams": 100
+          },
+          {
+            "base_calories": 57,
+            "base_carbs": 14,
+            "base_fat": 0,
+            "base_protein": 1,
+            "calories": 23,
+            "carbs": 6,
+            "fat": 0,
+            "grams": 40,
+            "id": "jumbo_blueberries_20pcs_est_40g",
+            "label": "Jumbo blueberries, 20 pieces (estimated 40 g)",
+            "protein": 0,
+            "serving_grams": 100
+          }
+        ],
+        "Wednesday": [
+          {
+            "base_calories": 60,
+            "base_carbs": 15,
+            "base_fat": 0,
+            "base_protein": 1,
+            "calories": 202,
+            "carbs": 50,
+            "fat": 1,
+            "grams": 336,
+            "id": "mango_1_fruit_336g",
+            "label": "Mango, 1 fruit without refuse (estimated 336 g)",
+            "protein": 3,
+            "serving_grams": 100
+          },
+          {
+            "base_calories": 960,
+            "base_carbs": 97,
+            "base_fat": 40,
+            "base_protein": 51,
+            "calories": 960,
+            "carbs": 97,
+            "fat": 40,
+            "grams": 600,
+            "id": "beef_kebab_rice_plate_est",
+            "label": "Beef kebab plate with rice (estimated from restaurant grilled steak rice bowl)",
+            "protein": 51,
+            "serving_grams": 600
+          }
+        ]
+      },
+      "extras": {
+        "Friday": {
+          "calories": 0,
+          "carbs": 0,
+          "fat": 0,
+          "protein": 0
+        },
+        "Monday": {
+          "calories": 0,
+          "carbs": 0,
+          "fat": 0,
+          "protein": 0
+        },
+        "Saturday": {
+          "calories": 0,
+          "carbs": 0,
+          "fat": 0,
+          "protein": 0
+        },
+        "Sunday": {
+          "calories": 0,
+          "carbs": 0,
+          "fat": 0,
+          "protein": 0
+        },
+        "Thursday": {
+          "calories": 0,
+          "carbs": 0,
+          "fat": 0,
+          "protein": 0
+        },
+        "Tuesday": {
+          "calories": 0,
+          "carbs": 0,
+          "fat": 0,
+          "protein": 0
+        },
+        "Wednesday": {
+          "calories": 0,
+          "carbs": 0,
+          "fat": 0,
+          "protein": 0
+        }
+      },
+      "meal_macros": {
+        "Friday": {
+          "breakfast": {
+            "calories": 395,
+            "carbs": 42,
+            "fat": 9,
+            "label": "Breakfast shake",
+            "protein": 37
+          },
+          "meal1": {
+            "calories": 846,
+            "carbs": 15,
+            "fat": 43,
+            "label": "Caesar chicken + eggs",
+            "protein": 92
+          },
+          "meal2": {
+            "calories": 890,
+            "carbs": 42,
+            "fat": 39,
+            "label": "Breaded chicken + vegetables + yogurt",
+            "protein": 76
+          }
+        },
+        "Monday": {
+          "breakfast": {
+            "calories": 395,
+            "carbs": 42,
+            "fat": 9,
+            "label": "Breakfast shake",
+            "protein": 37
+          },
+          "meal1": {
+            "calories": 846,
+            "carbs": 15,
+            "fat": 43,
+            "label": "Caesar chicken + eggs",
+            "protein": 92
+          },
+          "meal2": {
+            "calories": 835,
+            "carbs": 65,
+            "fat": 19,
+            "label": "Tilapia + rice + vegetables",
+            "protein": 82
+          }
+        },
+        "Saturday": {
+          "breakfast": {
+            "calories": 490,
+            "carbs": 45,
+            "fat": 8,
+            "label": "Kefir protein shake",
+            "protein": 47
+          },
+          "meal1": {
+            "calories": 150,
+            "carbs": 30,
+            "fat": 1,
+            "label": "Raw vegetable plate",
+            "protein": 4
+          },
+          "meal2": {
+            "calories": 300,
+            "carbs": 75,
+            "fat": 1,
+            "label": "Fruit through the day",
+            "protein": 3
+          }
+        },
+        "Sunday": {
+          "breakfast": {
+            "calories": 490,
+            "carbs": 45,
+            "fat": 8,
+            "label": "Kefir protein shake",
+            "protein": 47
+          },
+          "meal1": {
+            "calories": 150,
+            "carbs": 30,
+            "fat": 1,
+            "label": "Raw vegetables",
+            "protein": 4
+          },
+          "meal2": {
+            "calories": 300,
+            "carbs": 75,
+            "fat": 1,
+            "label": "Fruit through the day",
+            "protein": 3
+          }
+        },
+        "Thursday": {
+          "breakfast": {
+            "calories": 395,
+            "carbs": 42,
+            "fat": 9,
+            "label": "Breakfast shake",
+            "protein": 37
+          },
+          "meal1": {
+            "calories": 826,
+            "carbs": 21,
+            "fat": 48,
+            "label": "Shrimp Caesar + eggs",
+            "protein": 70
+          },
+          "meal2": {
+            "calories": 915,
+            "carbs": 80,
+            "fat": 21,
+            "label": "Chicken skewer bowl",
+            "protein": 84
+          }
+        },
+        "Tuesday": {
+          "breakfast": {
+            "calories": 395,
+            "carbs": 42,
+            "fat": 9,
+            "label": "Breakfast shake",
+            "protein": 37
+          },
+          "meal1": {
+            "calories": 915,
+            "carbs": 80,
+            "fat": 21,
+            "label": "Chicken skewer bowl",
+            "protein": 84
+          },
+          "meal2": {
+            "calories": 826,
+            "carbs": 21,
+            "fat": 48,
+            "label": "Shrimp Caesar + eggs",
+            "protein": 70
+          }
+        },
+        "Wednesday": {
+          "breakfast": {
+            "calories": 395,
+            "carbs": 42,
+            "fat": 9,
+            "label": "Breakfast shake",
+            "protein": 37
+          },
+          "meal1": {
+            "calories": 835,
+            "carbs": 65,
+            "fat": 19,
+            "label": "Tilapia + rice + vegetables",
+            "protein": 82
+          },
+          "meal2": {
+            "calories": 890,
+            "carbs": 42,
+            "fat": 39,
+            "label": "Breaded chicken + vegetables + yogurt",
+            "protein": 76
+          }
+        }
+      },
+      "source": "add-consumed-food-skill",
+      "updated_at": "2026-05-15T00:03:54-04:00",
+      "week_id": "2026-05-11"
+    }
+  }
 }
