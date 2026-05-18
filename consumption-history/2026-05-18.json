@@ -71,6 +71,62 @@
         "label": "Watermelon, raw, 100 g",
         "protein": 1,
         "serving_grams": 100
+      },
+      {
+        "base_calories": 206,
+        "base_carbs": 0,
+        "base_fat": 12,
+        "base_protein": 22,
+        "calories": 412,
+        "carbs": 0,
+        "fat": 24,
+        "grams": 200,
+        "id": "cooked_salmon_200g",
+        "label": "Cooked salmon, 200 g",
+        "protein": 44,
+        "serving_grams": 100
+      },
+      {
+        "base_calories": 240,
+        "base_carbs": 15,
+        "base_fat": 9,
+        "base_protein": 22,
+        "calories": 240,
+        "carbs": 15,
+        "fat": 9,
+        "grams": 138,
+        "id": "kirkland_lightly_breaded_chicken_breast_fillet_1_small",
+        "label": "Kirkland Signature lightly breaded chicken breast fillet, 1 small fillet",
+        "protein": 22,
+        "serving_grams": 138
+      },
+      {
+        "base_calories": 57,
+        "base_carbs": 14,
+        "base_fat": 0,
+        "base_protein": 1,
+        "calories": 23,
+        "carbs": 6,
+        "fat": 0,
+        "grams": 40,
+        "id": "blueberries_20_est_40g",
+        "label": "Blueberries, 20 berries, estimated 40 g",
+        "protein": 0,
+        "serving_grams": 100
+      },
+      {
+        "base_calories": 63,
+        "base_carbs": 16,
+        "base_fat": 0,
+        "base_protein": 1,
+        "calories": 50,
+        "carbs": 13,
+        "fat": 0,
+        "grams": 80,
+        "id": "cherries_10_est_80g",
+        "label": "Cherries, 10 cherries, estimated 80 g",
+        "protein": 1,
+        "serving_grams": 100
       }
     ]
   },
@@ -239,6 +295,6 @@
     }
   },
   "source": "add-consumed-food-skill",
-  "updated_at": "2026-05-18T17:21:12-04:00",
+  "updated_at": "2026-05-18T18:18:32-04:00",
   "week_id": "2026-05-18"
 }
