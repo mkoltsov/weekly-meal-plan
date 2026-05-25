@@ -1,0 +1,10 @@
+consumption-state.json
+consumption-history/
+current-plan.json
+upcoming-plan.json
+weekly-history.json
+weekly-plans/
+shopping-state.json
+firebase-app/
+firebase-hosting/
+firebase-debug.log

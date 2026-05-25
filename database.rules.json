@@ -1,0 +1,28 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+    "users": {
+      "$uid": {
+        ".read": "auth != null && auth.uid === $uid",
+        ".write": "auth != null && auth.uid === $uid"
+      }
+    },
+    "freeShowcase": {
+      "features": {
+        ".read": true,
+        ".write": false
+      },
+      "stats": {
+        ".read": true,
+        ".write": false
+      },
+      "votes": {
+        ".read": true,
+        "$feature": {
+          ".write": "$feature.matches(/^(hosting|firestore|realtime|auth|messaging)$/) && data.exists() && newData.isNumber() && newData.val() == data.val() + 1 && newData.val() <= 100000"
+        }
+      }
+    }
+  }
+}
